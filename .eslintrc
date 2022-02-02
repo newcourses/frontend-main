@@ -1,0 +1,60 @@
+{
+//  "parser": "@babel/eslint-parser",
+  "parserOptions": {
+    "requireConfigFile": false,
+    "babelOptions": {
+      "parserOpts": {
+        "plugins": [ "jsx" ]
+      }
+    }
+  },
+  "extends": [ "airbnb", "airbnb/hooks", "prettier" ],
+  "plugins": [ "react", "prettier", "@babel" ],
+  "rules": {
+    "no-plusplus": [ "off" ],
+    "import/no-extraneous-dependencies": [ "off" ],
+    "arrow-body-style": [ "off" ],
+    "prefer-arrow-callback": [ "off" ],
+    "react/jsx-props-no-spreading": [ "off" ],
+    "jsx-a11y/click-events-have-key-events": [ "off" ],
+    "react/jsx-props-no-multi-spaces": [ "off" ],
+    "no-multiple-empty-lines": [ "off" ],
+    "max-len": [ "off" ],
+    "prettier/prettier": [
+        "warn",
+      {
+        "singleQuote": true,
+        "printWidth": 80,
+        "trailingComma": "all"
+      }
+    ],
+    "spaced-comment": [ "warn" ],
+    "react/jsx-filename-extension": [ "warn" ],
+
+    "no-underscore-dangle": [
+        "error",
+      {
+        "allow": [ "_id", "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__" ],
+        "allowAfterThis": false,
+        "allowAfterSuper": false,
+        "enforceInMethodNames": true
+      }
+    ],
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/button-has-type": "off"
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "paths": [ "src" ]
+      }
+    },
+    "react": {
+      "version": "detect"
+    }
+  }
+}
