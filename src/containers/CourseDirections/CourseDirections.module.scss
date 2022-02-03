@@ -1,0 +1,13 @@
+.container {
+  margin-top: 7.5rem;
+}
+.mainTitle {
+ font-size: 3.6rem;
+}
+.wrapperList {
+  margin-top: 8rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 3rem;
+  grid-row-gap: 3rem;
+}

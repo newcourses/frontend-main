@@ -1,0 +1,16 @@
+.aboutSchool {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  * {
+    font-size: 1.4rem;
+  }
+}
+
+.wrapperRating {
+  display: flex;
+}
+
+.ratingCount {
+  margin-right: .5rem;
+}

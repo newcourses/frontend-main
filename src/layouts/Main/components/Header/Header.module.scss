@@ -1,0 +1,30 @@
+@import '/src/styles/variables';
+
+.container {
+  max-width: $maxWidthDesktop;
+  margin: auto;
+  padding: 1.6rem 0 1.4rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+}
+
+.linksWrapper {
+  display: flex;
+  list-style-type: none;
+}
+
+.link {
+  font-size: 1.3rem;
+  margin-left: 6rem;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &:hover {
+    color: #919191;
+  }
+}
