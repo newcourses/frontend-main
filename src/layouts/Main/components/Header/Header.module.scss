@@ -13,14 +13,23 @@
   align-items: center;
 }
 
-.linksWrapper {
+.linksContainer {
   display: flex;
   list-style-type: none;
 }
 
+.linkWrapper {
+  margin-left: 6rem;
+}
+
+.textButton {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
 .link {
   font-size: 1.3rem;
-  margin-left: 6rem;
   text-transform: uppercase;
   font-weight: 700;
 
