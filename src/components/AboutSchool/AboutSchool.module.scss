@@ -1,7 +1,4 @@
 .aboutSchool {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 2rem;
   * {
     font-size: 1.4rem;
   }
@@ -13,4 +10,11 @@
 
 .ratingCount {
   margin-right: .5rem;
+}
+
+.reviews {
+  text-decoration: underline;
+  &:hover {
+    text-decoration: underline;
+  }
 }
