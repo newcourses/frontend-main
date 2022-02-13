@@ -10,8 +10,13 @@ function CourseCard() {
     <Card
       title={
         <CardHeader
-          schoolInfo={{ link: '/test', name: 'Учу учить' }}
-          rating={4.6}
+          schoolInfo={{
+            rating: 4.6,
+            link: '/test',
+            countReviews: 10,
+            name: 'Учу учить',
+            value: 'skillbox',
+          }}
           title="Курс Teens (Занятия помогут прокачать язык, улучшить оценки в школе или преодолеть языковой барьер)"
         />
       }
