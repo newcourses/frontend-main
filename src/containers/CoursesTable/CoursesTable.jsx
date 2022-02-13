@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { Button, Table } from 'antd';
 import { SchoolInfo } from '../../propTypes';
 import css from './CoursesTable.module.scss';
-import { CourseInfo } from '../../components/CoursesTabelCell';
+import { CourseInfo } from '../../components/CoursesTableCell';
 import AboutSchool from '../../components/AboutSchool/AboutSchool';
 
 moment.locale('ru');
