@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import css from './CardHeader.module.scss';
 import PriceBlock from './PriceBlock/PriceBlock';
 import AboutSchool from '../../../AboutSchool/AboutSchool';
-import { SchoolInfo } from '../../../../propTypes';
+import { ISchoolInfo } from '../../../../propTypes';
 
 function CardHeader({ title, schoolInfo }) {
   return (
@@ -33,7 +33,7 @@ function CardHeader({ title, schoolInfo }) {
 
 CardHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  schoolInfo: SchoolInfo.isRequired,
+  schoolInfo: ISchoolInfo.isRequired,
 };
 
 export default React.memo(CardHeader);
