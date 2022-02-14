@@ -3,7 +3,7 @@ import { Rate } from 'antd';
 import PropTypes from 'prop-types';
 import css from './AboutSchool.module.scss';
 import { declOfNumReviews } from '../../helpers';
-import { SchoolInfo } from '../../propTypes';
+import { ISchoolInfo } from '../../propTypes';
 
 function AboutSchool({
   link,
@@ -41,7 +41,7 @@ function AboutSchool({
 }
 
 AboutSchool.propTypes = {
-  ...SchoolInfo.isRequired,
+  ...ISchoolInfo.isRequired,
   // eslint-disable-next-line react/forbid-prop-types
   wrapperStyles: PropTypes.object.isRequired,
 };

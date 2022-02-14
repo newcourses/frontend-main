@@ -1,2 +1,3 @@
-export { default as SchoolInfo } from './SchoolInfo';
-export { default as test } from './SchoolInfo';
+export { default as ISchoolInfo } from './ISchoolInfo';
+export { default as ICourseCategories } from './ICourseCategories';
+export { default as ICourseSubcategories } from './ICourseSubcategories';
