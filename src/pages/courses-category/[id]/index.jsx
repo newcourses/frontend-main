@@ -747,7 +747,6 @@ const schoolInfoAndCourses = [
 
 function CourseCategory(props) {
   const router = useRouter();
-  console.log(router);
   return (
     <Main>
       <div>
@@ -756,7 +755,7 @@ function CourseCategory(props) {
           <Link href="/" passHref>
             <a>go to Home</a>
           </Link>
-          {/* <CourseDirections directions={directions} /> */}
+          {/* <CourseCategories directions={directions} /> */}
           {/* <CourseCard /> */}
           {/* <InfoSchoolAndCourses {...schoolInfoAndCourses[0]} /> */}
           {/* <CoursesTable */}

@@ -753,7 +753,7 @@ function CoursesCategory() {
           <Link href="/courses-category/test-test" passHref>
             <a>go to category</a>
           </Link>
-          {/* <CourseDirections directions={directions} /> */}
+          {/* <CourseCategories directions={directions} /> */}
           {/* <CourseCard /> */}
           {/* <InfoSchoolAndCourses {...schoolInfoAndCourses[0]} /> */}
           {/* <CoursesTable */}
