@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Col, Row, Table } from 'antd';
 import css from './InfoSchoolAndCourses.module.scss';
 import AboutSchool from '../../components/AboutSchool/AboutSchool';
-import { SchoolInfo } from '../../propTypes';
+import { ISchoolInfo } from '../../propTypes';
 import { CourseInfo } from '../../components/CoursesTableCell';
 
 const columns = [
@@ -119,7 +119,7 @@ function InfoSchoolAndCourses({
 }
 
 InfoSchoolAndCourses.propTypes = {
-  ...SchoolInfo.isRequired,
+  ...ISchoolInfo.isRequired,
   description: PropTypes.string.isRequired,
   benefits: PropTypes.arrayOf({
     id: PropTypes.string.isRequired,

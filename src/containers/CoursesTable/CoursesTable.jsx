@@ -3,7 +3,7 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import { Button, Table } from 'antd';
-import { SchoolInfo } from '../../propTypes';
+import { ISchoolInfo } from '../../propTypes';
 import css from './CoursesTable.module.scss';
 import { CourseInfo } from '../../components/CoursesTableCell';
 import AboutSchool from '../../components/AboutSchool/AboutSchool';
@@ -117,7 +117,7 @@ CoursesTable.propTypes = {
     duration: PropTypes.string.isRequired,
     start: PropTypes.string.isRequired,
     courseInfo: PropTypes.objectOf({
-      ...SchoolInfo.isRequired,
+      ...ISchoolInfo.isRequired,
       value: PropTypes.string.isRequired,
       mainLink: PropTypes.string.isRequired,
     }),
