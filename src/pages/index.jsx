@@ -1,17 +1,22 @@
-import React from 'react';
+import React, { useState } from 'react';
 import qs from 'qs';
 import PropTypes from 'prop-types';
-import styles from '../styles/Home.module.css';
 import Main from '../layouts/Main/Main';
 import CourseCategories from '../containers/CourseCategories/CourseCategories';
 import { api } from '../utils/axiosInstances';
 import { ICourseCategories } from '../propTypes';
+import MainBanner from '../containers/MainBanner/MainBanner';
 
 function Home({ data }) {
+  const [visibleDrawer, setVisibleDrawer] = useState(false);
   return (
-    <Main>
-      <main className={styles.main}>
-        <CourseCategories categories={data} />
+    <Main visibleDrawer={visibleDrawer} setVisibleDrawer={setVisibleDrawer}>
+      <main>
+        <MainBanner setVisibleDrawer={setVisibleDrawer} />
+        <CourseCategories
+          categories={data}
+          setVisibleDrawer={setVisibleDrawer}
+        />
       </main>
     </Main>
   );
