@@ -1,10 +1,10 @@
 export default {
-  home: { link: '/', value: 'На главную' },
+  home: { link: '/', caption: 'На главную' },
   coursesCategory: {
     link: '/courses-category/[id]',
     as: (id) => `/courses-category/${id}`,
-    value: 'На главную',
+    caption: 'На главную',
   },
-  about: { link: '/about', value: 'О нас' },
-  contacts: { link: '/contacts', value: 'Контакты' },
+  about: { link: '/about', caption: 'О нас' },
+  contacts: { link: '/contacts', caption: 'Контакты' },
 };
