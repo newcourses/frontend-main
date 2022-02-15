@@ -5,23 +5,24 @@ import css from './Footer.module.scss';
 import NAVIGATION from '../../../../library/navigation';
 import Logo from '../../../../components/Logo/Logo';
 import { DOCUMENTATION } from '../../../../library/companyData';
+import logoLight from '../../../../assets/images/logo-light.png';
 
 function Footer() {
   return (
     <footer style={{ backgroundColor: '#333' }}>
       <div className={css.container}>
         <div className={css.wrapper}>
-          <Logo />
+          <Logo logo={logoLight} />
           <nav>
             <ul className={cn(css.linksWrapper, css.wrapper)}>
               <li>
                 <Link href={NAVIGATION.about.link} passHref>
-                  <a className={css.link}>{NAVIGATION.about.value}</a>
+                  <a className={css.link}>{NAVIGATION.about.caption}</a>
                 </Link>
               </li>
               <li>
                 <Link href={NAVIGATION.contacts.link} passHref>
-                  <a className={css.link}>{NAVIGATION.contacts.value}</a>
+                  <a className={css.link}>{NAVIGATION.contacts.caption}</a>
                 </Link>
               </li>
             </ul>

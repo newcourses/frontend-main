@@ -1,44 +1,42 @@
 import React from 'react';
-import { DownOutlined } from '@ant-design/icons';
-import Link from 'next/link';
 import { Button } from 'antd';
-import cn from 'classnames';
+import PropTypes from 'prop-types';
+import { DownOutlined } from '@ant-design/icons';
 import css from './Header.module.scss';
+import DynamicNav from './DynamicNav/DynamicNav';
 import Logo from '../../../../components/Logo/Logo';
+import NAVIGATION from '../../../../library/navigation';
+import logoDark from '../../../../assets/images/logo-dark.png';
 
-function Header() {
+function Header({ setVisibleDrawer }) {
   return (
     <header className={css.container}>
-      <Logo />
+      <Logo logo={logoDark} />
       <nav className={css.nav}>
-        <Button type="primary" size="large" style={{ height: '4rem' }}>
+        <Button
+          onClick={() => setVisibleDrawer(true)}
+          type="primary"
+          size="large"
+          style={{ height: '4.5rem', width: '25rem' }}
+        >
           <span className={css.textButton}>
             Все категории курсов
             <DownOutlined style={{ marginLeft: '1rem' }} />
           </span>
         </Button>
-        <ul className={css.linksContainer}>
-          <li>
-            <Link href="/">
-              <a className={cn(css.linkWrapper, css.link)}>Some link</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/" passHref>
-              <a className={cn(css.linkWrapper, css.link)}>Some link</a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/" passHref>
-              <a className={cn(css.linkWrapper, css.link)}>Some link</a>
-            </Link>
-          </li>
-        </ul>
+
+        <DynamicNav links={[NAVIGATION.about, NAVIGATION.contacts]} />
       </nav>
     </header>
   );
 }
 
-Header.propTypes = {};
+Header.propTypes = {
+  setVisibleDrawer: PropTypes.func,
+};
+
+Header.defaultProps = {
+  setVisibleDrawer: () => {},
+};
 
 export default React.memo(Header);
