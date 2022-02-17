@@ -1,34 +1,37 @@
 import React, { useCallback } from 'react';
 import PropTypes from 'prop-types';
-import { Button, Drawer, Space } from 'antd';
-// import css from './DrawerWithCourseCategories.module.scss';
+import { Drawer, Space } from 'antd';
+import { CloseOutlined } from '@ant-design/icons';
+import { ICourseCategoriesData } from '../../propTypes';
+import VerticalCategoriesNav from './VerticalCategoriesNav/VerticalCategoriesNav';
+import css from './DrawerWithCourseCategories.module.scss';
 
-function DrawerWithCourseCategories({ setVisible, visible }) {
+function DrawerWithCourseCategories({ setVisible, visible, categories }) {
   const closeDrawer = useCallback(() => setVisible(false), [setVisible]);
 
   return (
     <Drawer
-      title="Все направдения"
+      title={<div style={{ fontSize: '2.2rem' }}>Все направдения</div>}
       closable={false}
       onClose={closeDrawer}
       visible={visible}
       placement="top"
+      height="min-content"
       extra={
         <Space>
-          <Button onClick={closeDrawer}>Закрыть</Button>
+          <CloseOutlined className={css.icon} onClick={closeDrawer} />
         </Space>
       }
     >
-      <p>Some contents...</p>
-      <p>Some contents...</p>
-      <p>Some contents...</p>
+      <VerticalCategoriesNav categories={categories} />
     </Drawer>
   );
 }
 
 DrawerWithCourseCategories.propTypes = {
-  setVisible: PropTypes.func,
   visible: PropTypes.bool,
+  setVisible: PropTypes.func,
+  categories: ICourseCategoriesData.isRequired,
 };
 DrawerWithCourseCategories.defaultProps = {
   setVisible: () => {},
