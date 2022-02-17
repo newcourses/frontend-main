@@ -1,3 +1,55 @@
+@import "src/styles/variables";
+
+.container {
+  margin-bottom: 20px;
+  border: 1px solid #d7d7d7;
+}
+
 .wrapperCell {
   padding: 2rem;
+  font-size: 15px;
+  border: 1px solid #d7d7d7;
+}
+
+.textCell {
+  font-size: 15px;
+}
+
+.linkSchool {
+  font-size: 18px;
+  font-weight: 700;
+  color: $accent;
+}
+
+.descriptionSchool {
+  display: block;
+  font-size: 15px;
+  line-height: 25px;
+  margin-bottom: 37px;
+  margin-top: 5px;
+}
+
+.titleBenefits {
+  color: green;
+  font-weight: 700;
+}
+
+.titleDisadvantages {
+  color: red;
+  font-weight: 700;
+}
+
+.ulCommon {
+  li {
+    margin-top: 10px;
+    line-height: 1.5;
+  }
+}
+
+.ulBenefits {
+  list-style-image: url('../../assets/images/plus.png');
+}
+
+.ulDisadvantages {
+  list-style-image: url('../../assets/images/minus.png');
 }

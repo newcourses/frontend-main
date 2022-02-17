@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row, Table } from 'antd';
+import cn from 'classnames';
 import css from './InfoSchoolAndCourses.module.scss';
 import AboutSchool from '../../components/AboutSchool/AboutSchool';
 import { ISchoolInfo } from '../../propTypes';
@@ -58,56 +59,65 @@ function InfoSchoolAndCourses({
   rating,
   courses,
   benefits,
+  mainLink,
   description,
   countReviews,
   disadvantages,
 }) {
   return (
-    <div>
+    <div className={css.container}>
       <Row style={{ background: '#f7fafc' }}>
         <Col flex="2 1" className={css.wrapperCell}>
           <AboutSchool
             link={link}
             countReviews={countReviews}
             rating={rating}
-            name={name}
+            name={
+              <div
+                style={{
+                  fontSize: '19px',
+                  fontWeight: 700,
+                  marginRight: '15px',
+                }}
+              >
+                {name}
+              </div>
+            }
             value={value}
             wrapperStyles={{
               display: 'flex',
-              width: '34rem',
+              width: 'max-content',
               justifyContent: 'space-between',
             }}
           />
         </Col>
         <Col flex="1 1" className={css.wrapperCell}>
-          <a href={link} target="_blank" rel="noopener noreferrer">
-            {name}
+          <a
+            className={css.linkSchool}
+            href={mainLink}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {mainLink}
           </a>
         </Col>
       </Row>
 
       <Row>
         <Col flex="2 1" className={css.wrapperCell}>
-          <span>{description}</span>
-
-          <Table
-            pagination={false}
-            columns={columns}
-            dataSource={courses}
-            className={css.wrapperTable}
-          />
+          <span className={css.descriptionSchool}>{description}</span>
+          <Table pagination={false} columns={columns} dataSource={courses} />
         </Col>
         <Col flex="1 1" className={css.wrapperCell}>
-          <div>
-            Преимущества школы
-            <ul>
-              {benefits.map((elem) => (
-                <li key={elem._id}>{elem.value}</li>
-              ))}
-            </ul>
-          </div>
-          <div>Недостатки</div>
-          <ul>
+          <div className={css.titleBenefits}>Преимущества школы</div>
+          <ul className={cn(css.ulBenefits, css.ulCommon)}>
+            {benefits.map((elem) => (
+              <li key={elem._id}>{elem.value}</li>
+            ))}
+          </ul>
+
+          <div className={css.titleDisadvantages}>Недостатки</div>
+          <ul className={cn(css.ulDisadvantages, css.ulCommon)}>
             {disadvantages.map((elem) => (
               <li key={elem._id}>{elem.value}</li>
             ))}
