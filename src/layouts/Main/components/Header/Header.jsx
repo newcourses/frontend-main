@@ -17,12 +17,12 @@ function Header({ setVisibleDrawer }) {
           onClick={() => setVisibleDrawer(true)}
           type="primary"
           size="large"
-          style={{ height: '4.5rem', width: '25rem' }}
+          style={{ height: '45px', width: '250px' }}
         >
-          <span className={css.textButton}>
+          <div className={css.textButton}>
             Все категории курсов
-            <DownOutlined style={{ marginLeft: '1rem' }} />
-          </span>
+            <DownOutlined style={{ marginLeft: '10px' }} />
+          </div>
         </Button>
 
         <DynamicNav links={[NAVIGATION.about, NAVIGATION.contacts]} />

@@ -1,9 +1,18 @@
 @import '/src/styles/variables';
 
 .container {
-  max-width: $maxWidthDesktop;
+  width: $widthDesktop;
   margin: auto;
   padding: 4.8rem 0 2rem 0;
+  @media screen and (max-width: $widthDesktop) {
+    width: $widthNotebook;
+  }
+  @media screen and (max-width: $widthNotebook) {
+    width: $widthTablet;
+  }
+  @media screen and (max-width: $widthTablet) {
+    min-width: $widthMobile;
+  }
 }
 
 .wrapper {
