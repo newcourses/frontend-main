@@ -1,15 +1,17 @@
 .aboutSchool {
+  align-items: center;
   * {
-    font-size: 1.4rem;
+    font-size: 14px;
   }
 }
 
 .wrapperRating {
   display: flex;
+  margin-right: 15px;
 }
 
 .ratingCount {
-  margin-right: .5rem;
+  margin-right: 5px;
 }
 
 .reviews {

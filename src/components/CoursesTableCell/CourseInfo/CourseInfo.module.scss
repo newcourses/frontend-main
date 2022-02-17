@@ -1,14 +1,13 @@
-@import "../../../styles/variables";
+@import "src/styles/variables";
 
 .wrapper {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 8.2rem;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 15px;
   font-weight: 700;
 }
 
