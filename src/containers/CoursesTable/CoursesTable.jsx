@@ -14,21 +14,21 @@ const columns = [
   {
     title: 'Курс',
     dataIndex: 'courseInfo',
-    width: '21.5rem',
+    width: 220,
     render: (cell) => <CourseInfo link={cell.link} title={cell.title} />,
   },
   {
     title: 'Школа курса',
     dataIndex: 'courseInfo',
     sorter: true,
-    width: '17rem',
+    width: 200,
     render: (cell) => <AboutSchool {...cell.schoolInfo} wrapperStyles={{}} />,
   },
   {
     title: 'Стоимость',
     dataIndex: 'price',
     sorter: true,
-    width: '13.5rem',
+    width: 135,
     render: (cell) => (
       <div className={css.textCell}>
         {cell.toLocaleString('ru-RU', {
@@ -42,7 +42,7 @@ const columns = [
     title: 'Мин. платеж в рассрочку',
     dataIndex: 'installment',
     sorter: true,
-    width: '13.5rem',
+    width: 135,
     render: (cell) => (
       <div className={css.textCell}>
         {cell
@@ -58,7 +58,7 @@ const columns = [
     title: 'Длительность',
     dataIndex: 'duration',
     sorter: true,
-    width: '13rem',
+    width: 130,
     render: (cell) => (
       <div className={css.textCell}>{cell || 'Уточняйте на сайте школы'}</div>
     ),
@@ -67,7 +67,7 @@ const columns = [
     title: 'Дата начала',
     dataIndex: 'start',
     sorter: true,
-    width: '13rem',
+    width: 130,
     render: (cell) => (
       <div className={css.textCell}>
         {cell ? moment(cell).format('DD MMMM') : 'Уточняйте на сайте школы'}
@@ -80,6 +80,7 @@ const columns = [
     sorter: true,
     render: (cell) => (
       <Button
+        style={{ width: '70%' }}
         type="primary"
         size="large"
         href={cell.link}
