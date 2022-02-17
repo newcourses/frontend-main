@@ -1,0 +1,572 @@
+[
+  {
+    "_id": "620dc671ae6fd1cbc6fdccf6",
+    "price": 4209,
+    "installment": 9244,
+    "duration": "37 месяц",
+    "start": "2014-03-08",
+    "courseInfo": {
+      "title": "Ea nisi voluptate aliqua aliqua cupidatat aute",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 3.9,
+        "link": "/test",
+        "countReviews": 104,
+        "name": "Zytrac",
+        "value": "quis",
+        "mainLink": "quis.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc671b293d67cc7229247",
+    "price": 54354,
+    "installment": 4398,
+    "duration": "44 месяц",
+    "start": "2018-03-16",
+    "courseInfo": {
+      "title": "Fugiat fugiat",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 1.3,
+        "link": "/test",
+        "countReviews": 71,
+        "name": "Colaire",
+        "value": "duis",
+        "mainLink": "duis.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc6714cfe301322b82e03",
+    "price": 30220,
+    "installment": 8818,
+    "duration": "12 месяц",
+    "start": "2022-01-21",
+    "courseInfo": {
+      "title": "Amet reprehenderit",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 2.5,
+        "link": "/test",
+        "countReviews": 610,
+        "name": "Neurocell",
+        "value": "adipisicing",
+        "mainLink": "adipisicing.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671cf8ea4829ff5d0b8",
+    "price": 27161,
+    "installment": 2189,
+    "duration": "46 месяц",
+    "start": "2017-07-30",
+    "courseInfo": {
+      "title": "Aliquip duis tempor irure et nisi",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 4.5,
+        "link": "/test",
+        "countReviews": 98,
+        "name": "Ecosys",
+        "value": "velit",
+        "mainLink": "velit.io"
+      }
+    }
+  },
+  {
+    "_id": "620dc67143199bff50854066",
+    "price": 4647,
+    "installment": 3472,
+    "duration": "28 месяц",
+    "start": "2016-08-12",
+    "courseInfo": {
+      "title": "Non tempor eiusmod fugiat",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 7.3,
+        "link": "/test",
+        "countReviews": 59,
+        "name": "Jetsilk",
+        "value": "laborum",
+        "mainLink": "laborum.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc671f73d16acf44641fb",
+    "price": 12528,
+    "installment": 2960,
+    "duration": "12 месяц",
+    "start": "2019-02-22",
+    "courseInfo": {
+      "title": "Consequat Lorem velit cillum",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 3.7,
+        "link": "/test",
+        "countReviews": 84,
+        "name": "Frolix",
+        "value": "cillum",
+        "mainLink": "cillum.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc67132c4f3ff904cb7bb",
+    "price": 50005,
+    "installment": 3126,
+    "duration": "45 месяц",
+    "start": "2021-10-10",
+    "courseInfo": {
+      "title": "Ullamco in quis",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 5.7,
+        "link": "/test",
+        "countReviews": 950,
+        "name": "Escenta",
+        "value": "sunt",
+        "mainLink": "sunt.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671e09c0d61add988b9",
+    "price": 78919,
+    "installment": 9198,
+    "duration": "42 месяц",
+    "start": "2020-06-15",
+    "courseInfo": {
+      "title": "Nulla laboris",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 1.1,
+        "link": "/test",
+        "countReviews": 853,
+        "name": "Plasto",
+        "value": "laborum",
+        "mainLink": "laborum.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc6716c90fe72f85dca1f",
+    "price": 96762,
+    "installment": 9172,
+    "duration": "30 месяц",
+    "start": "2015-11-08",
+    "courseInfo": {
+      "title": "Reprehenderit quis officia enim",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 0.7,
+        "link": "/test",
+        "countReviews": 140,
+        "name": "Jimbies",
+        "value": "reprehenderit",
+        "mainLink": "reprehenderit.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671f8220db03e37cc67",
+    "price": 49415,
+    "installment": 7238,
+    "duration": "48 месяц",
+    "start": "2017-10-26",
+    "courseInfo": {
+      "title": "Incididunt ullamco tempor aliquip",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 6.5,
+        "link": "/test",
+        "countReviews": 180,
+        "name": "Ecrater",
+        "value": "dolor",
+        "mainLink": "dolor.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc671f9a67d27aceeeb40",
+    "price": 61867,
+    "installment": 114,
+    "duration": "36 месяц",
+    "start": "2017-08-29",
+    "courseInfo": {
+      "title": "Aliqua culpa commodo",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 6.7,
+        "link": "/test",
+        "countReviews": 539,
+        "name": "Franscene",
+        "value": "aliquip",
+        "mainLink": "aliquip.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc671059e43e99c311da0",
+    "price": 40484,
+    "installment": 2178,
+    "duration": "39 месяц",
+    "start": "2019-05-23",
+    "courseInfo": {
+      "title": "Anim consequat irure cillum",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 9.8,
+        "link": "/test",
+        "countReviews": 882,
+        "name": "Zillidium",
+        "value": "nostrud",
+        "mainLink": "nostrud.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc6716d905535e452e520",
+    "price": 21826,
+    "installment": 9851,
+    "duration": "4 месяц",
+    "start": "2017-11-17",
+    "courseInfo": {
+      "title": "Laborum ea",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 7.3,
+        "link": "/test",
+        "countReviews": 426,
+        "name": "Shopabout",
+        "value": "cupidatat",
+        "mainLink": "cupidatat.io"
+      }
+    }
+  },
+  {
+    "_id": "620dc671877a37177f0acc1b",
+    "price": 33573,
+    "installment": 7238,
+    "duration": "44 месяц",
+    "start": "2021-10-24",
+    "courseInfo": {
+      "title": "Ut anim nulla excepteur",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 2.5,
+        "link": "/test",
+        "countReviews": 401,
+        "name": "Mazuda",
+        "value": "reprehenderit",
+        "mainLink": "reprehenderit.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671703ff78b8eb2aa2e",
+    "price": 4264,
+    "installment": 2274,
+    "duration": "22 месяц",
+    "start": "2021-09-12",
+    "courseInfo": {
+      "title": "Est veniam enim",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 7.6,
+        "link": "/test",
+        "countReviews": 170,
+        "name": "Undertap",
+        "value": "et",
+        "mainLink": "et.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671b5bd7377806de037",
+    "price": 17446,
+    "installment": 326,
+    "duration": "35 месяц",
+    "start": "2015-02-04",
+    "courseInfo": {
+      "title": "Nostrud",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 0.7,
+        "link": "/test",
+        "countReviews": 430,
+        "name": "Kineticut",
+        "value": "elit",
+        "mainLink": "elit.io"
+      }
+    }
+  },
+  {
+    "_id": "620dc671ce259cf537b00f90",
+    "price": 43809,
+    "installment": 1369,
+    "duration": "18 месяц",
+    "start": "2015-11-10",
+    "courseInfo": {
+      "title": "Lorem eu est nisi",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 9.2,
+        "link": "/test",
+        "countReviews": 317,
+        "name": "Cyclonica",
+        "value": "laboris",
+        "mainLink": "laboris.io"
+      }
+    }
+  },
+  {
+    "_id": "620dc671016032c1f60f8823",
+    "price": 12932,
+    "installment": 6980,
+    "duration": "19 месяц",
+    "start": "2015-03-25",
+    "courseInfo": {
+      "title": "In ut do cupidatat elit",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 2.7,
+        "link": "/test",
+        "countReviews": 554,
+        "name": "Zipak",
+        "value": "proident",
+        "mainLink": "proident.io"
+      }
+    }
+  },
+  {
+    "_id": "620dc6718c635ae366609302",
+    "price": 60948,
+    "installment": 4468,
+    "duration": "45 месяц",
+    "start": "2018-03-19",
+    "courseInfo": {
+      "title": "Excepteur ut ea tempor",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 7,
+        "link": "/test",
+        "countReviews": 646,
+        "name": "Furnitech",
+        "value": "irure",
+        "mainLink": "irure.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc671b4ac5d62ceed502c",
+    "price": 13527,
+    "installment": 8007,
+    "duration": "37 месяц",
+    "start": "2021-12-17",
+    "courseInfo": {
+      "title": "Mollit aute mollit non irure consequat aliquip",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 8.4,
+        "link": "/test",
+        "countReviews": 256,
+        "name": "Euron",
+        "value": "culpa",
+        "mainLink": "culpa.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671613a3936612ddac7",
+    "price": 36063,
+    "installment": 5364,
+    "duration": "39 месяц",
+    "start": "2017-10-29",
+    "courseInfo": {
+      "title": "Voluptate sit sunt esse consequat Lorem ut",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 6.2,
+        "link": "/test",
+        "countReviews": 916,
+        "name": "Deviltoe",
+        "value": "non",
+        "mainLink": "non.io"
+      }
+    }
+  },
+  {
+    "_id": "620dc6718118d5a57a480c3a",
+    "price": 72662,
+    "installment": 2407,
+    "duration": "16 месяц",
+    "start": "2021-11-03",
+    "courseInfo": {
+      "title": "Occaecat minim veniam deserunt",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 5.3,
+        "link": "/test",
+        "countReviews": 448,
+        "name": "Koffee",
+        "value": "minim",
+        "mainLink": "minim.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671a92e1de77732c269",
+    "price": 75991,
+    "installment": 3513,
+    "duration": "25 месяц",
+    "start": "2015-11-25",
+    "courseInfo": {
+      "title": "In qui dolore veniam",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 5.8,
+        "link": "/test",
+        "countReviews": 461,
+        "name": "Kiosk",
+        "value": "et",
+        "mainLink": "et.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc67160a87097f3e03bac",
+    "price": 93282,
+    "installment": 5182,
+    "duration": "20 месяц",
+    "start": "2014-11-22",
+    "courseInfo": {
+      "title": "Ut veniam do Lorem",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 0.9,
+        "link": "/test",
+        "countReviews": 601,
+        "name": "Apextri",
+        "value": "sit",
+        "mainLink": "sit.io"
+      }
+    }
+  },
+  {
+    "_id": "620dc671a15e1d472e9eeb79",
+    "price": 32476,
+    "installment": 8442,
+    "duration": "17 месяц",
+    "start": "2016-03-07",
+    "courseInfo": {
+      "title": "Veniam minim nostrud",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 4.3,
+        "link": "/test",
+        "countReviews": 820,
+        "name": "Zillacon",
+        "value": "cupidatat",
+        "mainLink": "cupidatat.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc6711a5e9a1ca9ebb41c",
+    "price": 34851,
+    "installment": 940,
+    "duration": "14 месяц",
+    "start": "2016-12-29",
+    "courseInfo": {
+      "title": "Aliquip duis",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 4.8,
+        "link": "/test",
+        "countReviews": 494,
+        "name": "Viasia",
+        "value": "in",
+        "mainLink": "in.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc671b399a30840f1d13c",
+    "price": 91430,
+    "installment": 582,
+    "duration": "7 месяц",
+    "start": "2017-10-07",
+    "courseInfo": {
+      "title": "Ipsum minim fugiat voluptate exercitation",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 0.1,
+        "link": "/test",
+        "countReviews": 380,
+        "name": "Plasmox",
+        "value": "reprehenderit",
+        "mainLink": "reprehenderit.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc671a965c5cda82fd94c",
+    "price": 27976,
+    "installment": 6757,
+    "duration": "26 месяц",
+    "start": "2021-03-15",
+    "courseInfo": {
+      "title": "Laborum ex elit",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 6.5,
+        "link": "/test",
+        "countReviews": 481,
+        "name": "Entropix",
+        "value": "quis",
+        "mainLink": "quis.com"
+      }
+    }
+  },
+  {
+    "_id": "620dc6718321237cfbc61cad",
+    "price": 65652,
+    "installment": 5614,
+    "duration": "19 месяц",
+    "start": "2021-03-08",
+    "courseInfo": {
+      "title": "Duis commodo ipsum non ea id",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 7.7,
+        "link": "/test",
+        "countReviews": 413,
+        "name": "Netplode",
+        "value": "sint",
+        "mainLink": "sint.ru"
+      }
+    }
+  },
+  {
+    "_id": "620dc67156276fc7b1de95c3",
+    "price": 10546,
+    "installment": 9589,
+    "duration": "42 месяц",
+    "start": "2015-04-12",
+    "courseInfo": {
+      "title": "Excepteur magna ad veniam aliquip deserunt",
+      "link": "https://gb.ru/geek_university/graphic-design",
+      "schoolInfo": {
+        "rating": 7.6,
+        "link": "/test",
+        "countReviews": 744,
+        "name": "Conjurica",
+        "value": "fugiat",
+        "mainLink": "fugiat.ru"
+      }
+    }
+  }
+]

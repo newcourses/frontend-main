@@ -1,772 +1,143 @@
 import React from 'react';
-import moment from 'moment';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import Main from '../../../layouts/Main/Main';
+import useVisibleDrawer from '../../../hooks/useVisibleDrawer';
+import { ICourseCategories } from '../../../propTypes';
+import getCategories from '../../../controllers/getCategories';
+import CoursesTable from '../../../containers/CoursesTable/CoursesTable';
+import CourseCard from '../../../components/CourseCard/CourseCard';
+import mockCoursesTable from './mockCoursesTable.json';
+import mockSchoolInfoAndCourses from './mockSchoolInfoAndCourses.json';
+import SchoolsInfo from '../../../containers/SchoolsInfo';
 
-const directions = [
+/*
+[
+  '{{repeat(30, 30)}}',
   {
-    title: 'Управление',
-    subDirection: [
-      { title: 'Product-менеджмент', link: '/' },
-      { title: 'Управление бизнесом', link: '/' },
-      { title: 'Финансовая аналитика', link: '/' },
-      { title: 'HR и управление персоналом', link: '/' },
-      { title: 'Test5', link: '/' },
-    ],
-  },
-  {
-    title: 'Управление',
-    subDirection: [
-      { title: 'Product-менеджмент', link: '/' },
-      { title: 'Управление бизнесом', link: '/' },
-      { title: 'Финансовая аналитика', link: '/' },
-      { title: 'HR и управление персоналом', link: '/' },
-      { title: 'Test5', link: '/' },
-    ],
-  },
-  {
-    title: 'Управление',
-    subDirection: [
-      { title: 'Product-менеджмент', link: '/' },
-      { title: 'Управление бизнесом', link: '/' },
-      { title: 'Финансовая аналитика', link: '/' },
-      { title: 'HR и управление персоналом', link: '/' },
-      { title: 'Test5', link: '/' },
-    ],
-  },
-  {
-    title: 'Управление',
-    subDirection: [
-      { title: 'Product-менеджмент', link: '/' },
-      { title: 'Управление бизнесом', link: '/' },
-      { title: 'Финансовая аналитика', link: '/' },
-      { title: 'HR и управление персоналом', link: '/' },
-      { title: 'Test5', link: '/' },
-    ],
-  },
-  {
-    title: 'Управление',
-    subDirection: [
-      { title: 'Product-менеджмент', link: '/' },
-      { title: 'Управление бизнесом', link: '/' },
-      { title: 'Финансовая аналитика', link: '/' },
-      { title: 'HR и управление персоналом', link: '/' },
-      { title: 'Test5', link: '/' },
-    ],
-  },
-];
-
-const mockCoursesTable = [
-  {
-    _id: 'dsdsd',
+    _id: '{{objectId()}}',
+    price: '{{integer(1000, 99900)}}',
+    installment: '{{integer(100, 9990)}}',
+    duration: '{{integer(1, 48)}} месяц',
+    start: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}',
     courseInfo: {
-      title: 'Факультет Графического дизайна',
+      title: function (tags) {
+        var str = tags.lorem(tags.integer(1, 7), 'words');
+        return str[0].toUpperCase() + str.slice(1);
+      },
       link: 'https://gb.ru/geek_university/graphic-design',
       schoolInfo: {
-        rating: 1.6,
+        rating: '{{floating(0, 10, 1)}}',
         link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: '2022-05-23',
-  },
+        countReviews: '{{integer(10, 999)}}',
+        name: '{{company()}}',
+        value: '{{lorem(1, "words")}}',
+        mainLink: function (tags) {
+          var domenZones = ['ru', 'com', 'io'];
+          return this.value + '.' + domenZones[tags.integer(0, domenZones.length - 1)];
+        }
+      }
+    }
+  }
+]
+*/
+/* [
+  '{{repeat(30, 30)}}',
   {
-    _id: 'dsdsd534',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-  },
-  {
-    _id: '4dsd534',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'dsds5fdsf34',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-        mainLink: 'skillbox.ru',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'ds56fdsf34',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'ds56fd76sf34',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'ds56fdg6sf34',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'ds56fdfgfg',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'ds56fdfgfg867',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'fdg54543dfgfg867',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'gdfgfs5658kj',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjttf36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 4.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-  {
-    _id: 'jhjtt4656f36545fr',
-    courseInfo: {
-      title: 'Факультет Графического дизайна',
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: 2.6,
-        link: '/test',
-        countReviews: 10,
-        name: 'Учу учить',
-        value: 'skillbox',
-      },
-    },
-    price: 100000,
-    installment: 100,
-    duration: '1 месяц',
-    start: moment(),
-  },
-];
-
-const schoolInfoAndCourses = [
-  {
-    rating: 1.6,
+    _id: '{{objectId()}}',
+    rating: '{{floating(0, 10, 1)}}',
     link: '/test',
-    countReviews: 10,
-    name: 'Учу учить',
-    description:
-      'Нетология — это образовательная платформа. Обучаем современным востребованным профессиям в области ИТ и диджитала по направлениям: Маркетинг, Бизнес и управление, Дизайн и UX, Программирование, Аналитика, Soft Skills, MBA.',
-    value: 'skillbox',
-    mainLink: 'skillbox.ru',
+    countReviews: '{{integer(10, 999)}}',
+    name: '{{company()}}',
+    value: '{{lorem(1, "words")}}',
+    mainLink: function (tags) {
+      var domenZones = ['ru', 'com', 'io'];
+      return this.value + '.' + domenZones[tags.integer(0, domenZones.length - 1)];
+    },
+    description: function (tags) {
+      var str = tags.lorem(tags.integer(10, 70), 'words');
+      return str[0].toUpperCase() + str.slice(1);
+    },
     benefits: [
-      { id: '1', value: 'Нанимают лучших преподавателей-экспертов' },
-      { id: '2', value: 'Помогают в трудоустройстве' },
-      { id: '3', value: 'Доступ к курсу и его обновлениям остается навсегда' },
-      { id: '4', value: 'Нанимают лучших преподавателей-экспертов' },
-    ],
-    disadvantages: [
+      '{{repeat(1, 9)}}',
       {
-        id: '1',
-        value:
-          'Они часто пишут - “6 месяцев бесплатного обучения”, но это просто отсрочка оплаты',
-      },
-      {
-        id: '1',
-        value: 'Есть жалобы, что бывают сбои со стороны технической части.',
-      },
-      { id: '1', value: 'Иногда неожиданно переносят занятия.' },
-      { id: '1', value: 'Иногда возникают проблемы с личным кабинетом.' },
-    ],
-    courses: [
-      {
-        title: 'Факультет Графического дизайна',
-        link: 'https://gb.ru/geek_university/graphic-design',
-        price: 100000,
-        installment: 100,
-        duration: '1 месяц',
-        start: '2022-05-23',
-      },
-      {
-        title: 'Факультет Графического дизайна',
-        link: 'https://gb.ru/geek_university/graphic-design',
-        price: 100000,
-        installment: 100,
-        duration: '1 месяц',
-        start: '2022-05-23',
-      },
-      {
-        title: 'Факультет Графического дизайна',
-        link: 'https://gb.ru/geek_university/graphic-design',
-        price: 100000,
-        installment: 100,
-        duration: '1 месяц',
-        start: '2022-05-23',
-      },
-      {
-        title: 'Факультет Графического дизайна',
-        link: 'https://gb.ru/geek_university/graphic-design',
-        price: 100000,
-        installment: 100,
-        duration: '1 месяц',
-        start: '2022-05-23',
-      },
-      {
-        title: 'Факультет Графического дизайна',
-        link: 'https://gb.ru/geek_university/graphic-design',
-        price: 100000,
-        installment: 100,
-        duration: '1 месяц',
-        start: '2022-05-23',
-      },
-    ],
-  },
-];
+        id: '{{objectId()}}',
+        value: function (tags) {
+          var str = tags.lorem(tags.integer(7, 15), 'words');
+          return str[0].toUpperCase() + str.slice(1);
+        }
+      }],
 
-function CourseCategory(props) {
+    disadvantages: [
+      '{{repeat(1, 9)}}',
+      {
+        id: '{{objectId()}}',
+        value: function (tags) {
+          var str = tags.lorem(tags.integer(7, 15), 'words');
+          return str[0].toUpperCase() + str.slice(1);
+        }
+      }],
+    courses: [
+      '{{repeat(3, 10)}}',
+      {
+        title: function (tags) {
+          var str = tags.lorem(tags.integer(1, 7), 'words');
+          return str[0].toUpperCase() + str.slice(1);
+        },
+        link: 'https://gb.ru/geek_university/graphic-design',
+        price: '{{integer(1000, 99900)}}',
+        installment: '{{integer(100, 9990)}}',
+        duration: '{{integer(1, 48)}} months',
+        start: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}'
+      }]
+  }
+] */
+
+function CourseCategory({ categories }) {
   const router = useRouter();
+  const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
   return (
-    <Main>
+    <Main
+      visibleDrawer={visibleDrawer}
+      setVisibleDrawer={setVisibleDrawer}
+      categories={categories.data}
+    >
       <div>
+        <div className="col-xl-4 col-s-6 col-m-2" />
         <main>
-          404 ERROR
-          <Link href="/" passHref>
-            <a>go to Home</a>
-          </Link>
-          {/* <CourseCategories directions={directions} /> */}
-          {/* <CourseCard /> */}
-          {/* <InfoSchoolAndCourses {...schoolInfoAndCourses[0]} /> */}
-          {/* <CoursesTable */}
-          {/*  title="Курсы по product-менеджменту" */}
-          {/*  description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах." */}
-          {/*  dataSource={mockCoursesTable} */}
-          {/* /> */}
+          <CoursesTable
+            title="Курсы по product-менеджменту"
+            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+            dataSource={mockCoursesTable}
+          />
+          <SchoolsInfo
+            title="Курсы по product-менеджменту"
+            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+            schools={mockSchoolInfoAndCourses}
+          />
+          <CourseCard />
         </main>
       </div>
     </Main>
   );
+}
+
+CourseCategory.propTypes = {
+  categories: ICourseCategories,
+};
+
+CourseCategory.defaultProps = {
+  categories: {
+    data: [],
+  },
+};
+
+export async function getServerSideProps({ params }) {
+  console.log(params);
+  const categories = await getCategories();
+
+  return {
+    props: { categories },
+  };
 }
 
 export default React.memo(CourseCategory);
