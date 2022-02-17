@@ -21,7 +21,7 @@ function MainBanner({ setVisibleDrawer }) {
           size="large"
           style={{ height: '7rem', width: '43rem', marginTop: '8rem' }}
         >
-          <span className={css.textButton}>
+          <span className={css.textButton} style={{ display: 'block' }}>
             Все категории курсов
             <DownOutlined style={{ marginLeft: '1rem' }} />
           </span>
