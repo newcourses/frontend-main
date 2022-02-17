@@ -1,14 +1,39 @@
 import React from 'react';
 import Main from '../../layouts/Main/Main';
+import useVisibleDrawer from '../../hooks/useVisibleDrawer';
+import { ICourseCategories } from '../../propTypes';
+import getCategories from '../../controllers/getCategories';
 
-function About() {
+function About({ categories }) {
+  const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
+
   return (
-    <Main>
+    <Main
+      visibleDrawer={visibleDrawer}
+      setVisibleDrawer={setVisibleDrawer}
+      categories={categories.data}
+    >
       <div>About</div>
     </Main>
   );
 }
 
-About.propTypes = {};
+About.propTypes = {
+  categories: ICourseCategories,
+};
+
+About.defaultProps = {
+  categories: {
+    data: [],
+  },
+};
+
+export async function getStaticProps() {
+  const categories = await getCategories();
+
+  return {
+    props: { categories },
+  };
+}
 
 export default React.memo(About);
