@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Tabs } from 'antd';
 import Link from 'next/link';
-import css from './VerticalCategoriesNav.module.scss';
+import css from './index.module.scss';
 import { ICourseCategoriesData } from '../../../propTypes';
 import NAVIGATION from '../../../library/navigation';
 
@@ -9,7 +9,11 @@ const { TabPane } = Tabs;
 
 function VerticalCategoriesNav({ categories }) {
   return (
-    <Tabs tabPosition="left" size="large" style={{ fontSize: '1.8rem' }}>
+    <Tabs
+      className={css.container}
+      tabPosition="left"
+      size="large"
+    >
       {categories.map(({ attributes }) => (
         <TabPane
           tab={<div className={css.tabTitle}>{attributes.caption}</div>}

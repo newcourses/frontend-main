@@ -1,0 +1,30 @@
+@import "src/styles/variables";
+
+@mixin standard-button-style {
+  background-color: $accent;
+  border-color: $accent;
+  border-radius: 0;
+  &:hover{
+    background-color: $accentHover;
+    border-color: $accentHover;
+  }
+}
+
+@mixin main-container {
+  width: 100%;
+  max-width: $widthDesktop;
+  margin: auto;
+  padding: 48px 15px 20px 15px;
+  @media screen and (max-width: $widthDesktop) {
+    min-width: $widthNotebook;
+    max-width: $widthDesktop;
+  }
+  @media screen and (max-width: $widthNotebook) {
+    min-width: $widthTablet;
+    max-width: $widthNotebook;
+  }
+  @media screen and (max-width: $widthTablet) {
+    min-width: $widthMobile;
+    max-width: $widthTablet;
+  }
+}

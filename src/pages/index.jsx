@@ -1,8 +1,8 @@
 import React from 'react';
 import Main from '../layouts/Main/Main';
-import CourseCategories from '../containers/CourseCategories/CourseCategories';
+import CourseCategories from '../containers/CourseCategories';
 import { ICourseCategories } from '../propTypes';
-import MainBanner from '../containers/MainBanner/MainBanner';
+import MainBanner from '../containers/MainBanner';
 import useVisibleDrawer from '../hooks/useVisibleDrawer';
 import getCategories from '../controllers/getCategories';
 
@@ -16,11 +16,13 @@ function Home({ categories }) {
     >
       <main>
         <MainBanner setVisibleDrawer={setVisibleDrawer} />
+      </main>
+      <section>
         <CourseCategories
           categories={categories.data}
           setVisibleDrawer={setVisibleDrawer}
         />
-      </main>
+      </section>
     </Main>
   );
 }

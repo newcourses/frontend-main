@@ -11,13 +11,13 @@ const columns = [
   {
     title: 'Курс',
     dataIndex: '',
-    width: '21.5rem',
+    width: '215px',
     render: (cell) => <CourseInfo link={cell.link} title={cell.title} />,
   },
   {
     title: 'Стоимость',
     dataIndex: 'price',
-    width: '13.5rem',
+    width: '135px',
     render: (cell) => (
       <div className={css.textCell}>
         {cell.toLocaleString('ru-RU', {
@@ -30,7 +30,7 @@ const columns = [
   {
     title: 'Рассрочка',
     dataIndex: 'installment',
-    width: '13.5rem',
+    width: '135px',
     render: (cell) => (
       <div className={css.textCell}>
         {cell
@@ -45,7 +45,7 @@ const columns = [
   {
     title: 'Длительность',
     dataIndex: 'duration',
-    width: '13rem',
+    width: '130px',
     render: (cell) => (
       <div className={css.textCell}>{cell || 'Уточняйте на сайте школы'}</div>
     ),

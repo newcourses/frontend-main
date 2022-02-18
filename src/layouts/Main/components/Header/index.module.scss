@@ -1,0 +1,39 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+
+.container {
+  display: flex;
+  justify-content: space-between;
+
+  @include main-container;
+
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: $widthTablet) {
+    display: none;
+  }
+}
+
+.navMobile {
+  display: none;
+
+  @media screen and (max-width: $widthTablet) {
+    display: block;
+  }
+}
+
+.button {
+  height: 45px;
+  width: 250px;
+  @include standard-button-style
+}
+
+.textButton {
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 700;
+}

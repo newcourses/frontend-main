@@ -2,14 +2,17 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
-import css from './MainBanner.module.scss';
+import css from './index.module.scss';
 import mainBanner from '../../assets/images/bg.svg';
 
 function MainBanner({ setVisibleDrawer }) {
   return (
     <div className={css.container}>
       <div>
-        <h1>Сравниваем курсы онлайн-школ</h1>
+        <h1>
+          Сравниваем курсы <br />
+          онлайн-школ
+        </h1>
         <p>
           Сравниваем онлайн-курсы по digital и IT. Мы — каталог-отзовик курсов.
           Выбирайте курсы по отзывам, цене, продолжительности и другим
@@ -19,11 +22,11 @@ function MainBanner({ setVisibleDrawer }) {
           onClick={() => setVisibleDrawer(true)}
           type="primary"
           size="large"
-          style={{ height: '7rem', width: '43rem', marginTop: '8rem' }}
+          className={css.button}
         >
           <span className={css.textButton} style={{ display: 'block' }}>
             Все категории курсов
-            <DownOutlined style={{ marginLeft: '1rem' }} />
+            <DownOutlined style={{ marginLeft: '10px' }} />
           </span>
         </Button>
       </div>

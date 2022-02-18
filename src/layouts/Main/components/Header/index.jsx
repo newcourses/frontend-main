@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
-import css from './Header.module.scss';
+import css from './index.module.scss';
 import DynamicNav from './DynamicNav/DynamicNav';
 import Logo from '../../../../components/Logo/Logo';
 import NAVIGATION from '../../../../library/navigation';
@@ -12,12 +12,13 @@ function Header({ setVisibleDrawer }) {
   return (
     <header className={css.container}>
       <Logo logo={logoDark} />
+      <nav className={css.navMobile}>BURGER</nav>
       <nav className={css.nav}>
         <Button
           onClick={() => setVisibleDrawer(true)}
           type="primary"
           size="large"
-          style={{ height: '45px', width: '250px' }}
+          className={css.button}
         >
           <div className={css.textButton}>
             Все категории курсов

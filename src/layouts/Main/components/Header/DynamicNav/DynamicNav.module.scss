@@ -1,15 +1,22 @@
+@import "src/styles/variables";
+
 .linksContainer {
   display: flex;
   list-style-type: none;
   margin: 0;
+  @media screen and (max-width: $widthNotebook) {
+    padding-left: 0;
+  }
 }
 
 .linkWrapper {
-  margin-left: 6rem;
+  margin-left: 60px;
+
+
 }
 
 .link {
-  font-size: 1.3rem;
+  font-size: 13px;
   text-transform: uppercase;
   font-weight: 700;
 

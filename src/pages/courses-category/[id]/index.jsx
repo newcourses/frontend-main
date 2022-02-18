@@ -101,22 +101,19 @@ function CourseCategory({ categories }) {
       setVisibleDrawer={setVisibleDrawer}
       categories={categories.data}
     >
-      <div>
-        <div className="col-xl-4 col-s-6 col-m-2" />
-        <main>
-          <CoursesTable
-            title="Курсы по product-менеджменту"
-            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
-            dataSource={mockCoursesTable}
-          />
-          <SchoolsInfo
-            title="Курсы по product-менеджменту"
-            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
-            schools={mockSchoolInfoAndCourses}
-          />
-          <CourseCard />
-        </main>
-      </div>
+      <main>
+        <CoursesTable
+          title="Курсы по product-менеджменту"
+          description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+          dataSource={mockCoursesTable}
+        />
+        <SchoolsInfo
+          title="Курсы по product-менеджменту"
+          description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+          schools={mockSchoolInfoAndCourses}
+        />
+        <CourseCard />
+      </main>
     </Main>
   );
 }

@@ -1,0 +1,46 @@
+@import "src/styles/variables";
+
+.container {
+  font-size: 18px;
+
+  :global {
+    .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+      color: $accent;
+    }
+
+    .ant-tabs-ink-bar {
+      background: $accent
+    }
+
+    .ant-tabs-tab:hover {
+      color: $accentHover
+    }
+  }
+}
+
+.tabTitle {
+  margin-left: 200px;
+  font-size: 25px;
+  font-family: RubikMedium;
+
+  &:hover {
+    color: $accentHover
+  }
+
+
+}
+
+.tab {
+  &:active {
+    color: $accent
+  }
+}
+
+.linkText {
+  font-size: 18px;
+  color: #666;
+
+  &:hover {
+    color: $accentHover
+  }
+}

@@ -19,7 +19,7 @@ function CardHeader({ title, schoolInfo }) {
         wrapperStyles={{
           display: 'flex',
           justifyContent: 'space-between',
-          marginBottom: '2rem',
+          marginBottom: '20px',
         }}
       />
 

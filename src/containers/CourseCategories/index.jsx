@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './CourseCategories.module.scss';
-import CategoriesCard from '../../components/CategoriesCard/CategoriesCard';
+import css from './index.module.scss';
+import CategoriesCard from '../../components/CategoriesCard';
 import { ICourseCategories } from '../../propTypes';
 
 function CourseCategories({ categories, setVisibleDrawer }) {

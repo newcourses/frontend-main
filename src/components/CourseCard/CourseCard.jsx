@@ -21,7 +21,7 @@ function CourseCard() {
         />
       }
       actions={[<ActionButton link="/" name="skillbox.ru" />]}
-      style={{ width: '40rem' }}
+      style={{ width: '400px' }}
     >
       <Content
         {...{

@@ -1,0 +1,14 @@
+.container {
+  margin-top: 100px;
+}
+.mainTitle {
+  font-family: "RubikBold";
+  font-size: 36px;
+}
+.wrapperList {
+  margin-top: 80px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+}

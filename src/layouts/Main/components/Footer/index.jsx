@@ -1,18 +1,19 @@
 import React from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import css from './Footer.module.scss';
+import PropTypes from 'prop-types';
+import css from './index.module.scss';
 import NAVIGATION from '../../../../library/navigation';
 import Logo from '../../../../components/Logo/Logo';
 import { DOCUMENTATION } from '../../../../library/companyData';
 import logoLight from '../../../../assets/images/logo-light.png';
 
-function Footer() {
+function Footer({ wrapperStyles }) {
   return (
-    <footer style={{ backgroundColor: '#333' }}>
+    <footer style={{ backgroundColor: '#333', ...wrapperStyles }}>
       <div className={css.container}>
         <div className={css.wrapper}>
-          <Logo logo={logoLight} />
+          <Logo logo={logoLight} classNames={css.logo} />
           <nav>
             <ul className={cn(css.linksWrapper, css.wrapper)}>
               <li>
@@ -59,6 +60,12 @@ function Footer() {
   );
 }
 
-Footer.propTypes = {};
+Footer.propTypes = {
+  wrapperStyles: PropTypes.objectOf({}),
+};
+
+Footer.defaultProps = {
+  wrapperStyles: {},
+};
 
 export default React.memo(Footer);

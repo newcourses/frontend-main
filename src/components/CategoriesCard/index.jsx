@@ -2,14 +2,14 @@ import React from 'react';
 import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
-import css from './CategoriesCard.module.scss';
+import css from './index.module.scss';
 import { ICourseSubcategories } from '../../propTypes';
 import NAVIGATION from '../../library/navigation';
 
 function CategoriesCard({ caption, subcategories, handler }) {
   return (
     <div className={css.wrapper}>
-      <h2>{caption}</h2>
+      <h2 className={css.caption}>{caption}</h2>
       <nav>
         <ul>
           {subcategories.data.slice(0, 4).map(({ id, attributes }) => (
@@ -25,7 +25,7 @@ function CategoriesCard({ caption, subcategories, handler }) {
           <li>
             <button type="button" className={css.button} onClick={handler}>
               Развернуть все
-              <DownOutlined style={{ marginLeft: '1rem' }} />
+              <DownOutlined style={{ marginLeft: '10px' }} />
             </button>
           </li>
         </ul>
