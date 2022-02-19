@@ -17,7 +17,7 @@
 @mixin main-container {
   width: 100%;
   max-width: $widthDesktop;
-  margin: auto;
+  margin: 0 auto;
   padding: 48px 15px 20px 15px;
   @media screen and (max-width: $widthDesktop) {
     min-width: $widthNotebook;

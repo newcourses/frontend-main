@@ -4,6 +4,7 @@
 .container {
   display: flex;
   justify-content: space-between;
+  height: 115px;
 
   @include main-container;
 

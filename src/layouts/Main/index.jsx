@@ -8,7 +8,7 @@ import { ICourseCategoriesData } from '../../propTypes';
 
 function Main({ children, visibleDrawer, setVisibleDrawer, categories }) {
   return (
-    <div>
+    <div className={css.container}>
       <DrawerWithCourseCategories
         visible={visibleDrawer}
         setVisible={setVisibleDrawer}

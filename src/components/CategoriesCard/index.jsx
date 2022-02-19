@@ -16,7 +16,7 @@ function CategoriesCard({ caption, subcategories, handler }) {
             <li key={id}>
               <Link
                 href={NAVIGATION.coursesCategory.link}
-                as={NAVIGATION.coursesCategory.as(id)}
+                as={NAVIGATION.coursesCategory.as(attributes.value)}
               >
                 <a className={css.link}>{attributes.caption}</a>
               </Link>
