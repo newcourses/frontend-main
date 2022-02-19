@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { FormOutlined, HeartOutlined } from '@ant-design/icons';
-import css from './Content.module.scss';
-import ClockBlock from './ClockBlock/ClockBlock';
-import ContentItem from './ContentItem/ContentItem';
+import css from './index.module.scss';
+import ClockBlock from './ClockBlock';
+import ContentItem from './ContentItem';
 
 function Content({ start, duration, formatLessons, peculiarities }) {
   return (

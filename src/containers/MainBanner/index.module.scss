@@ -7,7 +7,11 @@
   h1 {
     font-family: "RubikBold";
     font-size: 46px;
-    line-height: 1.2
+    line-height: 1.2;
+    max-width: 550px;
+    @media screen and (max-width: $widthNotebook) {
+      max-width: 100%;
+    }
   }
 
   p {
@@ -18,7 +22,7 @@
 }
 
 .img {
-  width: 580px;
+  width: 500px;
   @media screen and (max-width: $widthNotebook) {
     display: none;
   }
@@ -26,9 +30,12 @@
 
 .button {
   height: 70px;
-  width: 430px;
+  width: 400px;
   margin-top: 80px;
-  @include standard-button-style
+  @include standard-button-style;
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+  }
 }
 
 .textButton {

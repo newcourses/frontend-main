@@ -1,5 +1,5 @@
 import React from 'react';
-import Main from '../layouts/Main/Main';
+import Main from '../layouts/Main';
 import CourseCategories from '../containers/CourseCategories';
 import { ICourseCategories } from '../propTypes';
 import MainBanner from '../containers/MainBanner';

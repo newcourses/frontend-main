@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import css from './index.module.scss';
-import InfoSchoolAndCourses from '../InfoSchoolAndCourses/InfoSchoolAndCourses';
+import InfoSchoolAndCourses from '../InfoSchoolAndCourses';
 
 function SchoolsInfo({ schools, title, description }) {
   return (

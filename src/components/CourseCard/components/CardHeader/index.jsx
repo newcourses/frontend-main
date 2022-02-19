@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './CardHeader.module.scss';
-import PriceBlock from './PriceBlock/PriceBlock';
-import AboutSchool from '../../../AboutSchool/AboutSchool';
+import css from './index.module.scss';
+import PriceBlock from './PriceBlock';
+import AboutSchool from '../../../AboutSchool';
 import { ISchoolInfo } from '../../../../propTypes';
 
 function CardHeader({ title, schoolInfo }) {
@@ -16,11 +16,7 @@ function CardHeader({ title, schoolInfo }) {
         name={schoolInfo.name}
         rating={schoolInfo.rating}
         countReviews={schoolInfo.countReviews}
-        wrapperStyles={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          marginBottom: '20px',
-        }}
+        wrapperStyles={css.aboutSchool}
       />
 
       <div className={css.wrapperPrice}>

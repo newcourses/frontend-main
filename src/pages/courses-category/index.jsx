@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import Main from '../../layouts/Main/Main';
+import Main from '../../layouts/Main';
 import useVisibleDrawer from '../../hooks/useVisibleDrawer';
 import { ICourseCategories } from '../../propTypes';
 import getCategories from '../../controllers/getCategories';

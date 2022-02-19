@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { Col, Row, Table } from 'antd';
 import cn from 'classnames';
-import css from './InfoSchoolAndCourses.module.scss';
-import AboutSchool from '../../components/AboutSchool/AboutSchool';
+import css from './index.module.scss';
+import AboutSchool from '../../components/AboutSchool';
 import { ISchoolInfo } from '../../propTypes';
 import { CourseInfo } from '../../components/CoursesTableCell';
 
@@ -66,7 +66,7 @@ function InfoSchoolAndCourses({
 }) {
   return (
     <div className={css.container}>
-      <Row style={{ background: '#f7fafc' }}>
+      <Row className={css.header}>
         <Col flex="2 1" className={css.wrapperCell}>
           <AboutSchool
             link={link}
@@ -84,11 +84,7 @@ function InfoSchoolAndCourses({
               </div>
             }
             value={value}
-            wrapperStyles={{
-              display: 'flex',
-              width: 'max-content',
-              justifyContent: 'space-between',
-            }}
+            wrapperStyles={css.aboutSchool}
           />
         </Col>
         <Col flex="1 1" className={css.wrapperCell}>
@@ -106,7 +102,12 @@ function InfoSchoolAndCourses({
       <Row>
         <Col flex="2 1" className={css.wrapperCell}>
           <span className={css.descriptionSchool}>{description}</span>
-          <Table pagination={false} columns={columns} dataSource={courses} />
+          <Table
+            scroll={{ x: 600 }}
+            pagination={false}
+            columns={columns}
+            dataSource={courses}
+          />
         </Col>
         <Col flex="1 1" className={css.wrapperCell}>
           <div className={css.titleBenefits}>Преимущества школы</div>

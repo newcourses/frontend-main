@@ -1,7 +1,8 @@
 import React from 'react';
 import { Rate } from 'antd';
 import PropTypes from 'prop-types';
-import css from './AboutSchool.module.scss';
+import cn from 'classnames';
+import css from './index.module.scss';
 import { declOfNumReviews } from '../../helpers';
 import { ISchoolInfo } from '../../propTypes';
 
@@ -23,7 +24,7 @@ function AboutSchool({
     color = 'red';
   }
   return (
-    <div className={css.aboutSchool} style={{ ...wrapperStyles }}>
+    <div className={cn(css.aboutSchool, wrapperStyles)}>
       <a href={link} target="_blank" rel="noopener noreferrer">
         {name}
       </a>
@@ -42,8 +43,11 @@ function AboutSchool({
 
 AboutSchool.propTypes = {
   ...ISchoolInfo.isRequired,
-  // eslint-disable-next-line react/forbid-prop-types
-  wrapperStyles: PropTypes.object.isRequired,
+  wrapperStyles: PropTypes.string,
+};
+
+AboutSchool.defaultProps = {
+  wrapperStyles: '',
 };
 
 export default React.memo(AboutSchool);

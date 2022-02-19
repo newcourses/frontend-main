@@ -3,8 +3,8 @@ import { Button } from 'antd';
 import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
 import css from './index.module.scss';
-import DynamicNav from './DynamicNav/DynamicNav';
-import Logo from '../../../../components/Logo/Logo';
+import DynamicNav from './DynamicNav';
+import Logo from '../../../../components/Logo';
 import NAVIGATION from '../../../../library/navigation';
 import logoDark from '../../../../assets/images/logo-dark.png';
 

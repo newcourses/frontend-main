@@ -5,6 +5,14 @@
   border: 1px solid #d7d7d7;
 }
 
+.header {
+  background: $lightColor;
+}
+
+.wrapperRow {
+  flex: 2 1;
+}
+
 .wrapperCell {
   padding: 20px;
   font-size: 15px;
@@ -13,6 +21,15 @@
 
 .textCell {
   font-size: 15px;
+}
+
+.aboutSchool {
+  display: flex;
+  width: max-content;
+  justify-content: space-between;
+  @media screen and (max-width: $widthTablet) {
+    display: block;
+  }
 }
 
 .linkSchool {

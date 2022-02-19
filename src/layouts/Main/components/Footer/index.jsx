@@ -4,7 +4,7 @@ import cn from 'classnames';
 import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import NAVIGATION from '../../../../library/navigation';
-import Logo from '../../../../components/Logo/Logo';
+import Logo from '../../../../components/Logo';
 import { DOCUMENTATION } from '../../../../library/companyData';
 import logoLight from '../../../../assets/images/logo-light.png';
 

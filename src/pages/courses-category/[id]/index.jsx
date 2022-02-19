@@ -1,14 +1,15 @@
 import React from 'react';
 import { useRouter } from 'next/router';
-import Main from '../../../layouts/Main/Main';
-import useVisibleDrawer from '../../../hooks/useVisibleDrawer';
-import { ICourseCategories } from '../../../propTypes';
-import getCategories from '../../../controllers/getCategories';
-import CoursesTable from '../../../containers/CoursesTable/CoursesTable';
-import CourseCard from '../../../components/CourseCard/CourseCard';
+import Main from '../../../layouts/Main';
+import mockCourseCards from './mockCourseCards.json';
 import mockCoursesTable from './mockCoursesTable.json';
-import mockSchoolInfoAndCourses from './mockSchoolInfoAndCourses.json';
+import { ICourseCategories } from '../../../propTypes';
 import SchoolsInfo from '../../../containers/SchoolsInfo';
+import CoursesTable from '../../../containers/CoursesTable';
+import useVisibleDrawer from '../../../hooks/useVisibleDrawer';
+import getCategories from '../../../controllers/getCategories';
+import ShowcaseCourses from '../../../containers/ShowcaseCourses';
+import mockSchoolInfoAndCourses from './mockSchoolInfoAndCourses.json';
 
 /*
 [
@@ -112,7 +113,10 @@ function CourseCategory({ categories }) {
           description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
           schools={mockSchoolInfoAndCourses}
         />
-        <CourseCard />
+        <ShowcaseCourses
+          title="Эти же курсы, но подробнее:"
+          cards={mockCourseCards}
+        />
       </main>
     </Main>
   );

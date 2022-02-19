@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import css from './PriceBlock.module.scss';
+import css from './index.module.scss';
 
 function PriceBlock({ type, price }) {
   let prefix = 'р/курс';

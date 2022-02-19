@@ -9,11 +9,7 @@ const { TabPane } = Tabs;
 
 function VerticalCategoriesNav({ categories }) {
   return (
-    <Tabs
-      className={css.container}
-      tabPosition="left"
-      size="large"
-    >
+    <Tabs className={css.container} tabPosition="left" size="large">
       {categories.map(({ attributes }) => (
         <TabPane
           tab={<div className={css.tabTitle}>{attributes.caption}</div>}

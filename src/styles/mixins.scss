@@ -8,6 +8,10 @@
     background-color: $accentHover;
     border-color: $accentHover;
   }
+  &:focus{
+    background-color: $accentHover;
+    border-color: $accentHover;
+  }
 }
 
 @mixin main-container {

@@ -10,8 +10,7 @@ function MainBanner({ setVisibleDrawer }) {
     <div className={css.container}>
       <div>
         <h1>
-          Сравниваем курсы <br />
-          онлайн-школ
+          Сравниваем курсы онлайн-школ
         </h1>
         <p>
           Сравниваем онлайн-курсы по digital и IT. Мы — каталог-отзовик курсов.

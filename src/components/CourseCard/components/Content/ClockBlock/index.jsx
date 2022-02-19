@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { ClockCircleOutlined } from '@ant-design/icons';
-import css from '../ContentItem/ContentItem.module.scss';
+import css from '../ContentItem/index.module.scss';
 
 function ClockBlock({ start, duration }) {
   let textInfo;

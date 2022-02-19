@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Link from 'next/link';
 import cn from 'classnames';
-import css from './DynamicNav.module.scss';
+import css from './index.module.scss';
 
 function DynamicNav({ links }) {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Footer from './components/Footer';
-import css from './Main.module.scss';
+import css from './index.module.scss';
 import Header from './components/Header';
 import DrawerWithCourseCategories from '../../components/DrawerWithCourseCategories';
 import { ICourseCategoriesData } from '../../propTypes';
@@ -9,13 +9,13 @@ import { ICourseCategoriesData } from '../../propTypes';
 function Main({ children, visibleDrawer, setVisibleDrawer, categories }) {
   return (
     <div>
-      {/* <DrawerWithCourseCategories */}
-      {/*  visible={visibleDrawer} */}
-      {/*  setVisible={setVisibleDrawer} */}
-      {/*  categories={categories} */}
-      {/* /> */}
+      <DrawerWithCourseCategories
+        visible={visibleDrawer}
+        setVisible={setVisibleDrawer}
+        categories={categories}
+      />
       <Header setVisibleDrawer={setVisibleDrawer} />
-      {/* <div className={css.wrapper}>{children}</div> */}
+      <div className={css.wrapper}>{children}</div>
       <Footer wrapperStyles={{ marginTop: 60 }} />
     </div>
   );
