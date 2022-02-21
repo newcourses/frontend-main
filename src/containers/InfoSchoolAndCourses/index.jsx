@@ -90,7 +90,7 @@ function InfoSchoolAndCourses({
         <Col flex="1 1" className={css.wrapperCell}>
           <a
             className={css.linkSchool}
-            href={mainLink}
+            href={`https://${mainLink}`}
             target="_blank"
             rel="noopener noreferrer"
           >

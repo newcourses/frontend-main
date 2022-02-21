@@ -1,0 +1,15 @@
+@import '/src/styles/variables';
+
+.wrapper {
+  margin-top: 20px;
+  background-color: $lightColor;
+}
+
+.line {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid $lightAccent;
+  margin: 0;
+  padding: 0;
+}

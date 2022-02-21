@@ -5,15 +5,11 @@ import css from './index.module.scss';
 import ClockBlock from './ClockBlock';
 import ContentItem from './ContentItem';
 
-function Content({ start, duration, formatLessons, peculiarities }) {
+function Content({ start, duration, format, peculiarities }) {
   return (
     <div className={css.wrapper}>
       <ClockBlock duration={duration} start={start} />
-      <ContentItem
-        icon={FormOutlined}
-        prefixText="Формат"
-        infoText={formatLessons}
-      />
+      <ContentItem icon={FormOutlined} prefixText="Формат" infoText={format} />
       <ContentItem
         icon={HeartOutlined}
         prefixText="Особенности"
@@ -26,7 +22,7 @@ function Content({ start, duration, formatLessons, peculiarities }) {
 Content.propTypes = {
   start: PropTypes.string.isRequired,
   duration: PropTypes.string.isRequired,
-  formatLessons: PropTypes.string.isRequired,
+  format: PropTypes.string.isRequired,
   peculiarities: PropTypes.string.isRequired,
 };
 

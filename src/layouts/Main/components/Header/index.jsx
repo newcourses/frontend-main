@@ -26,7 +26,13 @@ function Header({ setVisibleDrawer }) {
           </div>
         </Button>
 
-        <DynamicNav links={[NAVIGATION.about, NAVIGATION.contacts]} />
+        <DynamicNav
+          links={[
+            NAVIGATION.about,
+            NAVIGATION.schoolsList,
+            NAVIGATION.contacts,
+          ]}
+        />
       </nav>
     </header>
   );

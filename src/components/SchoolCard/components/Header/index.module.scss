@@ -1,0 +1,28 @@
+@import '/src/styles/mixins';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding: 17px 36px;
+  * {
+    font-size: 24px;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+}
+
+.link {
+  margin-left: 30px;
+  &:hover {
+    color: #919191;
+  }
+}
+
+.button {
+  margin-left: 30px;
+  width: 200px;
+  @include standard-button-style
+}
