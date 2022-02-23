@@ -5,7 +5,11 @@ import cn from 'classnames';
 import css from './index.module.scss';
 import AboutSchool from '../../components/AboutSchool';
 import { ISchoolInfo } from '../../propTypes';
-import { CourseInfo } from '../../components/CoursesTableCell';
+import {
+  CourseInfo,
+  LocalInstallment,
+  LocalPrice,
+} from '../../components/CoursesTableCells';
 
 const columns = [
   {
@@ -19,12 +23,7 @@ const columns = [
     dataIndex: 'price',
     width: '135px',
     render: (cell) => (
-      <div className={css.textCell}>
-        {cell.toLocaleString('ru-RU', {
-          style: 'currency',
-          currency: 'RUB',
-        })}
-      </div>
+      <LocalPrice value={cell} currency="RUB" location="ru-RU" />
     ),
   },
   {
@@ -32,14 +31,7 @@ const columns = [
     dataIndex: 'installment',
     width: '135px',
     render: (cell) => (
-      <div className={css.textCell}>
-        {cell
-          ? `от ${cell.toLocaleString('ru-RU', {
-              style: 'currency',
-              currency: 'RUB',
-            })}`
-          : 'Рассрочки нет'}
-      </div>
+      <LocalInstallment value={cell} currency="RUB" location="ru-RU" />
     ),
   },
   {

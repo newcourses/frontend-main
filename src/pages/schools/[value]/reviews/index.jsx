@@ -1,12 +1,10 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Main from '../../../../layouts/Main';
 import { ICourseCategories } from '../../../../propTypes';
 import useVisibleDrawer from '../../../../hooks/useVisibleDrawer';
 import getCategories from '../../../../controllers/getCategories';
 
 function SchoolReviews({ categories }) {
-  const router = useRouter();
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
   return (
     <Main
@@ -29,8 +27,7 @@ SchoolReviews.defaultProps = {
   },
 };
 
-export async function getServerSideProps({ params }) {
-  console.log(params);
+export async function getServerSideProps() {
   const categories = await getCategories();
 
   return {

@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';

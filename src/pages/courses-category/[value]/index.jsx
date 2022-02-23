@@ -1,5 +1,4 @@
 import React from 'react';
-import { useRouter } from 'next/router';
 import Main from '../../../layouts/Main';
 import mockCourseCards from './mockCourseCards.json';
 import mockCoursesTable from './mockCoursesTable.json';
@@ -94,7 +93,6 @@ import mockSchoolInfoAndCourses from './mockSchoolInfoAndCourses.json';
 ] */
 
 function CourseCategory({ categories }) {
-  const router = useRouter();
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
   return (
     <Main
@@ -132,8 +130,7 @@ CourseCategory.defaultProps = {
   },
 };
 
-export async function getServerSideProps({ params }) {
-  console.log(params);
+export async function getServerSideProps() {
   const categories = await getCategories();
 
   return {
