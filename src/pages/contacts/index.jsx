@@ -27,7 +27,7 @@ Contacts.defaultProps = {
   },
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const categories = await getCategories();
 
   return {

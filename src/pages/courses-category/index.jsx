@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import Main from '../../layouts/Main';
 import useVisibleDrawer from '../../hooks/useVisibleDrawer';
 import { ICourseCategories } from '../../propTypes';
@@ -14,12 +13,7 @@ function CoursesCategory({ categories }) {
       categories={categories.data}
     >
       <div>
-        <main>
-          404 ERROR
-          <Link href="/courses-category/test-test" passHref>
-            <a>go to category</a>
-          </Link>
-        </main>
+        <main>404 ERROR</main>
       </div>
     </Main>
   );
@@ -35,7 +29,7 @@ CoursesCategory.defaultProps = {
   },
 };
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const categories = await getCategories();
 
   return {
