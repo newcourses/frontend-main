@@ -1,15 +1,17 @@
 import PropTypes from 'prop-types';
+import { IDatesChange } from './IMetaData';
 
-export default PropTypes.shape({
-  data: PropTypes.arrayOf({
-    id: PropTypes.number.isRequired,
-    attributes: PropTypes.shape({
-      caption: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      createdAt: PropTypes.instanceOf(Date).isRequired,
-      updatedAt: PropTypes.instanceOf(Date).isRequired,
-      publishedAt: PropTypes.instanceOf(Date).isRequired,
-      locale: PropTypes.string.isRequired,
-    }).isRequired,
+const ICourseSubCategoryData = PropTypes.shape({
+  id: PropTypes.number.isRequired,
+  attributes: PropTypes.shape({
+    caption: PropTypes.string.isRequired,
+    value: PropTypes.string.isRequired,
+    ...IDatesChange,
   }).isRequired,
 });
+
+const ICourseSubCategories = PropTypes.shape({
+  data: PropTypes.arrayOf(ICourseSubCategoryData),
+});
+
+export { ICourseSubCategoryData, ICourseSubCategories };

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { IDataImage } from './IDataImage';
+import IDataImage from './IDataImage';
 
 export default PropTypes.shape({
   description: PropTypes.string,

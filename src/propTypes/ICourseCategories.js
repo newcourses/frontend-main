@@ -1,21 +1,20 @@
 import PropTypes from 'prop-types';
-import ICourseSubcategories from './ICourseSubcategories';
+import { ICourseSubCategories } from './ICourseSubcategories';
+import { IDatesChange } from './IMetaData';
 
-const ICourseCategoriesData = PropTypes.arrayOf({
+const ICourseCategoryData = PropTypes.shape({
   id: PropTypes.number.isRequired,
   attributes: PropTypes.objectOf({
     caption: PropTypes.string.isRequired,
     value: PropTypes.string.isRequired,
-    createdAt: PropTypes.instanceOf(Date).isRequired,
-    updatedAt: PropTypes.instanceOf(Date).isRequired,
-    publishedAt: PropTypes.instanceOf(Date).isRequired,
     locale: PropTypes.string.isRequired,
-    subcategories: ICourseSubcategories.isRequired,
+    subcategories: ICourseSubCategories,
+    ...IDatesChange,
   }).isRequired,
 });
 
 const ICourseCategories = PropTypes.shape({
-  data: PropTypes.arrayOf(ICourseCategoriesData.isRequired),
+  data: PropTypes.arrayOf(ICourseCategoryData),
 });
 
-export { ICourseCategoriesData, ICourseCategories };
+export { ICourseCategoryData, ICourseCategories };
