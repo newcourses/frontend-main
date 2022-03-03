@@ -12,7 +12,7 @@ export default {
     caption: 'Страница не определена',
   },
   schoolReview: {
-    link: '/schools/[value]/reviews',
+    link: '/schools/[code]/reviews',
     as: (value) => `/schools/${value}/reviews`,
   },
 };
