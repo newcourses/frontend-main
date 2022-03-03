@@ -1,7 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Main from '../layouts/Main';
 import CourseCategories from '../containers/CourseCategories';
-import { ICourseCategories } from '../propTypes';
+import { ICourseCategoryData } from '../propTypes';
 import MainBanner from '../containers/MainBanner';
 import useVisibleDrawer from '../hooks/useVisibleDrawer';
 import getCategories from '../controllers/getCategories';
@@ -12,14 +13,14 @@ function Home({ categories }) {
     <Main
       visibleDrawer={visibleDrawer}
       setVisibleDrawer={setVisibleDrawer}
-      categories={categories.data}
+      categories={categories}
     >
       <main>
         <MainBanner setVisibleDrawer={setVisibleDrawer} />
       </main>
       <section>
         <CourseCategories
-          categories={categories.data}
+          categories={categories}
           setVisibleDrawer={setVisibleDrawer}
         />
       </section>
@@ -28,7 +29,7 @@ function Home({ categories }) {
 }
 
 Home.propTypes = {
-  categories: ICourseCategories,
+  categories: PropTypes.arrayOf(ICourseCategoryData),
 };
 
 Home.defaultProps = {
