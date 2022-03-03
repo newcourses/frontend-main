@@ -1,0 +1,12 @@
+@import "src/styles/variables";
+
+.container {
+  background-color: $lightColor;
+  padding: 27px 36px;
+  margin-bottom: 20px;
+}
+
+.text {
+  font-size: 16px;
+  color: $liteText;
+}

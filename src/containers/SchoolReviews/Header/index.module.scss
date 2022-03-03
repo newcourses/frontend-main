@@ -1,0 +1,39 @@
+@import '/src/styles/variables';
+
+.container {
+  width: 800px;
+  margin-bottom: 40px;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 600px;
+}
+
+.title {
+  font-size: 36px;
+  font-family: RubikMedium;
+  margin-bottom: 50px;
+}
+
+.wrapperCustomRate {
+  font-size: 24px;
+}
+
+.countReviews {
+  font-size: 18px;
+}
+
+.link {
+  font-size: 18px;
+  font-family: RubikMedium;
+  color: $accent;
+  text-decoration: underline;
+
+  &:hover {
+    color: $accentHover;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,26 @@
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.button {
+  display: block;
+  font-size: 16px;
+  @include reset-button-style;
+  cursor: pointer;
+
+  &:hover {
+    color: $accent;
+  }
+}
+
+.comments {
+
+}
+
+.commentsIcon {
+  margin-right: 10px;
+}
