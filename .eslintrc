@@ -11,6 +11,7 @@
   "extends": [ "airbnb", "airbnb/hooks", "prettier" ],
   "plugins": [ "react", "prettier", "@babel" ],
   "rules": {
+    "no-param-reassign": [ "off" ],
     "no-plusplus": [ "off" ],
     "import/no-extraneous-dependencies": [ "off" ],
     "arrow-body-style": [ "off" ],
