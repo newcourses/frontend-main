@@ -17,4 +17,7 @@ export function declOfNumReviews(number, returnString) {
   return declOfNum(number, titles, returnString);
 }
 
-export function test() {}
+export function declOfNumComments(number, returnString) {
+  const titles = ['комментарий', 'комментрия', 'комментариев'];
+  return declOfNum(number, titles, returnString);
+}

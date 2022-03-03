@@ -1,3 +1,2 @@
 export { declOfNumReviews } from './declOfNumInstances';
-
-export function test() {}
+export { declOfNumComments } from './declOfNumInstances';
