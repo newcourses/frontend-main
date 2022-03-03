@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { api } from '../utils/axiosInstances';
+import { cmsApi } from '../utils/axiosInstances';
 
 export default async function getCategories() {
   const query = qs.stringify(
@@ -7,7 +7,7 @@ export default async function getCategories() {
     { encodeValuesOnly: true },
   );
 
-  const { data } = await api.get(`/categories?${query}`);
+  const { data } = await cmsApi.get(`/categories?${query}`);
 
   return data;
 }
