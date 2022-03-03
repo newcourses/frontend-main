@@ -5,7 +5,7 @@ const ICourseSubCategoryData = PropTypes.shape({
   id: PropTypes.number.isRequired,
   attributes: PropTypes.shape({
     caption: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    code: PropTypes.string.isRequired,
     ...IDatesChange,
   }).isRequired,
 });

@@ -4,9 +4,9 @@ import { IDatesChange } from './IMetaData';
 
 const ICourseCategoryData = PropTypes.shape({
   id: PropTypes.number.isRequired,
-  attributes: PropTypes.objectOf({
+  attributes: PropTypes.shape({
     caption: PropTypes.string.isRequired,
-    value: PropTypes.string.isRequired,
+    code: PropTypes.string.isRequired,
     locale: PropTypes.string.isRequired,
     subcategories: ICourseSubCategories,
     ...IDatesChange,

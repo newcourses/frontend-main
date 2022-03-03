@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 
-const IBriefReaction = PropTypes.shape({
-  like: PropTypes.number.isRequired,
-  dislike: PropTypes.number.isRequired,
-});
+const IBriefReaction = {
+  likes: PropTypes.number.isRequired,
+  dislikes: PropTypes.number.isRequired,
+};
 
 const moke = {};
 

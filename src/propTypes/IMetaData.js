@@ -7,10 +7,10 @@ const IPagination = PropTypes.shape({
   total: PropTypes.number,
 });
 
-const IDatesChange = PropTypes.shape({
+const IDatesChange = {
   createdAt: PropTypes.instanceOf(Date).isRequired,
   updatedAt: PropTypes.instanceOf(Date).isRequired,
   publishedAt: PropTypes.instanceOf(Date),
-});
+};
 
 export { IPagination, IDatesChange };
