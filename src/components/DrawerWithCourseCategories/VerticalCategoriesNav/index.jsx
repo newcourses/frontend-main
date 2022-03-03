@@ -2,7 +2,7 @@ import React from 'react';
 import { List, Tabs } from 'antd';
 import Link from 'next/link';
 import css from './index.module.scss';
-import { ICourseCategoriesData } from '../../../propTypes';
+import { ICourseCategoryData } from '../../../propTypes';
 import NAVIGATION from '../../../library/navigation';
 
 const { TabPane } = Tabs;
@@ -35,7 +35,7 @@ function VerticalCategoriesNav({ categories }) {
 }
 
 VerticalCategoriesNav.propTypes = {
-  categories: ICourseCategoriesData,
+  categories: ICourseCategoryData,
 };
 VerticalCategoriesNav.defaultProps = {
   categories: [],

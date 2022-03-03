@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { Rate } from 'antd';
+import cn from 'classnames';
 import css from './index.module.scss';
 
-function CustomRate({ rating }) {
+function CustomRate({ rating, wrapperStyle }) {
   let color;
 
   if (rating >= 4) {
@@ -14,7 +15,7 @@ function CustomRate({ rating }) {
     color = 'red';
   }
   return (
-    <div className={css.wrapperRating}>
+    <div className={cn(css.wrapperRating, wrapperStyle)}>
       <div className={css.ratingCount} style={{ color }}>
         {rating}
       </div>
@@ -25,7 +26,10 @@ function CustomRate({ rating }) {
 
 CustomRate.propTypes = {
   rating: PropTypes.number.isRequired,
+  wrapperStyle: PropTypes.string,
 };
-CustomRate.defaultProps = {};
+CustomRate.defaultProps = {
+  wrapperStyle: null,
+};
 
 export default React.memo(CustomRate);
