@@ -101,20 +101,26 @@ function CourseCategory({ categories }) {
       categories={categories.data}
     >
       <main>
-        <CoursesTable
-          title="Курсы по product-менеджменту"
-          description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
-          dataSource={mockCoursesTable}
-        />
-        <SchoolsInfo
-          title="Курсы по product-менеджменту"
-          description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
-          schools={mockSchoolInfoAndCourses}
-        />
-        <ShowcaseCourses
-          title="Эти же курсы, но подробнее:"
-          cards={mockCourseCards}
-        />
+        <section>
+          <CoursesTable
+            title="Курсы по product-менеджменту"
+            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+            dataSource={mockCoursesTable}
+          />
+        </section>
+        <section>
+          <SchoolsInfo
+            title="Курсы по product-менеджменту"
+            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+            schools={mockSchoolInfoAndCourses}
+          />
+        </section>
+        <section>
+          <ShowcaseCourses
+            title="Эти же курсы, но подробнее:"
+            cards={mockCourseCards}
+          />
+        </section>
       </main>
     </Main>
   );
