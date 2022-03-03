@@ -1,0 +1,37 @@
+.wrapper {
+  display: flex;
+  width: max-content;
+  font-size: 16px;
+}
+
+.likeBlock {
+  margin-right: 10px;
+}
+
+.text {
+  margin-right: 5px;
+}
+
+.likeText {
+  color: #0fad0c;
+}
+
+.dislikeText {
+  color: #de1239;
+}
+
+.iconSize {
+  font-size: 24px;
+}
+
+.likeHover {
+  &:hover {
+    color: #0fad0c;
+  }
+}
+
+.dislikeHover {
+  &:hover {
+    color: #de1239;
+  }
+}
