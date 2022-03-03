@@ -4,7 +4,7 @@ import Footer from './components/Footer';
 import css from './index.module.scss';
 import Header from './components/Header';
 import DrawerWithCourseCategories from '../../components/DrawerWithCourseCategories';
-import { ICourseCategoriesData } from '../../propTypes';
+import { ICourseCategoryData } from '../../propTypes';
 
 function Main({ children, visibleDrawer, setVisibleDrawer, categories }) {
   return (
@@ -25,7 +25,7 @@ Main.propTypes = {
   children: PropTypes.element,
   visibleDrawer: PropTypes.bool,
   setVisibleDrawer: PropTypes.func,
-  categories: ICourseCategoriesData,
+  categories: PropTypes.arrayOf(ICourseCategoryData),
 };
 
 Main.defaultProps = {

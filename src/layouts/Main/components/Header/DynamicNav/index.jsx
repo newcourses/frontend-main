@@ -8,7 +8,7 @@ function DynamicNav({ links }) {
   return (
     <ul className={css.linksContainer}>
       {links.map((navElement) => (
-        <li>
+        <li key={`${navElement.link}`}>
           <Link href={navElement.link}>
             <a className={cn(css.linkWrapper, css.link)}>
               {navElement.caption}
@@ -21,10 +21,12 @@ function DynamicNav({ links }) {
 }
 
 DynamicNav.propTypes = {
-  links: PropTypes.arrayOf({
-    link: PropTypes.string.isRequired,
-    caption: PropTypes.string.isRequired,
-  }),
+  links: PropTypes.arrayOf(
+    PropTypes.shape({
+      link: PropTypes.string.isRequired,
+      caption: PropTypes.string.isRequired,
+    }),
+  ),
 };
 DynamicNav.defaultProps = {
   links: [],

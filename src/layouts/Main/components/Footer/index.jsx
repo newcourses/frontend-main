@@ -61,7 +61,7 @@ function Footer({ wrapperStyles }) {
 }
 
 Footer.propTypes = {
-  wrapperStyles: PropTypes.objectOf({}),
+  wrapperStyles: PropTypes.objectOf(PropTypes.any),
 };
 
 Footer.defaultProps = {
