@@ -10,7 +10,7 @@ function countReactions(reactions = []) {
   };
 }
 function prepareSchoolReviews(reviews) {
-  return reviews.data.map((review) => {
+  return reviews.map((review) => {
     const countReactionReview = countReactions(
       review.attributes.reactions.data,
     );
