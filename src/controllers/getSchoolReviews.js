@@ -1,10 +1,15 @@
 import qs from 'qs';
 import { cmsApi } from '../utils/axiosInstances';
+import { COUNT_DEFAULT_SIZE_PAGE } from '../library/constants';
 
-export default async function getSchoolReviews({ code }) {
+export default async function getSchoolReviews({
+  code,
+  sort = 'date:desc',
+  pagination = { pageSize: COUNT_DEFAULT_SIZE_PAGE },
+}) {
   const query = qs.stringify(
     {
-      sort: ['date:asc'],
+      sort,
       populate: [
         'school',
         'reviewer',
@@ -14,16 +19,15 @@ export default async function getSchoolReviews({ code }) {
         'comments.reactions',
       ],
       filters: {
-        // id: 16851,
         school: {
           code,
         },
       },
+      pagination,
     },
     { encodeValuesOnly: true },
   );
 
   const { data } = await cmsApi.get(`/reviews?${query}`);
-
   return data;
 }
