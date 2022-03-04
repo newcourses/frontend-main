@@ -1,0 +1,16 @@
+@import '/src/styles/mixins';
+
+.button {
+  @include standard-button-style;
+}
+
+.backTop {
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+}
+
+.backTopIcon {
+  color: #ffffff;
+  font-size: 30px;
+}
