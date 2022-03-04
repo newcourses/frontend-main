@@ -45,7 +45,6 @@ function SortReviews({ setSort }) {
           </div>
         }
         trigger="hover"
-        onVisibleChange={() => {}}
       >
         <button
           className={css.button}

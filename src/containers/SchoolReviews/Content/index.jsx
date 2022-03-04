@@ -32,6 +32,7 @@ function Content({ reviews }) {
         {arrayReviews.map((elem) => (
           <Review key={elem.id} {...elem.attributes} />
         ))}
+
         <Button
           onClick={() => setPage(page + 1)}
           type="primary"
