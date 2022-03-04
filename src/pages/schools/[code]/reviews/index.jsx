@@ -38,7 +38,7 @@ SchoolReviewsPage.defaultProps = {
 export async function getServerSideProps(context) {
   const schoolCode = context.params.code;
   const schoolReviews = await getSchoolReviews({ code: schoolCode });
-  schoolReviews.data = prepareSchoolReviews(schoolReviews);
+  schoolReviews.data = prepareSchoolReviews(schoolReviews.data);
 
   const categories = await getCategories();
 
