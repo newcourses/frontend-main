@@ -10,9 +10,7 @@
   ],
   "middleware": {
     "/": {
-      "env": [
-        "CMS_API"
-      ],
+      "env": [],
       "files": [
         "server/middleware-runtime.js",
         "server/pages/_middleware.js"

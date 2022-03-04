@@ -4384,6 +4384,7 @@ function v4(options, buf, offset) {
 const fetchToJson = (baseUrl)=>({ url , body , method ='GET' , headers ={
         'Content-Type': 'application/json;charset=utf-8'
     } ,  })=>{
+        console.log(baseUrl);
         return new Promise((resolve, reject)=>{
             fetch(baseUrl + url, {
                 body: JSON.stringify(body),
@@ -4400,7 +4401,7 @@ const fetchToJson = (baseUrl)=>({ url , body , method ='GET' , headers ={
 
 ;// CONCATENATED MODULE: ./src/utils/fetchInstances.js
 
-const baseURL = process.env.CMS_API;
+const baseURL = "https://cms.newcourses.ru/api";
 const fetchCmsApi = utils_fetchToJson(baseURL);
 const mock = ()=>{};
 
