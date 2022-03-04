@@ -19,8 +19,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _layouts_Main__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(3812);
 /* harmony import */ var _hooks_useVisibleDrawer__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(3379);
-/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(160);
-/* harmony import */ var _controllers_getCategories__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(4159);
+/* harmony import */ var _propTypes__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(1793);
+/* harmony import */ var _controllers_getCategories__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(2322);
 
 
 
@@ -77,6 +77,13 @@ module.exports = require("antd");
 /***/ ((module) => {
 
 module.exports = require("axios");
+
+/***/ }),
+
+/***/ 2351:
+/***/ ((module) => {
+
+module.exports = require("axios/lib/adapters/http");
 
 /***/ }),
 
@@ -213,7 +220,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,858], () => (__webpack_exec__(4872)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,117], () => (__webpack_exec__(4872)));
 module.exports = __webpack_exports__;
 
 })();

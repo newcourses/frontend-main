@@ -1,14 +1,14 @@
 {
+  "/404": "pages/404.html",
   "/_app": "pages/_app.js",
   "/about": "pages/about.js",
   "/contacts": "pages/contacts.js",
-  "/courses-category/[value]": "pages/courses-category/[value].js",
+  "/courses-category/[code]": "pages/courses-category/[code].js",
   "/courses-category": "pages/courses-category.js",
   "/": "pages/index.js",
-  "/schools/[value]": "pages/schools/[value].js",
-  "/schools/[value]/reviews": "pages/schools/[value]/reviews.js",
+  "/schools/[code]": "pages/schools/[code].js",
+  "/schools/[code]/reviews": "pages/schools/[code]/reviews.js",
   "/schools": "pages/schools.js",
   "/_error": "pages/_error.js",
-  "/_document": "pages/_document.js",
-  "/404": "pages/404.html"
+  "/_document": "pages/_document.js"
 }

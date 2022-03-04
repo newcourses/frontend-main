@@ -73,12 +73,12 @@ var external_react_ = __webpack_require__(6689);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
 // EXTERNAL MODULE: ./src/layouts/Main/index.jsx + 8 modules
 var Main = __webpack_require__(3812);
-// EXTERNAL MODULE: ./src/propTypes/index.js + 6 modules
-var propTypes = __webpack_require__(160);
+// EXTERNAL MODULE: ./src/propTypes/index.js + 10 modules
+var propTypes = __webpack_require__(1793);
 // EXTERNAL MODULE: ./src/hooks/useVisibleDrawer.js
 var useVisibleDrawer = __webpack_require__(3379);
-// EXTERNAL MODULE: ./src/controllers/getCategories.js + 1 modules
-var getCategories = __webpack_require__(4159);
+// EXTERNAL MODULE: ./src/controllers/getCategories.js
+var getCategories = __webpack_require__(2322);
 // EXTERNAL MODULE: external "prop-types"
 var external_prop_types_ = __webpack_require__(580);
 var external_prop_types_default = /*#__PURE__*/__webpack_require__.n(external_prop_types_);
@@ -343,6 +343,14 @@ module.exports = require("axios");
 
 /***/ }),
 
+/***/ 2351:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("axios/lib/adapters/http");
+
+/***/ }),
+
 /***/ 9003:
 /***/ ((module) => {
 
@@ -494,7 +502,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,858,591], () => (__webpack_exec__(8644)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,117,591], () => (__webpack_exec__(8644)));
 module.exports = __webpack_exports__;
 
 })();

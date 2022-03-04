@@ -63,11 +63,11 @@ var jsx_runtime_ = __webpack_require__(997);
 // EXTERNAL MODULE: external "react"
 var external_react_ = __webpack_require__(6689);
 var external_react_default = /*#__PURE__*/__webpack_require__.n(external_react_);
-// EXTERNAL MODULE: ./src/layouts/Main/index.jsx + 8 modules
-var Main = __webpack_require__(3812);
 // EXTERNAL MODULE: external "prop-types"
 var external_prop_types_ = __webpack_require__(580);
 var external_prop_types_default = /*#__PURE__*/__webpack_require__.n(external_prop_types_);
+// EXTERNAL MODULE: ./src/layouts/Main/index.jsx + 8 modules
+var Main = __webpack_require__(3812);
 // EXTERNAL MODULE: ./src/containers/CourseCategories/index.module.scss
 var index_module = __webpack_require__(7340);
 var index_module_default = /*#__PURE__*/__webpack_require__.n(index_module);
@@ -78,10 +78,10 @@ var icons_ = __webpack_require__(7066);
 // EXTERNAL MODULE: ./src/components/CategoriesCard/index.module.scss
 var CategoriesCard_index_module = __webpack_require__(4677);
 var CategoriesCard_index_module_default = /*#__PURE__*/__webpack_require__.n(CategoriesCard_index_module);
-// EXTERNAL MODULE: ./src/propTypes/index.js + 6 modules
-var propTypes = __webpack_require__(160);
 // EXTERNAL MODULE: ./src/library/navigation.js
 var navigation = __webpack_require__(5705);
+// EXTERNAL MODULE: ./src/propTypes/index.js + 10 modules
+var propTypes = __webpack_require__(1793);
 ;// CONCATENATED MODULE: ./src/components/CategoriesCard/index.jsx
 
 
@@ -105,7 +105,7 @@ function CategoriesCard({ caption , subcategories , handler  }) {
                         subcategories.data.slice(0, 4).map(({ id , attributes  })=>/*#__PURE__*/ jsx_runtime_.jsx("li", {
                                 children: /*#__PURE__*/ jsx_runtime_.jsx(next_link["default"], {
                                     href: navigation/* default.coursesCategory.link */.Z.coursesCategory.link,
-                                    as: navigation/* default.coursesCategory.as */.Z.coursesCategory.as(attributes.value),
+                                    as: navigation/* default.coursesCategory.as */.Z.coursesCategory.as(attributes.code),
                                     children: /*#__PURE__*/ jsx_runtime_.jsx("a", {
                                         className: (CategoriesCard_index_module_default()).link,
                                         children: attributes.caption
@@ -136,7 +136,7 @@ function CategoriesCard({ caption , subcategories , handler  }) {
 }
 CategoriesCard.propTypes = {
     caption: (external_prop_types_default()).string.isRequired,
-    subcategories: propTypes/* ICourseSubcategories.isRequired */._C.isRequired,
+    subcategories: propTypes/* ICourseSubCategories.isRequired */.r1.isRequired,
     handler: (external_prop_types_default()).func.isRequired
 };
 /* harmony default export */ const components_CategoriesCard = (/*#__PURE__*/external_react_default().memo(CategoriesCard));
@@ -246,9 +246,10 @@ MainBanner.defaultProps = {
 
 // EXTERNAL MODULE: ./src/hooks/useVisibleDrawer.js
 var useVisibleDrawer = __webpack_require__(3379);
-// EXTERNAL MODULE: ./src/controllers/getCategories.js + 1 modules
-var getCategories = __webpack_require__(4159);
+// EXTERNAL MODULE: ./src/controllers/getCategories.js
+var getCategories = __webpack_require__(2322);
 ;// CONCATENATED MODULE: ./src/pages/index.jsx
+
 
 
 
@@ -279,7 +280,7 @@ function Home({ categories  }) {
     }));
 }
 Home.propTypes = {
-    categories: propTypes/* ICourseCategories */.ll
+    categories: external_prop_types_default().arrayOf(propTypes/* ICourseCategoryData */.Ad)
 };
 Home.defaultProps = {
     categories: {
@@ -320,6 +321,14 @@ module.exports = require("antd");
 
 "use strict";
 module.exports = require("axios");
+
+/***/ }),
+
+/***/ 2351:
+/***/ ((module) => {
+
+"use strict";
+module.exports = require("axios/lib/adapters/http");
 
 /***/ }),
 
@@ -474,7 +483,7 @@ module.exports = require("react/jsx-runtime");
 var __webpack_require__ = require("../webpack-runtime.js");
 __webpack_require__.C(exports);
 var __webpack_exec__ = (moduleId) => (__webpack_require__(__webpack_require__.s = moduleId))
-var __webpack_exports__ = __webpack_require__.X(0, [730,664,858], () => (__webpack_exec__(5774)));
+var __webpack_exports__ = __webpack_require__.X(0, [730,664,117], () => (__webpack_exec__(5774)));
 module.exports = __webpack_exports__;
 
 })();

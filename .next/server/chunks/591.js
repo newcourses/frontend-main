@@ -29,14 +29,17 @@ module.exports = {
 /* harmony import */ var prop_types__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(prop_types__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(5725);
 /* harmony import */ var antd__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(antd__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9026);
-/* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_index_module_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(9003);
+/* harmony import */ var classnames__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(classnames__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(9026);
+/* harmony import */ var _index_module_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_index_module_scss__WEBPACK_IMPORTED_MODULE_5__);
 
 
 
 
 
-function CustomRate({ rating  }) {
+
+function CustomRate({ rating , wrapperStyle  }) {
     let color;
     if (rating >= 4) {
         color = 'green';
@@ -46,10 +49,10 @@ function CustomRate({ rating  }) {
         color = 'red';
     }
     return(/*#__PURE__*/ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsxs)("div", {
-        className: (_index_module_scss__WEBPACK_IMPORTED_MODULE_4___default().wrapperRating),
+        className: classnames__WEBPACK_IMPORTED_MODULE_4___default()((_index_module_scss__WEBPACK_IMPORTED_MODULE_5___default().wrapperRating), wrapperStyle),
         children: [
             /*#__PURE__*/ react_jsx_runtime__WEBPACK_IMPORTED_MODULE_0__.jsx("div", {
-                className: (_index_module_scss__WEBPACK_IMPORTED_MODULE_4___default().ratingCount),
+                className: (_index_module_scss__WEBPACK_IMPORTED_MODULE_5___default().ratingCount),
                 style: {
                     color
                 },
@@ -67,9 +70,12 @@ function CustomRate({ rating  }) {
     }));
 }
 CustomRate.propTypes = {
-    rating: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().number.isRequired)
+    rating: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().number.isRequired),
+    wrapperStyle: (prop_types__WEBPACK_IMPORTED_MODULE_2___default().string)
 };
-CustomRate.defaultProps = {};
+CustomRate.defaultProps = {
+    wrapperStyle: null
+};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (/*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_1___default().memo(CustomRate));
 
 
@@ -80,9 +86,9 @@ CustomRate.defaultProps = {};
 
 "use strict";
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "p": () => (/* binding */ declOfNumReviews)
+/* harmony export */   "p": () => (/* binding */ declOfNumReviews),
+/* harmony export */   "B": () => (/* binding */ declOfNumComments)
 /* harmony export */ });
-/* unused harmony export test */
 function declOfNum(number, titles, returnString) {
     const cases = [
         2,
@@ -106,7 +112,14 @@ function declOfNumReviews(number, returnString) {
     ];
     return declOfNum(number, titles, returnString);
 }
-function test() {}
+function declOfNumComments(number, returnString) {
+    const titles = [
+        'комментарий',
+        'комментрия',
+        'комментариев'
+    ];
+    return declOfNum(number, titles, returnString);
+}
 
 
 /***/ })
