@@ -7,6 +7,7 @@ const VISITOR_UID = 'visitor-uid';
 async function setVisitorCookie(request, response) {
   const cookie = request.cookies[VISITOR_UID];
 
+  // TODO проверить почему на сервере постоянно создается visitor
   if (!cookie) {
     const uid = uuidv4();
     const { data } = await fetchCmsApi({
