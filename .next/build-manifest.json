@@ -5,9 +5,9 @@
   "devFiles": [],
   "ampDevFiles": [],
   "lowPriorityFiles": [
-    "static/d5RoX7ODdEIH3hyC9F0Kc/_buildManifest.js",
-    "static/d5RoX7ODdEIH3hyC9F0Kc/_ssgManifest.js",
-    "static/d5RoX7ODdEIH3hyC9F0Kc/_middlewareManifest.js"
+    "static/DB6mBu11WwD8GMyXjC0gw/_buildManifest.js",
+    "static/DB6mBu11WwD8GMyXjC0gw/_ssgManifest.js",
+    "static/DB6mBu11WwD8GMyXjC0gw/_middlewareManifest.js"
   ],
   "pages": {
     "/": [
@@ -27,7 +27,7 @@
       "static/chunks/77-5a331a16e4335ddc.js",
       "static/chunks/300-bc3a3f2a0b0a1abc.js",
       "static/css/f7a1a64dfdfbdff4.css",
-      "static/chunks/pages/404-69d2e7482118998a.js"
+      "static/chunks/pages/404-60bbca8a6c6d2644.js"
     ],
     "/_app": [
       "static/chunks/webpack-cb7634a8b6194820.js",
@@ -115,7 +115,7 @@
       "static/chunks/77-5a331a16e4335ddc.js",
       "static/chunks/300-bc3a3f2a0b0a1abc.js",
       "static/css/1adeb3673dec0690.css",
-      "static/chunks/pages/schools/[code]/reviews-d23ce2500368f446.js"
+      "static/chunks/pages/schools/[code]/reviews-11a4c89bcc3e3b8a.js"
     ]
   },
   "ampFirstPages": []

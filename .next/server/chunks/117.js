@@ -899,7 +899,7 @@ const ICourseCategories = external_prop_types_default().shape({
 /* harmony import */ var axios_lib_adapters_http__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios_lib_adapters_http__WEBPACK_IMPORTED_MODULE_1__);
 
 
-const baseURL = "http://localhost:1337/api";
+const baseURL = "https://cms.newcourses.ru/api";
 const cmsApi = axios__WEBPACK_IMPORTED_MODULE_0___default().create({
     baseURL,
     adapter: (axios_lib_adapters_http__WEBPACK_IMPORTED_MODULE_1___default())
