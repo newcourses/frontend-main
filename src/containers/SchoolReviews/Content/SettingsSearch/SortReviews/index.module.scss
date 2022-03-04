@@ -1,0 +1,24 @@
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
+.wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 16px;
+  font-family: RubikMedium;
+}
+
+.button {
+  @include reset-button-style;
+  display: block;
+  cursor: pointer;
+  color: $accent;
+  font-size: 16px;
+
+  &:hover {
+    color: $accentHover;
+  }
+}

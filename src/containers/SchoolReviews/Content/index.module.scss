@@ -1,7 +1,14 @@
+@import '/src/styles/mixins';
+
 .wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
 }
 
 .affixBlock {
+}
+
+.button {
+  @include standard-button-style;
+  width: 100%;
 }
