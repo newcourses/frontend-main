@@ -13,7 +13,7 @@ function VerticalCategoriesNav({ categories }) {
       {categories.map(({ attributes }) => (
         <TabPane
           tab={<div className={css.tabTitle}>{attributes.caption}</div>}
-          key={attributes.value}
+          key={attributes.code}
         >
           <List
             dataSource={attributes.subcategories.data}
@@ -21,7 +21,7 @@ function VerticalCategoriesNav({ categories }) {
               <List.Item>
                 <Link
                   href={NAVIGATION.coursesCategory.link}
-                  as={NAVIGATION.coursesCategory.as(subAttributes.value)}
+                  as={NAVIGATION.coursesCategory.as(subAttributes.code)}
                 >
                   <a className={css.linkText}>{subAttributes.caption}</a>
                 </Link>

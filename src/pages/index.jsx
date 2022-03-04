@@ -13,14 +13,14 @@ function Home({ categories }) {
     <Main
       visibleDrawer={visibleDrawer}
       setVisibleDrawer={setVisibleDrawer}
-      categories={categories}
+      categories={categories.data}
     >
       <main>
         <MainBanner setVisibleDrawer={setVisibleDrawer} />
       </main>
       <section>
         <CourseCategories
-          categories={categories}
+          categories={categories.data}
           setVisibleDrawer={setVisibleDrawer}
         />
       </section>
@@ -40,7 +40,6 @@ Home.defaultProps = {
 
 export async function getServerSideProps() {
   const categories = await getCategories();
-
   return {
     props: { categories },
   };

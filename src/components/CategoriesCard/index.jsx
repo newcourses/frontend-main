@@ -3,8 +3,8 @@ import Link from 'next/link';
 import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
 import css from './index.module.scss';
-import { ICourseSubcategories } from '../../propTypes';
 import NAVIGATION from '../../library/navigation';
+import { ICourseSubCategories } from '../../propTypes';
 
 function CategoriesCard({ caption, subcategories, handler }) {
   return (
@@ -16,7 +16,7 @@ function CategoriesCard({ caption, subcategories, handler }) {
             <li key={id}>
               <Link
                 href={NAVIGATION.coursesCategory.link}
-                as={NAVIGATION.coursesCategory.as(attributes.value)}
+                as={NAVIGATION.coursesCategory.as(attributes.code)}
               >
                 <a className={css.link}>{attributes.caption}</a>
               </Link>
@@ -36,7 +36,7 @@ function CategoriesCard({ caption, subcategories, handler }) {
 
 CategoriesCard.propTypes = {
   caption: PropTypes.string.isRequired,
-  subcategories: ICourseSubcategories.isRequired,
+  subcategories: ICourseSubCategories.isRequired,
   handler: PropTypes.func.isRequired,
 };
 
