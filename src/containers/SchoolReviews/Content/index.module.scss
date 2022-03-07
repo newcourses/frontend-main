@@ -3,9 +3,7 @@
 .wrapper {
   display: grid;
   grid-template-columns: 30% 70%;
-}
-
-.affixBlock {
+  grid-column-gap: 20px;
 }
 
 .button {

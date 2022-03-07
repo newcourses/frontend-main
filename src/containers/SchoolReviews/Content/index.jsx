@@ -1,14 +1,13 @@
-import React, { useState } from 'react';
-import { Affix, Button } from 'antd';
+import React from 'react';
+import { Button } from 'antd';
 import css from './index.module.scss';
 import Review from './Review';
 import { ISchoolReviews } from '../../../propTypes';
 import SettingsSearch from './SettingsSearch';
 import useLoadReviews from './useLoadReviews';
+import AffixBlock from './AffixBlock';
 
 function Content({ reviews }) {
-  const [top, setTop] = useState(10);
-
   const {
     reviews: arrayReviews,
     setPageSize,
@@ -21,11 +20,7 @@ function Content({ reviews }) {
 
   return (
     <section className={css.wrapper}>
-      <Affix className={css.affixBlock} offsetTop={top}>
-        <Button type="primary" onClick={() => setTop(top + 10)}>
-          Affix top
-        </Button>
-      </Affix>
+      <AffixBlock />
       <div>
         <SettingsSearch setSort={setSortType} setPageSize={setPageSize} />
 
