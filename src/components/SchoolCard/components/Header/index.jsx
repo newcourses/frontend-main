@@ -8,7 +8,7 @@ import { IDataImage } from '../../../../propTypes';
 import { declOfNumReviews } from '../../../../helpers';
 import NAVIGATION from '../../../../library/navigation';
 
-function Header({ logo, mainLink, value, countReviews }) {
+function Header({ logo, grade, mainLink, displayLink, code, countReviews }) {
   return (
     <div className={css.wrapper}>
       <div className={css.item}>
@@ -19,15 +19,15 @@ function Header({ logo, mainLink, value, countReviews }) {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {mainLink}
+          {displayLink}
         </a>
       </div>
       <div className={css.item}>
-        <CustomRate rating={countReviews} />
+        <CustomRate rating={grade} />
         <Button
           className={css.button}
           type="primary"
-          href={NAVIGATION.schoolReview.as(value)}
+          href={NAVIGATION.schoolReview.as(code)}
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -40,8 +40,10 @@ function Header({ logo, mainLink, value, countReviews }) {
 
 Header.propTypes = {
   logo: IDataImage,
-  value: PropTypes.string.isRequired,
+  grade: PropTypes.number.isRequired,
+  code: PropTypes.string.isRequired,
   mainLink: PropTypes.string.isRequired,
+  displayLink: PropTypes.string.isRequired,
   countReviews: PropTypes.number.isRequired,
 };
 Header.defaultProps = {

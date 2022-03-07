@@ -2,21 +2,21 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import SchoolCard from '../../components/SchoolCard';
-import { ISchoolCard } from '../../propTypes';
+import { ISchoolData } from '../../propTypes';
 
 function SchoolList({ data }) {
   return (
     <div>
       <h1 className={css.title}>Отзывы об онлайн-школах</h1>
-      {data.map((elem) => (
-        <SchoolCard {...elem} />
+      {data.map(({ id, attributes }) => (
+        <SchoolCard key={id} {...attributes} />
       ))}
     </div>
   );
 }
 
 SchoolList.propTypes = {
-  data: PropTypes.arrayOf(ISchoolCard),
+  data: PropTypes.arrayOf(ISchoolData),
 };
 SchoolList.defaultProps = {
   data: [],

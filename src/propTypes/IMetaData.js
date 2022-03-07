@@ -8,9 +8,9 @@ const IPagination = PropTypes.shape({
 });
 
 const IDatesChange = {
-  createdAt: PropTypes.instanceOf(Date).isRequired,
-  updatedAt: PropTypes.instanceOf(Date).isRequired,
-  publishedAt: PropTypes.instanceOf(Date),
+  createdAt: PropTypes.instanceOf(PropTypes.string).isRequired,
+  updatedAt: PropTypes.instanceOf(PropTypes.string).isRequired,
+  publishedAt: PropTypes.instanceOf(PropTypes.string),
 };
 
 export { IPagination, IDatesChange };

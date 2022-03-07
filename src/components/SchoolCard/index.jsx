@@ -2,15 +2,25 @@ import React from 'react';
 import css from './index.module.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { ISchoolCard } from '../../propTypes';
+import { ISchoolAttributes } from '../../propTypes';
 
-function SchoolCard({ logo, value, mainLink, description, countReviews }) {
+function SchoolCard({
+  logo,
+  code,
+  grade,
+  mainLink,
+  description,
+  displayLink,
+  countReviews,
+}) {
   return (
     <div className={css.wrapper}>
       <Header
         logo={logo}
-        value={value}
+        grade={grade}
+        code={code}
         mainLink={mainLink}
+        displayLink={displayLink}
         countReviews={countReviews}
       />
       <hr className={css.line} />
@@ -20,10 +30,9 @@ function SchoolCard({ logo, value, mainLink, description, countReviews }) {
 }
 
 SchoolCard.propTypes = {
-  ...ISchoolCard,
+  ...ISchoolAttributes,
 };
 SchoolCard.defaultProps = {
-  description: '',
   logo: {},
 };
 

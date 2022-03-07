@@ -16,4 +16,5 @@ export {
   IReviewCommentData,
   IReviewCommentAttributes,
 } from './IReviewComments';
+export { ISchoolData, ISchools, ISchoolAttributes } from './ISchools';
 export { ICourseCategories, ICourseCategoryData } from './ICourseCategories';
