@@ -1,27 +1,27 @@
 import qs from 'qs';
 import { cmsApi } from '../utils/axiosInstances';
 
-async function getSchools({
-  fields,
-  filters,
-  populate,
+export default async function getCourses({
   pagination,
+  code,
   customFields,
+  populate,
 }) {
   const query = qs.stringify(
     {
-      fields,
-      filters,
+      customFields,
+      filters: {
+        subcategory: {
+          code,
+        },
+      },
       populate,
       pagination,
-      customFields,
     },
     { encodeValuesOnly: true },
   );
 
-  const { data } = await cmsApi.get(`/schools?${query}`);
+  const { data } = await cmsApi.get(`/courses?${query}`);
 
   return data;
 }
-
-export default getSchools;

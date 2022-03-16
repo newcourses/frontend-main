@@ -3,10 +3,15 @@ import React from 'react';
 import moment from 'moment';
 import PropTypes from 'prop-types';
 import { Button, Table } from 'antd';
-import { ISchoolInfo } from '../../propTypes';
+import { ICourseData } from '../../propTypes';
 import css from './index.module.scss';
-import { CourseInfo } from '../../components/CoursesTableCells';
+import {
+  CourseInfo,
+  LocalPrice,
+  LocalInstallment,
+} from '../../components/CoursesTableCells';
 import AboutSchool from '../../components/AboutSchool';
+import Duration from '../../components/CoursesTableCells/Duration';
 
 moment.locale('ru');
 
@@ -25,90 +30,85 @@ function CoursesTable({ dataSource, title, description }) {
         <Table.Column
           className={css.firstColum}
           title="Курс"
-          dataIndex="courseInfo"
+          dataIndex="attributes"
           width={220}
-          render={(cell) => <CourseInfo link={cell.link} title={cell.title} />}
+          render={({ url, title: titleCourse }) => (
+            <CourseInfo link={url} title={titleCourse} />
+          )}
         />
         <Table.Column
           title="Школа курса"
-          dataIndex="courseInfo"
+          dataIndex="attributes"
           sorter
           width={200}
-          render={(cell) => (
-            <AboutSchool {...cell.schoolInfo} wrapperStyles={css.aboutSchool} />
+          render={({ school }) => (
+            <AboutSchool
+              {...school?.data?.attributes}
+              wrapperStyles={css.aboutSchool}
+            />
           )}
         />
         <Table.Column
           title="Стоимость"
-          dataIndex="price"
+          dataIndex="attributes"
           sorter
           width={145}
-          render={(cell) => (
-            <div className={css.textCell}>
-              {cell.toLocaleString('ru-RU', {
-                style: 'currency',
-                currency: 'RUB',
-              })}
-            </div>
+          render={({ price }) => (
+            <LocalPrice value={price} currency="RUB" location="ru-RU" />
           )}
         />
         <Table.Column
           title="Мин. платеж в рассрочку"
-          dataIndex="installment"
+          dataIndex="attributes"
           sorter
           width={145}
-          render={(cell) => (
-            <div className={css.textCell}>
-              {cell
-                ? `от ${cell.toLocaleString('ru-RU', {
-                    style: 'currency',
-                    currency: 'RUB',
-                  })}`
-                : 'Рассрочки нет'}
-            </div>
+          render={({ creditPayment }) => (
+            <LocalInstallment
+              value={creditPayment}
+              currency="RUB"
+              location="ru-RU"
+            />
           )}
         />
         <Table.Column
           title="Длительность"
-          dataIndex="duration"
+          dataIndex="attributes"
           sorter
           width={130}
-          render={(cell) => (
-            <div className={css.textCell}>
-              {cell || 'Уточняйте на сайте школы'}
-            </div>
+          render={({ duration, durationUnit }) => (
+            <Duration duration={duration} unit={durationUnit} />
           )}
         />
         <Table.Column
           title="Дата начала"
-          dataIndex="start"
+          dataIndex="attributes"
           sorter
           width={130}
-          render={(cell) => (
+          render={({ start }) => (
             <div className={css.textCell}>
-              {cell
-                ? moment(cell).format('DD MMMM')
+              {start
+                ? moment(start).format('DD MMMM')
                 : 'Уточняйте на сайте школы'}
             </div>
           )}
         />
         <Table.Column
           title="Ссылка на курс"
-          dataIndex="courseInfo"
+          dataIndex="attributes"
           sorter
           width={240}
-          render={(cell) => (
+          render={({ school, url }) => (
             <Button
               className={css.button}
               style={{ width: '100%' }}
               type="primary"
               size="large"
-              href={cell.link}
+              href={url}
               target="_blank"
               rel="noopener noreferrer"
             >
               <span className={css.textCell}>
-                курс на {cell.schoolInfo.mainLink}
+                курс на {school?.data?.attributes?.displayLink}
               </span>
             </Button>
           )}
@@ -121,14 +121,11 @@ function CoursesTable({ dataSource, title, description }) {
 CoursesTable.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
-  dataSource: PropTypes.arrayOf({
-    _id: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    installment: PropTypes.number.isRequired,
-    duration: PropTypes.string.isRequired,
-    start: PropTypes.string.isRequired,
-    courseInfo: ISchoolInfo.isRequired,
-  }).isRequired,
+  dataSource: PropTypes.arrayOf(ICourseData),
+};
+
+CoursesTable.defaultProps = {
+  dataSource: [],
 };
 
 export default React.memo(CoursesTable);

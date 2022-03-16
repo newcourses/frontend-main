@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import CustomRate from '../../../components/CustomRate';
 import { declOfNumReviews } from '../../../helpers';
@@ -10,7 +9,7 @@ function Header() {
     <section className={css.container}>
       <h1 className={css.title}>Skyeng</h1>
       <div className={css.wrapper}>
-        <CustomRate rating={3.5} wrapperStyle={css.wrapperCustomRate} />
+        <CustomRate grade={3.5} wrapperStyle={css.wrapperCustomRate} />
         <span className={css.countReviews}>{declOfNumReviews(3, true)}</span>
         <ReviewsByEmoji />
         <a

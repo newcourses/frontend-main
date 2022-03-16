@@ -3,23 +3,28 @@ import PropTypes from 'prop-types';
 import cn from 'classnames';
 import css from './index.module.scss';
 import { declOfNumReviews } from '../../helpers';
-import { ISchoolInfo } from '../../propTypes';
+import { ISchoolAttributes } from '../../propTypes';
 import CustomRate from '../CustomRate';
 
 function AboutSchool({
   link,
   name,
   value,
-  rating,
+  grade,
   countReviews,
   wrapperStyles,
 }) {
   return (
     <div className={cn(css.aboutSchool, wrapperStyles)}>
-      <a href={link} target="_blank" rel="noopener noreferrer">
+      <a
+        href={link}
+        target="_blank"
+        rel="noopener noreferrer"
+        className={css.name}
+      >
         {name}
       </a>
-      <CustomRate rating={rating} />
+      <CustomRate grade={grade} />
       <a className={css.reviews} href={`/${value}`}>
         {declOfNumReviews(countReviews, true)} о школе
       </a>
@@ -28,7 +33,7 @@ function AboutSchool({
 }
 
 AboutSchool.propTypes = {
-  ...ISchoolInfo.isRequired,
+  ...ISchoolAttributes,
   wrapperStyles: PropTypes.string,
 };
 

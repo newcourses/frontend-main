@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import css from '../ContentItem/index.module.scss';
+import Duration from '../../../../CoursesTableCells/Duration';
 
-function ClockBlock({ start, duration }) {
+function ClockBlock({ start, unit, duration }) {
   let textInfo;
   if (start && duration) {
     textInfo = (
       <span>
-        <b>Начало: </b> {start}, <b>продолжительность: </b> {duration}
+        <b>Начало: </b> {start}, <b>продолжительность: </b>
+        <Duration duration={duration} unit={unit} />
       </span>
     );
   } else if (start) {
@@ -20,7 +22,8 @@ function ClockBlock({ start, duration }) {
   } else if (duration) {
     textInfo = (
       <span>
-        <b>Продолжительность: </b> ${duration}
+        <b>Продолжительность: </b>
+        <Duration duration={duration} unit={unit} />
       </span>
     );
   }
@@ -36,6 +39,7 @@ function ClockBlock({ start, duration }) {
 }
 
 ClockBlock.propTypes = {
+  unit: PropTypes.string,
   start: PropTypes.string,
   duration: PropTypes.string,
 };
@@ -43,6 +47,7 @@ ClockBlock.propTypes = {
 ClockBlock.defaultProps = {
   start: 'В любой момент',
   duration: 'Без ограничений',
+  unit: 'month',
 };
 
 export default React.memo(ClockBlock);

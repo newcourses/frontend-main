@@ -23,7 +23,7 @@ function Header({ logo, grade, mainLink, displayLink, code, countReviews }) {
         </a>
       </div>
       <div className={css.item}>
-        <CustomRate rating={grade} />
+        <CustomRate grade={grade} />
         <Button
           className={css.button}
           type="primary"

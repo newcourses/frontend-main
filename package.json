@@ -3,13 +3,13 @@
   "private": true,
   "engines": {
     "node": "16",
-    "yarn": "1"
+    "npm": "8"
   },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "npx eslint src"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
@@ -34,7 +34,7 @@
     "uuid": "^8.3.2"
   },
   "devDependencies": {
-    "@babel/eslint-parser": "^7.16.5",
+    "@babel/eslint-parser": "7.16.5",
     "@babel/eslint-plugin": "7.16.5",
     "eslint": "7.18.0",
     "eslint-config-airbnb": "18.2.1",

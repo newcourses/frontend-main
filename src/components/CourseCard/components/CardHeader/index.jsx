@@ -3,25 +3,25 @@ import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import PriceBlock from './PriceBlock';
 import AboutSchool from '../../../AboutSchool';
-import { ISchoolInfo } from '../../../../propTypes';
+import { ISchoolAttributes } from '../../../../propTypes';
 
-function CardHeader({ title, schoolInfo }) {
+function CardHeader({ price, creditPayment, title, schoolInfo }) {
   return (
     <div className={css.component}>
       <h2 className={css.title}>{title}</h2>
 
       <AboutSchool
-        value={schoolInfo.value}
-        link={schoolInfo.link}
-        name={schoolInfo.name}
-        rating={schoolInfo.rating}
-        countReviews={schoolInfo.countReviews}
+        value={schoolInfo?.value}
+        link={schoolInfo?.mainLink}
+        name={schoolInfo?.name}
+        grade={schoolInfo?.grade}
+        countReviews={schoolInfo?.countReviews}
         wrapperStyles={css.aboutSchool}
       />
 
       <div className={css.wrapperPrice}>
-        <PriceBlock type="total" price={1000} />
-        <PriceBlock type="installment" price={10} />
+        <PriceBlock type="total" price={price} />
+        <PriceBlock type="installment" price={creditPayment} />
       </div>
     </div>
   );
@@ -29,7 +29,13 @@ function CardHeader({ title, schoolInfo }) {
 
 CardHeader.propTypes = {
   title: PropTypes.string.isRequired,
-  schoolInfo: ISchoolInfo.isRequired,
+  price: PropTypes.number.isRequired,
+  creditPayment: PropTypes.number.isRequired,
+  schoolInfo: ISchoolAttributes,
+};
+
+CardHeader.defaultProps = {
+  schoolInfo: {},
 };
 
 export default React.memo(CardHeader);

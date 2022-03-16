@@ -1,7 +1,12 @@
 import PropTypes from 'prop-types';
 import { IDatesChange } from './IMetaData';
+import { ICourseData } from './ICourses';
 
-const ISchoolAttributes = PropTypes.shape({
+const ICharacteristic = PropTypes.shape({
+  text: PropTypes.string,
+});
+
+const ISchoolAttributes = {
   name: PropTypes.string,
   grade: PropTypes.number,
   locale: PropTypes.string,
@@ -10,12 +15,15 @@ const ISchoolAttributes = PropTypes.shape({
   displayLink: PropTypes.string,
   countReviews: PropTypes.number,
   code: PropTypes.string.isRequired,
+  courses: PropTypes.arrayOf(ICourseData),
+  advantages: PropTypes.arrayOf(ICharacteristic),
+  disadvantages: PropTypes.arrayOf(ICharacteristic),
   ...IDatesChange,
-});
+};
 
 const ISchoolData = PropTypes.shape({
   id: PropTypes.number.isRequired,
-  attributes: ISchoolAttributes.isRequired,
+  attributes: ISchoolAttributes,
 });
 
 const ISchools = PropTypes.shape({

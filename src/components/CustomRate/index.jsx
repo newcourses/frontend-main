@@ -4,28 +4,28 @@ import { Rate } from 'antd';
 import cn from 'classnames';
 import css from './index.module.scss';
 
-function CustomRate({ rating, wrapperStyle }) {
+function CustomRate({ grade, wrapperStyle }) {
   let color;
 
-  if (rating >= 4) {
+  if (grade >= 4) {
     color = 'green';
-  } else if (rating < 4 && rating > 2.5) {
+  } else if (grade < 4 && grade > 2.5) {
     color = '#fadb14;';
-  } else if (rating < 2.5) {
+  } else if (grade < 2.5) {
     color = 'red';
   }
   return (
     <div className={cn(css.wrapperRating, wrapperStyle)}>
       <div className={css.ratingCount} style={{ color }}>
-        {rating}
+        {grade}
       </div>
-      <Rate allowHalf disabled defaultValue={rating} style={{ color }} />
+      <Rate allowHalf disabled defaultValue={grade} style={{ color }} />
     </div>
   );
 }
 
 CustomRate.propTypes = {
-  rating: PropTypes.number.isRequired,
+  grade: PropTypes.number.isRequired,
   wrapperStyle: PropTypes.string,
 };
 CustomRate.defaultProps = {

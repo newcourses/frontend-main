@@ -21,3 +21,8 @@ export function declOfNumComments(number, returnString) {
   const titles = ['комментарий', 'комментрия', 'комментариев'];
   return declOfNum(number, titles, returnString);
 }
+
+export function declOfNumMonths(number, returnString) {
+  const titles = ['месяц', 'месяца', 'месяцев'];
+  return declOfNum(number, titles, returnString);
+}

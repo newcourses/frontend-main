@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import { IDatesChange, IPagination } from './IMetaData';
 import IReviewer from './IReviewer';
-import ISchoolInfo from './ISchoolInfo';
 import { IBriefReaction } from './ICommon';
 import { IReviewComments } from './IReviewComments';
+import { ISchoolData } from './ISchools';
 
 const ISchoolReviewAttributes = PropTypes.shape({
   title: PropTypes.string.isRequired,
@@ -14,7 +14,7 @@ const ISchoolReviewAttributes = PropTypes.shape({
     data: IReviewer,
   },
   school: {
-    data: ISchoolInfo,
+    data: ISchoolData(),
   },
   comments: IReviewComments,
   ...IBriefReaction,

@@ -5,10 +5,12 @@ import css from './index.module.scss';
 function LocalPrice({ value, currency, location }) {
   return (
     <div className={css.textCell}>
-      {value.toLocaleString(location, {
-        style: 'currency',
-        currency,
-      })}
+      {value > 0
+        ? value.toLocaleString(location, {
+            style: 'currency',
+            currency,
+          })
+        : 'Уточняйте на сайте'}
     </div>
   );
 }
@@ -16,8 +18,10 @@ function LocalPrice({ value, currency, location }) {
 LocalPrice.propTypes = {
   location: PropTypes.string.isRequired,
   currency: PropTypes.string.isRequired,
-  value: PropTypes.number.isRequired,
+  value: PropTypes.number,
 };
-LocalPrice.defaultProps = {};
+LocalPrice.defaultProps = {
+  value: 0,
+};
 
 export default React.memo(LocalPrice);

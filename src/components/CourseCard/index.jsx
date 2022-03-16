@@ -4,34 +4,54 @@ import css from './index.module.scss';
 import Content from './components/Content';
 import CardHeader from './components/CardHeader';
 import ActionButton from './components/ActionButton';
-import { ICourseCard } from '../../propTypes';
+import { ICourseAttributes } from '../../propTypes';
 
 function CourseCard({
+  url,
   title,
   start,
+  price,
+  school,
   format,
+  params,
   duration,
-  schoolInfo,
-  peculiarities,
+  oldPrice,
+  durationUnit,
+  creditPayment,
 }) {
   return (
     <Card
       className={css.wrapper}
-      title={<CardHeader schoolInfo={schoolInfo} title={title} />}
-      actions={[<ActionButton link="/" name={schoolInfo.mainLink} />]}
+      title={
+        <CardHeader
+          price={price}
+          oldPrice={oldPrice}
+          creditPayment={creditPayment}
+          schoolInfo={school?.data?.attributes}
+          title={title}
+        />
+      }
+      actions={[
+        <ActionButton
+          link={url}
+          name={school?.data?.attributes?.displayLink}
+        />,
+      ]}
     >
       <Content
         start={start}
         duration={duration}
+        durationUnit={durationUnit}
         format={format}
-        peculiarities={peculiarities}
+        params={params}
+        price={price}
+        oldPrice={oldPrice}
+        creditPayment={creditPayment}
       />
     </Card>
   );
 }
 
-CourseCard.propTypes = {
-  ...ICourseCard.isRequired,
-};
+CourseCard.propTypes = ICourseAttributes;
 
 export default React.memo(CourseCard);

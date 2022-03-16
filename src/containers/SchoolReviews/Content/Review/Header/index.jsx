@@ -7,7 +7,7 @@ import CustomRate from '../../../../../components/CustomRate';
 function Header({ date, name, grade }) {
   return (
     <div className={css.wrapper}>
-      <CustomRate rating={grade.toFixed(1)} wrapperStyle={css.wrapCustomRate} />
+      <CustomRate grade={grade.toFixed(1)} wrapperStyle={css.wrapCustomRate} />
       <div className={css.personalData}>
         <ClockCircleOutlined />
         <span className={css.indent}>{date}</span>

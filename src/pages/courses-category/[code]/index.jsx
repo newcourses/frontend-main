@@ -1,98 +1,15 @@
 import React from 'react';
 import Main from '../../../layouts/Main';
-import mockCourseCards from './mockCourseCards.json';
-import mockCoursesTable from './mockCoursesTable.json';
-import { ICourseCategories } from '../../../propTypes';
+import { ICourseCategories, ICourses, ISchools } from '../../../propTypes';
 import SchoolsInfo from '../../../containers/SchoolsInfo';
 import CoursesTable from '../../../containers/CoursesTable';
 import useVisibleDrawer from '../../../hooks/useVisibleDrawer';
 import getCategories from '../../../controllers/getCategories';
 import ShowcaseCourses from '../../../containers/ShowcaseCourses';
-import mockSchoolInfoAndCourses from './mockSchoolInfoAndCourses.json';
+import getCourses from '../../../controllers/getCourses';
+import getSchools from '../../../controllers/getSchools';
 
-/*
-[
-  '{{repeat(30, 30)}}',
-  {
-    _id: '{{objectId()}}',
-    price: '{{integer(1000, 99900)}}',
-    installment: '{{integer(100, 9990)}}',
-    duration: '{{integer(1, 48)}} месяц',
-    start: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}',
-    courseInfo: {
-      title: function (tags) {
-        var str = tags.lorem(tags.integer(1, 7), 'words');
-        return str[0].toUpperCase() + str.slice(1);
-      },
-      link: 'https://gb.ru/geek_university/graphic-design',
-      schoolInfo: {
-        rating: '{{floating(0, 10, 1)}}',
-        link: '/test',
-        countReviews: '{{integer(10, 999)}}',
-        name: '{{company()}}',
-        value: '{{lorem(1, "words")}}',
-        mainLink: function (tags) {
-          var domenZones = ['ru', 'com', 'io'];
-          return this.value + '.' + domenZones[tags.integer(0, domenZones.length - 1)];
-        }
-      }
-    }
-  }
-]
-*/
-/* [
-  '{{repeat(30, 30)}}',
-  {
-    _id: '{{objectId()}}',
-    rating: '{{floating(0, 10, 1)}}',
-    link: '/test',
-    countReviews: '{{integer(10, 999)}}',
-    name: '{{company()}}',
-    value: '{{lorem(1, "words")}}',
-    mainLink: function (tags) {
-      var domenZones = ['ru', 'com', 'io'];
-      return this.value + '.' + domenZones[tags.integer(0, domenZones.length - 1)];
-    },
-    description: function (tags) {
-      var str = tags.lorem(tags.integer(10, 70), 'words');
-      return str[0].toUpperCase() + str.slice(1);
-    },
-    benefits: [
-      '{{repeat(1, 9)}}',
-      {
-        id: '{{objectId()}}',
-        value: function (tags) {
-          var str = tags.lorem(tags.integer(7, 15), 'words');
-          return str[0].toUpperCase() + str.slice(1);
-        }
-      }],
-
-    disadvantages: [
-      '{{repeat(1, 9)}}',
-      {
-        id: '{{objectId()}}',
-        value: function (tags) {
-          var str = tags.lorem(tags.integer(7, 15), 'words');
-          return str[0].toUpperCase() + str.slice(1);
-        }
-      }],
-    courses: [
-      '{{repeat(3, 10)}}',
-      {
-        title: function (tags) {
-          var str = tags.lorem(tags.integer(1, 7), 'words');
-          return str[0].toUpperCase() + str.slice(1);
-        },
-        link: 'https://gb.ru/geek_university/graphic-design',
-        price: '{{integer(1000, 99900)}}',
-        installment: '{{integer(100, 9990)}}',
-        duration: '{{integer(1, 48)}} months',
-        start: '{{date(new Date(2014, 0, 1), new Date(), "YYYY-MM-dd")}}'
-      }]
-  }
-] */
-
-function CourseCategory({ categories }) {
+function CourseCategory({ categories, courses, schools }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
   return (
     <Main
@@ -105,20 +22,20 @@ function CourseCategory({ categories }) {
           <CoursesTable
             title="Курсы по product-менеджменту"
             description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
-            dataSource={mockCoursesTable}
+            dataSource={courses.data}
           />
         </section>
         <section>
           <SchoolsInfo
             title="Курсы по product-менеджменту"
             description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
-            schools={mockSchoolInfoAndCourses}
+            schools={schools.data}
           />
         </section>
         <section>
           <ShowcaseCourses
             title="Эти же курсы, но подробнее:"
-            cards={mockCourseCards}
+            cards={courses.data}
           />
         </section>
       </main>
@@ -128,19 +45,59 @@ function CourseCategory({ categories }) {
 
 CourseCategory.propTypes = {
   categories: ICourseCategories,
+  courses: ICourses,
+  schools: ISchools,
 };
 
 CourseCategory.defaultProps = {
   categories: {
     data: [],
   },
+  courses: {
+    data: [],
+  },
+  schools: {
+    data: [],
+  },
 };
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ params }) {
   const categories = await getCategories();
+  const courses = await getCourses({
+    customFields: 'grade',
+    pagination: { page: 'all' },
+    populate: 'params',
+    code: params.code,
+  });
+  const schools = await getSchools({
+    pagination: { page: 'all' },
+    customFields: 'grade',
+    filters: {
+      courses: {
+        subcategory: {
+          code: { $eq: params.code },
+        },
+      },
+    },
+    populate: {
+      advantages: '*',
+      disadvantages: '*',
+      courses: {
+        filters: {
+          subcategory: {
+            code: { $eq: params.code },
+          },
+        },
+      },
+    },
+  });
 
   return {
-    props: { categories },
+    props: {
+      categories,
+      courses,
+      schools,
+    },
   };
 }
 

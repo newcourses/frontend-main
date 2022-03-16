@@ -6,6 +6,7 @@ import css from './index.module.scss';
 import NAVIGATION from '../../library/navigation';
 import { ICourseSubCategories } from '../../propTypes';
 
+// eslint-disable-next-line react/prop-types
 function CategoriesCard({ caption, subcategories, handler }) {
   return (
     <div className={css.wrapper}>

@@ -14,8 +14,14 @@ function PriceBlock({ type, price }) {
 
   return (
     <p>
-      <span className={css.value}>{value}</span>
-      {prefix}
+      {value ? (
+        <>
+          <span className={css.value}>{value}</span>
+          {prefix}
+        </>
+      ) : (
+        <span className={css.value}>Уточняйте на сайте</span>
+      )}
     </p>
   );
 }

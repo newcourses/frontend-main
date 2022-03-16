@@ -19,6 +19,10 @@
   border: 1px solid #d7d7d7;
 }
 
+.leftCell {
+  min-width: 650px;
+}
+
 .textCell {
   font-size: 15px;
 }
@@ -36,6 +40,9 @@
   font-size: 18px;
   font-weight: 700;
   color: $accent;
+  &:hover {
+    color: $accentHover;
+  }
 }
 
 .descriptionSchool {
