@@ -11,7 +11,6 @@ export default async function getSchoolReviews({
     {
       sort,
       populate: [
-        'school',
         'reviewer',
         'comments',
         'reactions',

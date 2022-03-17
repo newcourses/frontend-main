@@ -2,6 +2,7 @@ import qs from 'qs';
 import { cmsApi } from '../utils/axiosInstances';
 
 async function getSchools({
+  sort,
   fields,
   filters,
   populate,
@@ -10,6 +11,7 @@ async function getSchools({
 }) {
   const query = qs.stringify(
     {
+      sort,
       fields,
       filters,
       populate,

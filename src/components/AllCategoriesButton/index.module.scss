@@ -1,0 +1,13 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+
+.button {
+  @include standard-button-style;
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+  }
+}
+
+.textButton {
+  font-size: 18px;
+}

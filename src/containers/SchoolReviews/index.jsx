@@ -2,11 +2,23 @@ import React from 'react';
 import Header from './Header';
 import Content from './Content';
 
-function SchoolReviews({ reviews }) {
+function SchoolReviews({
+  school,
+  reviews,
+  categories,
+  otherSchools,
+  setVisibleDrawer,
+}) {
   return (
     <main>
-      <Header />
-      <Content reviews={reviews} />
+      <Header {...school?.attributes} />
+      <Content
+        school={school}
+        reviews={reviews}
+        categories={categories}
+        otherSchools={otherSchools}
+        setVisibleDrawer={setVisibleDrawer}
+      />
     </main>
   );
 }

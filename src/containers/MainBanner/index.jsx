@@ -1,8 +1,7 @@
 import React from 'react';
-import { DownOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
 import css from './index.module.scss';
 import mainBanner from '../../assets/images/bg.svg';
+import AllCategoriesButton from '../../components/AllCategoriesButton';
 
 function MainBanner({ setVisibleDrawer }) {
   return (
@@ -14,17 +13,14 @@ function MainBanner({ setVisibleDrawer }) {
           Выбирайте курсы по отзывам, цене, продолжительности и другим
           критериям!
         </p>
-        <Button
-          onClick={() => setVisibleDrawer(true)}
-          type="primary"
-          size="large"
-          className={css.button}
-        >
-          <span className={css.textButton} style={{ display: 'block' }}>
-            Все категории курсов
-            <DownOutlined style={{ marginLeft: '10px' }} />
-          </span>
-        </Button>
+        <div style={{ marginTop: 80 }}>
+          <AllCategoriesButton
+            styleTextButton={css.textButton}
+            setVisibleDrawer={setVisibleDrawer}
+            height={70}
+            width={400}
+          />
+        </div>
       </div>
       <img className={css.img} src={mainBanner.src} alt="mainBanner" />
     </div>

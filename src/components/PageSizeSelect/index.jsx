@@ -14,7 +14,9 @@ function PageSizeSelect({ setPageSize, wrapperStyle }) {
       onChange={setPageSize}
     >
       {OPTIONS_SIZE_PAGE.map((elem) => (
-        <Select.Option value={elem}>{elem}</Select.Option>
+        <Select.Option key={elem} value={elem}>
+          {elem}
+        </Select.Option>
       ))}
     </Select>
   );

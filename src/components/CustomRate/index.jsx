@@ -3,7 +3,7 @@ import { Rate } from 'antd';
 import cn from 'classnames';
 import css from './index.module.scss';
 
-function CustomRate({ grade, wrapperStyle }) {
+function CustomRate({ grade, wrapperStyle, size = 20, hiddenGrade }) {
   let color;
 
   if (grade >= 4) {
@@ -15,10 +15,17 @@ function CustomRate({ grade, wrapperStyle }) {
   }
   return (
     <div className={cn(css.wrapperRating, wrapperStyle)}>
-      <div className={css.ratingCount} style={{ color }}>
-        {grade}
-      </div>
-      <Rate allowHalf disabled defaultValue={grade} style={{ color }} />
+      {hiddenGrade || (
+        <div className={css.ratingCount} style={{ color, fontSize: size }}>
+          {grade}
+        </div>
+      )}
+      <Rate
+        allowHalf
+        disabled
+        defaultValue={grade}
+        style={{ color, fontSize: size }}
+      />
     </div>
   );
 }

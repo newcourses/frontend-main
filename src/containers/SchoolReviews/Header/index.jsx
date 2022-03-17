@@ -4,21 +4,23 @@ import CustomRate from '../../../components/CustomRate';
 import { declOfNumReviews } from '../../../helpers';
 import ReviewsByEmoji from './ReviewsByEmoji';
 
-function Header() {
+function Header({ mainLink, name, grade, countReviews, displayLink }) {
   return (
     <section className={css.container}>
-      <h1 className={css.title}>Skyeng</h1>
+      <h1 className={css.title}>{name}</h1>
       <div className={css.wrapper}>
-        <CustomRate grade={3.5} wrapperStyle={css.wrapperCustomRate} />
-        <span className={css.countReviews}>{declOfNumReviews(3, true)}</span>
+        <CustomRate grade={grade} wrapperStyle={css.wrapperCustomRate} />
+        <span className={css.countReviews}>
+          {declOfNumReviews(countReviews, true)}
+        </span>
         <ReviewsByEmoji />
         <a
           className={css.link}
           target="_blank"
           rel="noopener noreferrer"
-          href="https://skyeng.ru"
+          href={mainLink}
         >
-          skyeng.ru
+          {displayLink}
         </a>
       </div>
     </section>

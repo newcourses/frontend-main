@@ -6,20 +6,31 @@ import SettingsSearch from './SettingsSearch';
 import useLoadReviews from './useLoadReviews';
 import AffixBlock from './AffixBlock';
 
-function Content({ reviews }) {
+function Content({
+  school,
+  reviews,
+  categories,
+  otherSchools,
+  setVisibleDrawer,
+}) {
   const {
-    reviews: arrayReviews,
-    setPageSize,
-    setSortType,
-    setPage,
     page,
+    setPage,
+    setSortType,
+    setPageSize,
+    reviews: arrayReviews,
   } = useLoadReviews({
     initReviews: reviews,
   });
 
   return (
     <section className={css.wrapper}>
-      <AffixBlock />
+      <AffixBlock
+        school={school}
+        categories={categories}
+        otherSchools={otherSchools}
+        setVisibleDrawer={setVisibleDrawer}
+      />
       <div>
         <SettingsSearch setSort={setSortType} setPageSize={setPageSize} />
 

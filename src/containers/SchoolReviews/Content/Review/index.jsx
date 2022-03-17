@@ -48,7 +48,11 @@ function Review({
       />
 
       {comments.data.map((comment) => (
-        <Comment isOpened={isOpenComments} {...comment.attributes} />
+        <Comment
+          key={comment.id}
+          isOpened={isOpenComments}
+          {...comment.attributes}
+        />
       ))}
     </div>
   );

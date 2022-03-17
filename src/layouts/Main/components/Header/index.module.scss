@@ -27,12 +27,6 @@
   }
 }
 
-.button {
-  height: 45px;
-  width: 250px;
-  @include standard-button-style
-}
-
 .textButton {
   font-size: 13px;
   text-transform: uppercase;

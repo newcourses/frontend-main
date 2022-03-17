@@ -1,0 +1,22 @@
+@import '/src/styles/variables';
+
+.title {
+  font-family: "RubikBold";
+  font-size: 16px;
+}
+
+.link {
+  color: $accent;
+  text-decoration: underline;
+
+  &:hover {
+    text-decoration: underline;
+    color: $accentHover;
+  }
+}
+
+.description {
+  font-size: 16px;
+  color: $liteText;
+  line-height: 30px;
+}

@@ -24,7 +24,7 @@ function ContentItem({ icon, infoText, params, prefixText }) {
           <>
             <br />
             {params.map((param) => (
-              <div>
+              <div key={param.name}>
                 {param.name}: {parseParamsValue(param.value, param.unit)}
               </div>
             ))}

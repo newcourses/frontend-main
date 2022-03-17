@@ -4,6 +4,7 @@
 .container {
   margin-top: 80px;
   display: flex;
+
   h1 {
     font-family: "RubikBold";
     font-size: 46px;
@@ -25,16 +26,6 @@
   width: 500px;
   @media screen and (max-width: $widthNotebook) {
     display: none;
-  }
-}
-
-.button {
-  height: 70px;
-  width: 400px;
-  margin-top: 80px;
-  @include standard-button-style;
-  @media screen and (max-width: $widthTablet) {
-    width: 100%;
   }
 }
 

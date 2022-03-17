@@ -1,0 +1,21 @@
+@import '/src/styles/variables';
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.title {
+  font-size: 16px;
+  font-family: "RubikBold";
+}
+
+.category {
+  margin-right: 5px;
+  white-space: nowrap;
+  color: $accent;
+  &:hover {
+    color: $accentHover;
+    cursor: pointer;
+  }
+}
