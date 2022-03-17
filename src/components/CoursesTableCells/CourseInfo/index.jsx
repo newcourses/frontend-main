@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 
 export function CourseInfo({ title, link }) {
@@ -17,10 +16,5 @@ export function CourseInfo({ title, link }) {
     </div>
   );
 }
-
-CourseInfo.propTypes = {
-  title: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-};
 
 export default React.memo(CourseInfo);

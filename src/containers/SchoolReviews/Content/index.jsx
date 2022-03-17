@@ -2,7 +2,6 @@ import React from 'react';
 import { Button } from 'antd';
 import css from './index.module.scss';
 import Review from './Review';
-import { ISchoolReviews } from '../../../propTypes';
 import SettingsSearch from './SettingsSearch';
 import useLoadReviews from './useLoadReviews';
 import AffixBlock from './AffixBlock';
@@ -40,15 +39,5 @@ function Content({ reviews }) {
     </section>
   );
 }
-
-Content.propTypes = {
-  reviews: ISchoolReviews,
-};
-Content.defaultProps = {
-  reviews: {
-    data: [],
-    meta: {},
-  },
-};
 
 export default React.memo(Content);

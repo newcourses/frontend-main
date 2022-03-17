@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Main from '../layouts/Main';
 import CourseCategories from '../containers/CourseCategories';
-import { ICourseCategoryData } from '../propTypes';
 import MainBanner from '../containers/MainBanner';
 import useVisibleDrawer from '../hooks/useVisibleDrawer';
 import getCategories from '../controllers/getCategories';
@@ -27,16 +25,6 @@ function Home({ categories }) {
     </Main>
   );
 }
-
-Home.propTypes = {
-  categories: PropTypes.arrayOf(ICourseCategoryData),
-};
-
-Home.defaultProps = {
-  categories: {
-    data: [],
-  },
-};
 
 export async function getServerSideProps() {
   const categories = await getCategories();

@@ -1,5 +1,4 @@
 import React, { useCallback, useState } from 'react';
-import PropTypes from 'prop-types';
 import { Popover } from 'antd';
 import css from './index.module.scss';
 
@@ -56,10 +55,5 @@ function SortReviews({ setSort }) {
     </div>
   );
 }
-
-SortReviews.propTypes = {
-  setSort: PropTypes.func.isRequired,
-};
-SortReviews.defaultProps = {};
 
 export default React.memo(SortReviews);

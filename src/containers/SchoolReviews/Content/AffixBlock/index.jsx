@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import { Affix, Button } from 'antd';
 import css from './index.module.scss';
 
@@ -16,8 +15,5 @@ function AffixBlock() {
     </Affix>
   );
 }
-
-AffixBlock.propTypes = {};
-AffixBlock.defaultProps = {};
 
 export default React.memo(AffixBlock);

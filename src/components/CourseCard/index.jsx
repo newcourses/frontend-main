@@ -4,7 +4,6 @@ import css from './index.module.scss';
 import Content from './components/Content';
 import CardHeader from './components/CardHeader';
 import ActionButton from './components/ActionButton';
-import { ICourseAttributes } from '../../propTypes';
 
 function CourseCard({
   url,
@@ -51,7 +50,5 @@ function CourseCard({
     </Card>
   );
 }
-
-CourseCard.propTypes = ICourseAttributes;
 
 export default React.memo(CourseCard);

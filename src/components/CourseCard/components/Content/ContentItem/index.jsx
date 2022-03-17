@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 
 function parseParamsValue(value, unit) {
@@ -35,20 +34,5 @@ function ContentItem({ icon, infoText, params, prefixText }) {
     </div>
   );
 }
-
-ContentItem.propTypes = {
-  icon: PropTypes.element.isRequired,
-  infoText: PropTypes.string.isRequired,
-  prefixText: PropTypes.string.isRequired,
-  params: PropTypes.arrayOf({
-    name: PropTypes.string,
-    value: PropTypes.string,
-    unit: PropTypes.string,
-  }),
-};
-
-ContentItem.defaultProps = {
-  params: [],
-};
 
 export default React.memo(ContentItem);

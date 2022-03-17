@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import CourseCard from '../../components/CourseCard';
-import { ICourseData } from '../../propTypes';
 
 function ShowcaseCourses({ cards, title }) {
   return (
@@ -16,13 +14,5 @@ function ShowcaseCourses({ cards, title }) {
     </div>
   );
 }
-
-ShowcaseCourses.propTypes = {
-  title: PropTypes.string.isRequired,
-  cards: PropTypes.arrayOf(ICourseData),
-};
-ShowcaseCourses.defaultProps = {
-  cards: [],
-};
 
 export default React.memo(ShowcaseCourses);

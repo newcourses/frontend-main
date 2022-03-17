@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import PriceBlock from './PriceBlock';
 import AboutSchool from '../../../AboutSchool';
-import { ISchoolAttributes } from '../../../../propTypes';
 
 function CardHeader({ price, creditPayment, title, schoolInfo }) {
   return (
@@ -26,16 +24,5 @@ function CardHeader({ price, creditPayment, title, schoolInfo }) {
     </div>
   );
 }
-
-CardHeader.propTypes = {
-  title: PropTypes.string.isRequired,
-  price: PropTypes.number.isRequired,
-  creditPayment: PropTypes.number.isRequired,
-  schoolInfo: ISchoolAttributes,
-};
-
-CardHeader.defaultProps = {
-  schoolInfo: {},
-};
 
 export default React.memo(CardHeader);

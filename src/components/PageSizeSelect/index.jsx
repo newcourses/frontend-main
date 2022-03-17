@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Select } from 'antd';
 import {
   COUNT_DEFAULT_SIZE_PAGE,
@@ -20,16 +19,5 @@ function PageSizeSelect({ setPageSize, wrapperStyle }) {
     </Select>
   );
 }
-
-PageSizeSelect.propTypes = {
-  setPageSize: PropTypes.func,
-  wrapperStyle: PropTypes.string,
-};
-PageSizeSelect.defaultProps = {
-  wrapperStyle: '',
-  setPageSize: () => {
-    console.log('Не передана функция setPageSize');
-  },
-};
 
 export default React.memo(PageSizeSelect);

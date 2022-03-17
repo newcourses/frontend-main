@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import Footer from './Footer';
 import Comment from './Comment';
 import Header from './Header';
-import { ISchoolReviewAttributes } from '../../../../propTypes';
 
 function Review({
   text,
@@ -55,10 +53,5 @@ function Review({
     </div>
   );
 }
-
-Review.propTypes = {
-  ...ISchoolReviewAttributes,
-};
-Review.defaultProps = {};
 
 export default React.memo(Review);

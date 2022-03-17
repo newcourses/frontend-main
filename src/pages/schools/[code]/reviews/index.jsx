@@ -1,6 +1,5 @@
 import React from 'react';
 import Main from '../../../../layouts/Main';
-import { ICourseCategories, ISchoolReviews } from '../../../../propTypes';
 import useVisibleDrawer from '../../../../hooks/useVisibleDrawer';
 import getCategories from '../../../../controllers/getCategories';
 import SchoolReviews from '../../../../containers/SchoolReviews';
@@ -19,21 +18,6 @@ function SchoolReviewsPage({ categories, reviews }) {
     </Main>
   );
 }
-
-SchoolReviewsPage.propTypes = {
-  categories: ICourseCategories,
-  reviews: ISchoolReviews,
-};
-
-SchoolReviewsPage.defaultProps = {
-  categories: {
-    data: [],
-  },
-  reviews: {
-    data: [],
-    meta: {},
-  },
-};
 
 export async function getServerSideProps(context) {
   const schoolCode = context.params.code;

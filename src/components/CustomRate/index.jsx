@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Rate } from 'antd';
 import cn from 'classnames';
 import css from './index.module.scss';
@@ -23,13 +22,5 @@ function CustomRate({ grade, wrapperStyle }) {
     </div>
   );
 }
-
-CustomRate.propTypes = {
-  grade: PropTypes.number.isRequired,
-  wrapperStyle: PropTypes.string,
-};
-CustomRate.defaultProps = {
-  wrapperStyle: null,
-};
 
 export default React.memo(CustomRate);

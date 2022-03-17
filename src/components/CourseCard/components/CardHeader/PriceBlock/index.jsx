@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 
 function PriceBlock({ type, price }) {
@@ -25,10 +24,5 @@ function PriceBlock({ type, price }) {
     </p>
   );
 }
-
-PriceBlock.propTypes = {
-  type: PropTypes.oneOf(['total', 'installment']).isRequired,
-  price: PropTypes.number.isRequired,
-};
 
 export default React.memo(PriceBlock);

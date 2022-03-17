@@ -1,9 +1,7 @@
 import 'moment/locale/ru';
 import React from 'react';
 import moment from 'moment';
-import PropTypes from 'prop-types';
 import { Button, Table } from 'antd';
-import { ICourseData } from '../../propTypes';
 import css from './index.module.scss';
 import {
   CourseInfo,
@@ -117,15 +115,5 @@ function CoursesTable({ dataSource, title, description }) {
     </div>
   );
 }
-
-CoursesTable.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  dataSource: PropTypes.arrayOf(ICourseData),
-};
-
-CoursesTable.defaultProps = {
-  dataSource: [],
-};
 
 export default React.memo(CoursesTable);

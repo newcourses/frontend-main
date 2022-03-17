@@ -1,6 +1,5 @@
 import React from 'react';
 import Main from '../../../layouts/Main';
-import { ICourseCategories, ICourses, ISchools } from '../../../propTypes';
 import SchoolsInfo from '../../../containers/SchoolsInfo';
 import CoursesTable from '../../../containers/CoursesTable';
 import useVisibleDrawer from '../../../hooks/useVisibleDrawer';
@@ -42,24 +41,6 @@ function CourseCategory({ categories, courses, schools }) {
     </Main>
   );
 }
-
-CourseCategory.propTypes = {
-  categories: ICourseCategories,
-  courses: ICourses,
-  schools: ISchools,
-};
-
-CourseCategory.defaultProps = {
-  categories: {
-    data: [],
-  },
-  courses: {
-    data: [],
-  },
-  schools: {
-    data: [],
-  },
-};
 
 export async function getServerSideProps({ params }) {
   const categories = await getCategories();

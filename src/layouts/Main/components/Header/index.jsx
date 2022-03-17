@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button } from 'antd';
-import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
 import css from './index.module.scss';
 import DynamicNav from './DynamicNav';
@@ -37,13 +36,5 @@ function Header({ setVisibleDrawer }) {
     </header>
   );
 }
-
-Header.propTypes = {
-  setVisibleDrawer: PropTypes.func,
-};
-
-Header.defaultProps = {
-  setVisibleDrawer: () => {},
-};
 
 export default React.memo(Header);

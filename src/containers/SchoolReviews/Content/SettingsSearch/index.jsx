@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
 import css from './index.module.scss';
 import PageSizeSelect from '../../../../components/PageSizeSelect';
@@ -19,19 +18,5 @@ function SettingsSearch({ setSort, setPageSize }) {
     </div>
   );
 }
-
-SettingsSearch.propTypes = {
-  setSort: PropTypes.func,
-  setPageSize: PropTypes.func,
-};
-
-SettingsSearch.defaultProps = {
-  setSort: () => {
-    console.log('Не передана функция setSort');
-  },
-  setPageSize: () => {
-    console.log('Не передана функция setSort');
-  },
-};
 
 export default React.memo(SettingsSearch);

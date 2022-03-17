@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import SchoolCard from '../../components/SchoolCard';
-import { ISchoolData } from '../../propTypes';
 
 function SchoolList({ data }) {
   return (
@@ -14,12 +12,5 @@ function SchoolList({ data }) {
     </div>
   );
 }
-
-SchoolList.propTypes = {
-  data: PropTypes.arrayOf(ISchoolData),
-};
-SchoolList.defaultProps = {
-  data: [],
-};
 
 export default React.memo(SchoolList);

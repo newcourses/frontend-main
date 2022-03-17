@@ -1,8 +1,6 @@
 import React, { useCallback } from 'react';
-import PropTypes from 'prop-types';
 import { Drawer, Space } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
-import { ICourseCategoryData } from '../../propTypes';
 import VerticalCategoriesNav from './VerticalCategoriesNav';
 import css from './index.module.scss';
 
@@ -29,16 +27,5 @@ function DrawerWithCourseCategories({ setVisible, visible, categories }) {
     </Drawer>
   );
 }
-
-DrawerWithCourseCategories.propTypes = {
-  visible: PropTypes.bool,
-  setVisible: PropTypes.func,
-  categories: PropTypes.arrayOf(ICourseCategoryData),
-};
-DrawerWithCourseCategories.defaultProps = {
-  categories: [],
-  setVisible: () => {},
-  visible: false,
-};
 
 export default React.memo(DrawerWithCourseCategories);

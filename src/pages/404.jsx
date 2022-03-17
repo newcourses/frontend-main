@@ -26,7 +26,4 @@ function NotFound() {
   );
 }
 
-NotFound.propTypes = {};
-NotFound.defaultProps = {};
-
 export default React.memo(NotFound);

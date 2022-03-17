@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import css from '../ContentItem/index.module.scss';
 import Duration from '../../../../CoursesTableCells/Duration';
@@ -37,17 +36,5 @@ function ClockBlock({ start, unit, duration }) {
     </div>
   );
 }
-
-ClockBlock.propTypes = {
-  unit: PropTypes.string,
-  start: PropTypes.string,
-  duration: PropTypes.string,
-};
-
-ClockBlock.defaultProps = {
-  start: 'В любой момент',
-  duration: 'Без ограничений',
-  unit: 'month',
-};
 
 export default React.memo(ClockBlock);

@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
 import css from './index.module.scss';
 import { declOfNumReviews } from '../../helpers';
-import { ISchoolAttributes } from '../../propTypes';
 import CustomRate from '../CustomRate';
 
 function AboutSchool({
@@ -31,14 +29,5 @@ function AboutSchool({
     </div>
   );
 }
-
-AboutSchool.propTypes = {
-  ...ISchoolAttributes,
-  wrapperStyles: PropTypes.string,
-};
-
-AboutSchool.defaultProps = {
-  wrapperStyles: '',
-};
 
 export default React.memo(AboutSchool);

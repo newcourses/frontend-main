@@ -1,10 +1,8 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Footer from './components/Footer';
 import css from './index.module.scss';
 import Header from './components/Header';
 import DrawerWithCourseCategories from '../../components/DrawerWithCourseCategories';
-import { ICourseCategoryData } from '../../propTypes';
 
 function Main({ children, visibleDrawer, setVisibleDrawer, categories }) {
   return (
@@ -20,21 +18,5 @@ function Main({ children, visibleDrawer, setVisibleDrawer, categories }) {
     </div>
   );
 }
-
-Main.propTypes = {
-  children: PropTypes.element,
-  visibleDrawer: PropTypes.bool,
-  setVisibleDrawer: PropTypes.func,
-  categories: PropTypes.arrayOf(ICourseCategoryData),
-};
-
-Main.defaultProps = {
-  children: () => (
-    <>Компонент служит как обертка с хедерои и футуреом страницы</>
-  ),
-  visibleDrawer: false,
-  setVisibleDrawer: () => {},
-  categories: [],
-};
 
 export default React.memo(Main);

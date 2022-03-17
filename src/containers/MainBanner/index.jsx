@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
 import { Button } from 'antd';
 import css from './index.module.scss';
@@ -9,9 +8,7 @@ function MainBanner({ setVisibleDrawer }) {
   return (
     <div className={css.container}>
       <div>
-        <h1>
-          Сравниваем курсы онлайн-школ
-        </h1>
+        <h1>Сравниваем курсы онлайн-школ</h1>
         <p>
           Сравниваем онлайн-курсы по digital и IT. Мы — каталог-отзовик курсов.
           Выбирайте курсы по отзывам, цене, продолжительности и другим
@@ -33,12 +30,5 @@ function MainBanner({ setVisibleDrawer }) {
     </div>
   );
 }
-
-MainBanner.propTypes = {
-  setVisibleDrawer: PropTypes.func,
-};
-MainBanner.defaultProps = {
-  setVisibleDrawer: () => {},
-};
 
 export default React.memo(MainBanner);

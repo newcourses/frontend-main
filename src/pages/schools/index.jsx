@@ -1,6 +1,5 @@
 import React from 'react';
 import Main from '../../layouts/Main';
-import { ICourseCategories, ISchools } from '../../propTypes';
 import useVisibleDrawer from '../../hooks/useVisibleDrawer';
 import getCategories from '../../controllers/getCategories';
 import SchoolList from '../../containers/SchoolList';
@@ -20,20 +19,6 @@ function Schools({ categories, schools }) {
     </Main>
   );
 }
-
-Schools.propTypes = {
-  categories: ICourseCategories,
-  schools: ISchools,
-};
-
-Schools.defaultProps = {
-  categories: {
-    data: [],
-  },
-  schools: {
-    data: [],
-  },
-};
 
 export async function getServerSideProps() {
   const categories = await getCategories();

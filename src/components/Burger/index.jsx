@@ -21,6 +21,4 @@ function Burger() {
   );
 }
 
-Burger.propTypes = {};
-
 export default React.memo(Burger);

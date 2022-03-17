@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Collapse } from 'react-collapse';
 import css from './index.module.scss';
 import Reactions from '../../../../../components/Reactions';
-import { IReviewCommentAttributes } from '../../../../../propTypes';
 
 function Comment({ isOpened, text, date, likes, dislikes, reviewer }) {
   return (
@@ -23,15 +21,5 @@ function Comment({ isOpened, text, date, likes, dislikes, reviewer }) {
     </div>
   );
 }
-
-Comment.propTypes = {
-  ...IReviewCommentAttributes,
-  isOpened: PropTypes.bool,
-};
-Comment.defaultProps = {
-  text: 'Текст отсутствует...',
-  isOpened: false,
-  date: '',
-};
 
 export default React.memo(Comment);

@@ -25,7 +25,4 @@ function Header() {
   );
 }
 
-Header.propTypes = {};
-Header.defaultProps = {};
-
 export default React.memo(Header);

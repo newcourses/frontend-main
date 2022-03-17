@@ -2,7 +2,6 @@ import React from 'react';
 import { List, Tabs } from 'antd';
 import Link from 'next/link';
 import css from './index.module.scss';
-import { ICourseCategoryData } from '../../../propTypes';
 import NAVIGATION from '../../../library/navigation';
 
 const { TabPane } = Tabs;
@@ -33,12 +32,5 @@ function VerticalCategoriesNav({ categories }) {
     </Tabs>
   );
 }
-
-VerticalCategoriesNav.propTypes = {
-  categories: ICourseCategoryData,
-};
-VerticalCategoriesNav.defaultProps = {
-  categories: [],
-};
 
 export default React.memo(VerticalCategoriesNav);

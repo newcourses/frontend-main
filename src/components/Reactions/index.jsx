@@ -1,9 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { DislikeOutlined, LikeOutlined } from '@ant-design/icons';
 import cn from 'classnames';
 import css from './index.module.scss';
-import { IBriefReaction } from '../../propTypes/ICommon';
 
 function Reactions({ wrapperStyle, likes, dislikes }) {
   return (
@@ -19,13 +17,5 @@ function Reactions({ wrapperStyle, likes, dislikes }) {
     </div>
   );
 }
-
-Reactions.propTypes = {
-  wrapperStyle: PropTypes.string,
-  ...IBriefReaction,
-};
-Reactions.defaultProps = {
-  wrapperStyle: '',
-};
 
 export default React.memo(Reactions);

@@ -1,11 +1,9 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import cn from 'classnames';
 import css from './index.module.scss';
 import reply from '../../../../../assets/images/nex.png';
 import Reactions from '../../../../../components/Reactions';
 import { declOfNumComments } from '../../../../../helpers';
-import { IBriefReaction } from '../../../../../propTypes/ICommon';
 
 function Footer({
   likes,
@@ -35,11 +33,5 @@ function Footer({
     </div>
   );
 }
-
-Footer.propTypes = {
-  ...IBriefReaction,
-  commentCount: PropTypes.number.isRequired,
-};
-Footer.defaultProps = {};
 
 export default React.memo(Footer);

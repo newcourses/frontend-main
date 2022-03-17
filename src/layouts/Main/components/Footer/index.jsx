@@ -1,7 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
 import cn from 'classnames';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import NAVIGATION from '../../../../library/navigation';
 import Logo from '../../../../components/Logo';
@@ -59,13 +58,5 @@ function Footer({ wrapperStyles }) {
     </footer>
   );
 }
-
-Footer.propTypes = {
-  wrapperStyles: PropTypes.objectOf(PropTypes.any),
-};
-
-Footer.defaultProps = {
-  wrapperStyles: {},
-};
 
 export default React.memo(Footer);

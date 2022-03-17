@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 
 function EmojiItem({ src, type, count }) {
@@ -10,12 +9,5 @@ function EmojiItem({ src, type, count }) {
     </div>
   );
 }
-
-EmojiItem.propTypes = {
-  src: PropTypes.string.isRequired,
-  type: PropTypes.string.isRequired,
-  count: PropTypes.number.isRequired,
-};
-EmojiItem.defaultProps = {};
 
 export default React.memo(EmojiItem);

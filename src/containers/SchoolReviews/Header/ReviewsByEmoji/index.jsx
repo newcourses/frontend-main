@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import neg from '../../../../assets/images/neg.png';
 import pos from '../../../../assets/images/pos.png';
@@ -26,8 +25,5 @@ function ReviewsByEmoji() {
     </div>
   );
 }
-
-ReviewsByEmoji.propTypes = {};
-ReviewsByEmoji.defaultProps = {};
 
 export default React.memo(ReviewsByEmoji);

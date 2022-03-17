@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import InfoSchoolAndCourses from '../InfoSchoolAndCourses';
-import { ISchoolData } from '../../propTypes';
 
 function SchoolsInfo({ schools, title, description }) {
   return (
@@ -15,14 +13,5 @@ function SchoolsInfo({ schools, title, description }) {
     </div>
   );
 }
-
-SchoolsInfo.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string.isRequired,
-  schools: PropTypes.arrayOf(ISchoolData),
-};
-SchoolsInfo.defaultProps = {
-  schools: [],
-};
 
 export default React.memo(SchoolsInfo);

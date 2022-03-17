@@ -3,7 +3,6 @@ import { Col, Row, Table } from 'antd';
 import cn from 'classnames';
 import css from './index.module.scss';
 import AboutSchool from '../../components/AboutSchool';
-import { ISchoolAttributes } from '../../propTypes';
 import {
   CourseInfo,
   LocalPrice,
@@ -123,12 +122,5 @@ function InfoSchoolAndCourses(props) {
     </div>
   );
 }
-
-InfoSchoolAndCourses.propTypes = ISchoolAttributes;
-
-InfoSchoolAndCourses.defaultProps = {
-  advantages: [],
-  disadvantages: [],
-};
 
 export default React.memo(InfoSchoolAndCourses);

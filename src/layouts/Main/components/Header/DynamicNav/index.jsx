@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Link from 'next/link';
 import cn from 'classnames';
 import css from './index.module.scss';
@@ -19,17 +18,5 @@ function DynamicNav({ links }) {
     </ul>
   );
 }
-
-DynamicNav.propTypes = {
-  links: PropTypes.arrayOf(
-    PropTypes.shape({
-      link: PropTypes.string.isRequired,
-      caption: PropTypes.string.isRequired,
-    }),
-  ),
-};
-DynamicNav.defaultProps = {
-  links: [],
-};
 
 export default React.memo(DynamicNav);

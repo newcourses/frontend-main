@@ -1,12 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
-import PropTypes from 'prop-types';
 import { DownOutlined } from '@ant-design/icons';
 import css from './index.module.scss';
 import NAVIGATION from '../../library/navigation';
-import { ICourseSubCategories } from '../../propTypes';
 
-// eslint-disable-next-line react/prop-types
 function CategoriesCard({ caption, subcategories, handler }) {
   return (
     <div className={css.wrapper}>
@@ -34,11 +31,5 @@ function CategoriesCard({ caption, subcategories, handler }) {
     </div>
   );
 }
-
-CategoriesCard.propTypes = {
-  caption: PropTypes.string.isRequired,
-  subcategories: ICourseSubCategories.isRequired,
-  handler: PropTypes.func.isRequired,
-};
 
 export default React.memo(CategoriesCard);

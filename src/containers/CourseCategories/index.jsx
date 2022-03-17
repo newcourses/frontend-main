@@ -1,8 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 import CategoriesCard from '../../components/CategoriesCard';
-import { ICourseCategories } from '../../propTypes';
 
 function CourseCategories({ categories, setVisibleDrawer }) {
   return (
@@ -21,15 +19,5 @@ function CourseCategories({ categories, setVisibleDrawer }) {
     </div>
   );
 }
-
-CourseCategories.propTypes = {
-  categories: ICourseCategories,
-  setVisibleDrawer: PropTypes.func,
-};
-
-CourseCategories.defaultProps = {
-  categories: [],
-  setVisibleDrawer: () => {},
-};
 
 export default React.memo(CourseCategories);

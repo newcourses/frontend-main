@@ -14,7 +14,4 @@ function BackTopButton() {
   );
 }
 
-BackTopButton.propTypes = {};
-BackTopButton.defaultProps = {};
-
 export default React.memo(BackTopButton);

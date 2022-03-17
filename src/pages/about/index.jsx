@@ -1,7 +1,6 @@
 import React from 'react';
 import Main from '../../layouts/Main';
 import useVisibleDrawer from '../../hooks/useVisibleDrawer';
-import { ICourseCategories } from '../../propTypes';
 import getCategories from '../../controllers/getCategories';
 
 function About({ categories }) {
@@ -17,16 +16,6 @@ function About({ categories }) {
     </Main>
   );
 }
-
-About.propTypes = {
-  categories: ICourseCategories,
-};
-
-About.defaultProps = {
-  categories: {
-    data: [],
-  },
-};
 
 export async function getServerSideProps() {
   const categories = await getCategories();

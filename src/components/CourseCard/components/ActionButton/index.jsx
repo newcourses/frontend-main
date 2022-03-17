@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import css from './index.module.scss';
 
 function ActionButton({ name, link }) {
@@ -14,10 +13,5 @@ function ActionButton({ name, link }) {
     </a>
   );
 }
-
-ActionButton.propTypes = {
-  name: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired,
-};
 
 export default React.memo(ActionButton);

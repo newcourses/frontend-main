@@ -2,7 +2,6 @@ import React from 'react';
 import css from './index.module.scss';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { ISchoolAttributes } from '../../propTypes';
 
 function SchoolCard({
   logo,
@@ -28,12 +27,5 @@ function SchoolCard({
     </div>
   );
 }
-
-SchoolCard.propTypes = {
-  ...ISchoolAttributes,
-};
-SchoolCard.defaultProps = {
-  logo: {},
-};
 
 export default React.memo(SchoolCard);
