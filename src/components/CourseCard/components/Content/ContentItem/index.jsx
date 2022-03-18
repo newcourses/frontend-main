@@ -11,7 +11,7 @@ function parseParamsValue(value, unit) {
   return `${value} ${unit}`;
 }
 
-function ContentItem({ icon, infoText, params, prefixText }) {
+function ContentItem({ icon, infoText, params = [], prefixText }) {
   const Icon = icon;
   return (
     <div className={css.item}>

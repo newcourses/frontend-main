@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import css from './index.module.scss';
-import neg from '../../../../assets/images/neg.png';
-import pos from '../../../../assets/images/pos.png';
-import neu from '../../../../assets/images/neu.png';
+import negImg from '../../../../assets/images/neg.png';
+import posImg from '../../../../assets/images/pos.png';
+import neuImg from '../../../../assets/images/neu.png';
 import EmojiItem from './EmojiItem';
 
-const data = [
-  { src: pos.src, type: 'pos', count: 14 },
-  { src: neu.src, type: 'neu', count: 58 },
-  { src: neg.src, type: 'neg', count: 14 },
-];
+function ReviewsByEmoji({ pos, neu, neg }) {
+  const data = useMemo(
+    () => [
+      { src: posImg.src, type: 'pos', count: pos },
+      { src: neuImg.src, type: 'neu', count: neu },
+      { src: negImg.src, type: 'neg', count: neg },
+    ],
+    [neg, neu, pos],
+  );
 
-function ReviewsByEmoji() {
   return (
     <div className={css.wrapper}>
       {data.map((elem) => (

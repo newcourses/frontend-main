@@ -35,7 +35,7 @@ function Content({
         <SettingsSearch setSort={setSortType} setPageSize={setPageSize} />
 
         {arrayReviews.map((elem) => (
-          <Review key={elem.id} {...elem.attributes} />
+          <Review key={elem.id} {...elem.attributes} reviewId={elem.id} />
         ))}
 
         <Button

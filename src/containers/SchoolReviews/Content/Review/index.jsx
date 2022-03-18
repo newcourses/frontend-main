@@ -3,6 +3,7 @@ import css from './index.module.scss';
 import Footer from './Footer';
 import Comment from './Comment';
 import Header from './Header';
+import Title from './Title';
 
 function Review({
   text,
@@ -10,6 +11,7 @@ function Review({
   grade,
   likes,
   title,
+  reviewId,
   comments,
   dislikes,
   reviewer,
@@ -35,13 +37,11 @@ function Review({
     <div className={css.container}>
       <Header date={date} name={reviewer.data.attributes.name} grade={grade} />
       <hr />
-      <div>
-        <h2>{title}</h2>
-        <p className={css.text}>{text}</p>
-      </div>
+      <Title title={title} text={text} />
       <Footer
         likes={likes}
         dislikes={dislikes}
+        reviewId={reviewId}
         isOpenComments={isOpenComments}
         commentCount={comments.data.length}
         setIsOpenComments={setIsOpenComments}
