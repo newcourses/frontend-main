@@ -8,4 +8,6 @@ export const cmsApi = axios.create({
   adapter,
 });
 
-export const mock = () => {};
+export const proxyApi = axios.create({
+  baseURL: '/api',
+});
