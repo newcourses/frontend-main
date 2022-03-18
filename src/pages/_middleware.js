@@ -1,8 +1,7 @@
 import { NextResponse } from 'next/server';
 import { v4 as uuidv4 } from 'uuid';
+import { VISITOR_UID } from '../library/constants';
 import { fetchCmsApi } from '../utils/fetchInstances';
-
-const VISITOR_UID = 'visitor-uid';
 
 async function setVisitorCookie(request, response) {
   const cookie = request.cookies[VISITOR_UID];
