@@ -1,8 +1,11 @@
 import React from 'react';
 import cn from 'classnames';
+import { Anchor } from 'antd';
 import css from './index.module.scss';
 import PageSizeSelect from '../../../../components/PageSizeSelect';
 import SortReviews from './SortReviews';
+
+const REVIEWS_HREF = '#review';
 
 function SettingsSearch({ setSort, setPageSize }) {
   return (
@@ -14,7 +17,16 @@ function SettingsSearch({ setSort, setPageSize }) {
           wrapperStyle={css.wrapperPageSizeSelect}
         />
       </div>
-      <button className={cn(css.button, css.sendReview)}>Оставить отзыв</button>
+      <Anchor affix={false} activeLink={null}>
+        <Anchor.Link
+          href={REVIEWS_HREF}
+          title={
+            <span className={cn(css.button, css.sendReview)}>
+              Оставить отзыв
+            </span>
+          }
+        />
+      </Anchor>
     </div>
   );
 }

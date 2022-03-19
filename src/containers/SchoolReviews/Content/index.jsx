@@ -39,6 +39,7 @@ function Content({
         ))}
 
         <Button
+          id="review"
           onClick={() => setPage(page + 1)}
           type="primary"
           size="large"
