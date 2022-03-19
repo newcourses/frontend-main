@@ -1,5 +1,6 @@
 import qs from 'qs';
 import { cmsApi } from '../utils/axiosInstances';
+import { SCHOOLS } from '../library/routers';
 
 async function getSchools({
   sort,
@@ -21,7 +22,7 @@ async function getSchools({
     { encodeValuesOnly: true },
   );
 
-  const { data } = await cmsApi.get(`/schools?${query}`);
+  const { data } = await cmsApi.get(`${SCHOOLS}?${query}`);
 
   return data;
 }
