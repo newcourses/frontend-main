@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import css from './index.module.scss';
-import Footer from './Footer';
-import Comment from './Comment';
-import Header from './Header';
-import Title from './Title';
+import Footer from './components/Footer';
+import Comment from './components/Comment';
+import Header from './components/Header';
+import Title from './components/Title';
 
 function Review({
   text,
@@ -49,6 +49,7 @@ function Review({
 
       {comments.data.map((comment) => (
         <Comment
+          commentId={comment.id}
           key={comment.id}
           isOpened={isOpenComments}
           {...comment.attributes}

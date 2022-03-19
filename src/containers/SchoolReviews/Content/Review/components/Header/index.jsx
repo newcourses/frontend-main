@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
+import CustomRate from 'components/CustomRate';
 import css from './index.module.scss';
-import CustomRate from '../../../../../components/CustomRate';
 
 function Header({ date, name, grade }) {
   return (
