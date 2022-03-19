@@ -16,21 +16,6 @@ function Review({
   dislikes,
   reviewer,
 }) {
-  // const [likes, setLikes] = useState(0);
-  // const [dislikes, setDislikes] = useState(0);
-  const [action, setAction] = useState(null);
-  const like = () => {
-    // setLikes(1);
-    // setDislikes(0);
-    setAction('liked');
-  };
-
-  const dislike = () => {
-    // setLikes(0);
-    // setDislikes(1);
-    setAction('disliked');
-  };
-
   const [isOpenComments, setIsOpenComments] = useState(false);
 
   return (
@@ -49,10 +34,10 @@ function Review({
 
       {comments.data.map((comment) => (
         <Comment
-          commentId={comment.id}
           key={comment.id}
-          isOpened={isOpenComments}
+          commentId={comment.id}
           {...comment.attributes}
+          isOpened={isOpenComments}
         />
       ))}
     </div>
