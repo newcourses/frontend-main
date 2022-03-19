@@ -1,6 +1,6 @@
 import React from 'react';
+import SchoolCard from 'components/SchoolCard';
 import css from './index.module.scss';
-import SchoolCard from '../../components/SchoolCard';
 
 function SchoolList({ data }) {
   return (

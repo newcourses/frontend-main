@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from 'antd';
-import Logo from '../../../Logo';
+import Logo from 'components/Logo';
+import { declOfNumReviews } from 'helpers';
+import NAVIGATION from 'library/navigation';
+import CustomRate from 'components/CustomRate';
 import css from './index.module.scss';
-import CustomRate from '../../../CustomRate';
-import { declOfNumReviews } from '../../../../helpers';
-import NAVIGATION from '../../../../library/navigation';
 
 function Header({ logo, grade, mainLink, displayLink, code, countReviews }) {
   return (

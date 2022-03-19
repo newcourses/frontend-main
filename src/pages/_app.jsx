@@ -1,8 +1,8 @@
-import '../styles/globals.scss';
+import 'styles/globals.scss';
 import React from 'react';
 import 'moment/locale/ru';
 import moment from 'moment';
-import BackTopButton from '../components/BackTopButton';
+import BackTopButton from 'components/BackTopButton';
 
 moment.locale('ru');
 

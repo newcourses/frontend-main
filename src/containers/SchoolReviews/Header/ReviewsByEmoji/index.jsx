@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
-import css from './index.module.scss';
-import negImg from '../../../../assets/images/neg.png';
-import posImg from '../../../../assets/images/pos.png';
-import neuImg from '../../../../assets/images/neu.png';
+import negImg from 'assets/images/neg.png';
+import posImg from 'assets/images/pos.png';
+import neuImg from 'assets/images/neu.png';
 import EmojiItem from './EmojiItem';
+import css from './index.module.scss';
 
 function ReviewsByEmoji({ pos, neu, neg }) {
   const data = useMemo(

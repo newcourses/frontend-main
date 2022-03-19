@@ -1,6 +1,6 @@
 import qs from 'qs';
-import { cmsApi } from '../utils/axiosInstances';
-import { SCHOOLS } from '../library/routers';
+import { SCHOOLS } from 'library/routers';
+import { cmsApi } from 'utils/axiosInstances';
 
 async function getSchools({
   sort,

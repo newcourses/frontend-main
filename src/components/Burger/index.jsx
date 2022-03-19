@@ -1,6 +1,6 @@
 import React from 'react';
-import { slide as Menu } from 'react-burger-menu';
 import Link from 'next/link';
+import { slide as Menu } from 'react-burger-menu';
 
 function Burger() {
   return (

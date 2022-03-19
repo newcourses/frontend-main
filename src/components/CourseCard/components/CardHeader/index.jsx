@@ -1,7 +1,7 @@
 import React from 'react';
+import AboutSchool from 'components/AboutSchool';
 import css from './index.module.scss';
 import PriceBlock from './PriceBlock';
-import AboutSchool from '../../../AboutSchool';
 
 function CardHeader({ price, creditPayment, title, schoolInfo }) {
   return (

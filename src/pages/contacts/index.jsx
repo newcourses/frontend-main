@@ -1,7 +1,7 @@
 import React from 'react';
-import Main from '../../layouts/Main';
-import useVisibleDrawer from '../../hooks/useVisibleDrawer';
-import getCategories from '../../controllers/getCategories';
+import Main from 'layouts/Main';
+import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import getCategories from 'controllers/getCategories';
 
 function Contacts({ categories }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();

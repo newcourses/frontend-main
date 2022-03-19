@@ -1,7 +1,7 @@
 import React from 'react';
+import mainBanner from 'assets/images/bg.svg';
+import AllCategoriesButton from 'components/AllCategoriesButton';
 import css from './index.module.scss';
-import mainBanner from '../../assets/images/bg.svg';
-import AllCategoriesButton from '../../components/AllCategoriesButton';
 
 function MainBanner({ setVisibleDrawer }) {
   return (

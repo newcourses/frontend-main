@@ -1,4 +1,4 @@
-import { REACTIONS } from '../library/routers';
+import { REACTIONS } from 'library/routers';
 
 function createReaction({
   likes,

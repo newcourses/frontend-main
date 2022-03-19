@@ -1,6 +1,6 @@
 import React from 'react';
+import CourseCard from 'components/CourseCard';
 import css from './index.module.scss';
-import CourseCard from '../../components/CourseCard';
 
 function ShowcaseCourses({ cards, title }) {
   return (

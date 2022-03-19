@@ -1,12 +1,12 @@
-import React, { useCallback, useState } from 'react';
 import cn from 'classnames';
+import reply from 'assets/images/nex.png';
+import { declOfNumComments } from 'helpers';
+import useProxyApi from 'hooks/useProxyApi';
+import Reactions from 'components/Reactions';
+import React, { useCallback, useState } from 'react';
+import createReaction from 'controllers/reqCreateReaction';
+import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import css from './index.module.scss';
-import reply from '../../../../../../assets/images/nex.png';
-import Reactions from '../../../../../../components/Reactions';
-import { declOfNumComments } from '../../../../../../helpers';
-import useDisplayErrorMessage from '../../../../../../hooks/useDisplayErrorMessage';
-import useProxyApi from '../../../../../../hooks/useProxyApi';
-import createReaction from '../../../../../../controllers/reqCreateReaction';
 
 function Footer({
   reviewId,

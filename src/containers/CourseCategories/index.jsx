@@ -1,6 +1,6 @@
 import React from 'react';
+import CategoriesCard from 'components/CategoriesCard';
 import css from './index.module.scss';
-import CategoriesCard from '../../components/CategoriesCard';
 
 function CourseCategories({ categories, setVisibleDrawer }) {
   return (

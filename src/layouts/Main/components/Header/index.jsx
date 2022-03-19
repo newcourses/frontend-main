@@ -1,10 +1,10 @@
 import React from 'react';
-import css from './index.module.scss';
+import Logo from 'components/Logo';
+import NAVIGATION from 'library/navigation';
+import logoDark from 'assets/images/logo-dark.png';
+import AllCategoriesButton from 'components/AllCategoriesButton';
 import DynamicNav from './DynamicNav';
-import Logo from '../../../../components/Logo';
-import NAVIGATION from '../../../../library/navigation';
-import logoDark from '../../../../assets/images/logo-dark.png';
-import AllCategoriesButton from '../../../../components/AllCategoriesButton';
+import css from './index.module.scss';
 
 function Header({ setVisibleDrawer }) {
   return (

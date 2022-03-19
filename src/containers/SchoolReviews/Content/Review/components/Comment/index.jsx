@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
 import { Collapse } from 'react-collapse';
+import useProxyApi from 'hooks/useProxyApi';
+import Reactions from 'components/Reactions';
+import React, { useCallback, useState } from 'react';
+import createReaction from 'controllers/reqCreateReaction';
+import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import css from './index.module.scss';
-import Reactions from '../../../../../../components/Reactions';
-import useProxyApi from '../../../../../../hooks/useProxyApi';
-import useDisplayErrorMessage from '../../../../../../hooks/useDisplayErrorMessage';
-import createReaction from '../../../../../../controllers/reqCreateReaction';
 
 function Comment({
   text,

@@ -1,6 +1,6 @@
 import React from 'react';
+import { declOfNumMonths } from 'helpers/declOfNumInstances';
 import css from './index.module.scss';
-import { declOfNumMonths } from '../../../helpers/declOfNumInstances';
 
 function Duration({ duration, unit }) {
   let actualDuration;

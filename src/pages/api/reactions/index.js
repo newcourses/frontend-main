@@ -1,5 +1,5 @@
-import reactionsRouters from '../../../api/routers/reactions';
-import { errorCatcher } from '../../../helpers';
+import { errorCatcher } from 'helpers';
+import reactionsRouters from 'api/routers/reactions';
 
 export default async function handler(req, res) {
   const baseRouter = reactionsRouters.find(

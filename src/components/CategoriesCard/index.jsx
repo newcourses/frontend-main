@@ -1,8 +1,8 @@
 import React from 'react';
 import Link from 'next/link';
+import NAVIGATION from 'library/navigation';
 import { DownOutlined } from '@ant-design/icons';
 import css from './index.module.scss';
-import NAVIGATION from '../../library/navigation';
 
 function CategoriesCard({ caption, subcategories, handler }) {
   return (

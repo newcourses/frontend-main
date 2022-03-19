@@ -1,11 +1,11 @@
 import React from 'react';
-import Link from 'next/link';
 import cn from 'classnames';
+import Link from 'next/link';
+import Logo from 'components/Logo';
+import NAVIGATION from 'library/navigation';
+import { DOCUMENTATION } from 'library/companyData';
+import logoLight from 'assets/images/logo-light.png';
 import css from './index.module.scss';
-import NAVIGATION from '../../../../library/navigation';
-import Logo from '../../../../components/Logo';
-import { DOCUMENTATION } from '../../../../library/companyData';
-import logoLight from '../../../../assets/images/logo-light.png';
 
 function Footer({ wrapperStyles }) {
   return (

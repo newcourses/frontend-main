@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from './components/Footer';
+import DrawerWithCourseCategories from 'components/DrawerWithCourseCategories';
 import css from './index.module.scss';
+import Footer from './components/Footer';
 import Header from './components/Header';
-import DrawerWithCourseCategories from '../../components/DrawerWithCourseCategories';
 
 function Main({ children, visibleDrawer, setVisibleDrawer, categories }) {
   return (

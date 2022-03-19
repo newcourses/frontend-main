@@ -1,9 +1,9 @@
 import React from 'react';
-import Main from '../../layouts/Main';
-import useVisibleDrawer from '../../hooks/useVisibleDrawer';
-import getCategories from '../../controllers/getCategories';
-import SchoolList from '../../containers/SchoolList';
-import getSchools from '../../controllers/getSchools';
+import Main from 'layouts/Main';
+import SchoolList from 'containers/SchoolList';
+import getSchools from 'controllers/getSchools';
+import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import getCategories from 'controllers/getCategories';
 
 function Schools({ categories, schools }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();

@@ -1,6 +1,6 @@
 import React from 'react';
-import { DislikeOutlined, LikeOutlined } from '@ant-design/icons';
 import cn from 'classnames';
+import { DislikeOutlined, LikeOutlined } from '@ant-design/icons';
 import css from './index.module.scss';
 
 function Reactions({ wrapperStyle, likes, dislikes, handler }) {

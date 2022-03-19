@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
-import getSchoolReviews from '../../../controllers/getSchoolReviews';
-import { prepareSchoolReviews } from '../../../helpers/preparersData';
+import getSchoolReviews from 'controllers/getSchoolReviews';
+import { prepareSchoolReviews } from 'helpers/preparersData';
 
 function useLoadReviews({ initReviews }) {
   const [reviews, setReviews] = useState(initReviews.data);

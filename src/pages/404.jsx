@@ -1,7 +1,7 @@
+import Main from 'layouts/Main';
 import React, { useEffect, useState } from 'react';
-import Main from '../layouts/Main';
-import useVisibleDrawer from '../hooks/useVisibleDrawer';
-import getCategories from '../controllers/getCategories';
+import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import getCategories from 'controllers/getCategories';
 
 function NotFound() {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
+import NAVIGATION from 'library/navigation';
 import css from './index.module.scss';
-import NAVIGATION from '../../library/navigation';
 
 function Logo({ logo, classNames, isNewWind }) {
   const linkProps = {};

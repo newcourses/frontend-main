@@ -1,12 +1,12 @@
 import React from 'react';
-import Main from '../../../layouts/Main';
-import SchoolsInfo from '../../../containers/SchoolsInfo';
-import CoursesTable from '../../../containers/CoursesTable';
-import useVisibleDrawer from '../../../hooks/useVisibleDrawer';
-import getCategories from '../../../controllers/getCategories';
-import ShowcaseCourses from '../../../containers/ShowcaseCourses';
-import getCourses from '../../../controllers/getCourses';
-import getSchools from '../../../controllers/getSchools';
+import Main from 'layouts/Main';
+import getSchools from 'controllers/getSchools';
+import getCourses from 'controllers/getCourses';
+import SchoolsInfo from 'containers/SchoolsInfo';
+import CoursesTable from 'containers/CoursesTable';
+import getCategories from 'controllers/getCategories';
+import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import ShowcaseCourses from 'containers/ShowcaseCourses';
 
 function CourseCategory({ categories, courses, schools }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();

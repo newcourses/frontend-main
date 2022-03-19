@@ -1,6 +1,6 @@
 import React from 'react';
-import Link from 'next/link';
 import cn from 'classnames';
+import Link from 'next/link';
 import css from './index.module.scss';
 
 function DynamicNav({ links }) {

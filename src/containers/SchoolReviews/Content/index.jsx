@@ -1,10 +1,10 @@
 import React from 'react';
 import { Button } from 'antd';
-import css from './index.module.scss';
 import Review from './Review';
-import SettingsSearch from './SettingsSearch';
-import useLoadReviews from './useLoadReviews';
+import css from './index.module.scss';
 import AffixBlock from './AffixBlock';
+import useLoadReviews from './useLoadReviews';
+import SettingsSearch from './SettingsSearch';
 
 function Content({
   school,

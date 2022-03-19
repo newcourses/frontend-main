@@ -1,6 +1,6 @@
 import qs from 'qs';
-import { cmsApi } from '../utils/axiosInstances';
-import { COUNT_DEFAULT_SIZE_PAGE } from '../library/constants';
+import { cmsApi } from 'utils/axiosInstances';
+import { COUNT_DEFAULT_SIZE_PAGE } from 'library/constants';
 
 export default async function getSchoolReviews({
   code,

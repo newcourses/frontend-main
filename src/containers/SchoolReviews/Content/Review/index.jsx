@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import css from './index.module.scss';
-import Footer from './components/Footer';
-import Comment from './components/Comment';
-import Header from './components/Header';
 import Title from './components/Title';
+import Footer from './components/Footer';
+import Header from './components/Header';
+import Comment from './components/Comment';
 
 function Review({
   text,

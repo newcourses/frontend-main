@@ -1,14 +1,14 @@
 import React from 'react';
-import { Col, Row, Table } from 'antd';
 import cn from 'classnames';
-import css from './index.module.scss';
-import AboutSchool from '../../components/AboutSchool';
 import {
   CourseInfo,
   LocalPrice,
   LocalInstallment,
-} from '../../components/CoursesTableCells';
-import Duration from '../../components/CoursesTableCells/Duration';
+} from 'components/CoursesTableCells';
+import { Col, Row, Table } from 'antd';
+import AboutSchool from 'components/AboutSchool';
+import Duration from 'components/CoursesTableCells/Duration';
+import css from './index.module.scss';
 
 function InfoSchoolAndCourses(props) {
   const {

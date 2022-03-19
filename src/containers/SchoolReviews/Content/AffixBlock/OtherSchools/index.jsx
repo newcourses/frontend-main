@@ -1,9 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
+import { declOfNumReviews } from 'helpers';
+import NAVIGATION from 'library/navigation';
+import CustomRate from 'components/CustomRate';
 import css from './index.module.scss';
-import { declOfNumReviews } from '../../../../../helpers';
-import CustomRate from '../../../../../components/CustomRate';
-import NAVIGATION from '../../../../../library/navigation';
 
 function OtherSchools({ schools }) {
   return (

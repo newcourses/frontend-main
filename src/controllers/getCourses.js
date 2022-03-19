@@ -1,5 +1,5 @@
 import qs from 'qs';
-import { cmsApi } from '../utils/axiosInstances';
+import { cmsApi } from 'utils/axiosInstances';
 
 export default async function getCourses({
   pagination,

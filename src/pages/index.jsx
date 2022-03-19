@@ -1,9 +1,9 @@
 import React from 'react';
-import Main from '../layouts/Main';
-import CourseCategories from '../containers/CourseCategories';
-import MainBanner from '../containers/MainBanner';
-import useVisibleDrawer from '../hooks/useVisibleDrawer';
-import getCategories from '../controllers/getCategories';
+import Main from 'layouts/Main';
+import MainBanner from 'containers/MainBanner';
+import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import getCategories from 'controllers/getCategories';
+import CourseCategories from 'containers/CourseCategories';
 
 function Home({ categories }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();

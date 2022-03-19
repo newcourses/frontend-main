@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
 import { Affix } from 'antd';
+import React, { useState } from 'react';
 import css from './index.module.scss';
-import OtherSchools from './OtherSchools';
 import SchoolInfo from './SchoolInfo';
 import Categories from './Categories';
+import OtherSchools from './OtherSchools';
 
 function AffixBlock({ otherSchools, school, categories, setVisibleDrawer }) {
   const [top] = useState(40);

@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
+import { declOfNumReviews } from 'helpers';
+import CustomRate from 'components/CustomRate';
 import css from './index.module.scss';
-import { declOfNumReviews } from '../../helpers';
-import CustomRate from '../CustomRate';
 
 function AboutSchool({
   link,

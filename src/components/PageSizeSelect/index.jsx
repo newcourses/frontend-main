@@ -1,9 +1,6 @@
 import React from 'react';
 import { Select } from 'antd';
-import {
-  COUNT_DEFAULT_SIZE_PAGE,
-  OPTIONS_SIZE_PAGE,
-} from '../../library/constants';
+import { COUNT_DEFAULT_SIZE_PAGE, OPTIONS_SIZE_PAGE } from 'library/constants';
 
 function PageSizeSelect({ setPageSize, wrapperStyle }) {
   return (

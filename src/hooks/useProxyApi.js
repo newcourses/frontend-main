@@ -1,5 +1,5 @@
+import { proxyApi } from 'utils/axiosInstances';
 import useHttp from './useHttp';
-import { proxyApi } from '../utils/axiosInstances';
 
 function useProxyApi() {
   return useHttp(proxyApi);

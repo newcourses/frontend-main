@@ -1,11 +1,11 @@
 import React from 'react';
-import Main from '../../../../layouts/Main';
-import useVisibleDrawer from '../../../../hooks/useVisibleDrawer';
-import getCategories from '../../../../controllers/getCategories';
-import SchoolReviews from '../../../../containers/SchoolReviews';
-import getSchoolReviews from '../../../../controllers/getSchoolReviews';
-import { prepareSchoolReviews } from '../../../../helpers/preparersData';
-import getSchools from '../../../../controllers/getSchools';
+import Main from 'layouts/Main';
+import getSchools from 'controllers/getSchools';
+import SchoolReviews from 'containers/SchoolReviews';
+import getCategories from 'controllers/getCategories';
+import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import getSchoolReviews from 'controllers/getSchoolReviews';
+import { prepareSchoolReviews } from 'helpers/preparersData';
 
 function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();

@@ -1,7 +1,7 @@
 import React from 'react';
+import { declOfNumReviews } from 'helpers';
+import CustomRate from 'components/CustomRate';
 import css from './index.module.scss';
-import CustomRate from '../../../components/CustomRate';
-import { declOfNumReviews } from '../../../helpers';
 import ReviewsByEmoji from './ReviewsByEmoji';
 
 function Header({

@@ -1,8 +1,8 @@
 import React from 'react';
-import { List, Tabs } from 'antd';
 import Link from 'next/link';
+import { List, Tabs } from 'antd';
+import NAVIGATION from 'library/navigation';
 import css from './index.module.scss';
-import NAVIGATION from '../../../library/navigation';
 
 const { TabPane } = Tabs;
 

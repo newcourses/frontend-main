@@ -2,14 +2,14 @@ import 'moment/locale/ru';
 import React from 'react';
 import moment from 'moment';
 import { Button, Table } from 'antd';
-import css from './index.module.scss';
 import {
+  Duration,
   CourseInfo,
   LocalPrice,
   LocalInstallment,
-} from '../../components/CoursesTableCells';
-import AboutSchool from '../../components/AboutSchool';
-import Duration from '../../components/CoursesTableCells/Duration';
+} from 'components/CoursesTableCells';
+import AboutSchool from 'components/AboutSchool';
+import css from './index.module.scss';
 
 moment.locale('ru');
 
