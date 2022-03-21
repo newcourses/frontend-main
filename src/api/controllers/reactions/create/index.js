@@ -1,6 +1,6 @@
-import ReactionsServices from '../../../services/reactions/index';
-import { VISITOR_UID } from '../../../../library/constants';
-import { ApiError } from '../../../../helpers';
+import ReactionsServices from 'api/services/reactions';
+import { VISITOR_UID } from 'library/constants';
+import { ApiError } from 'helpers';
 
 export default async (req, res) => {
   const visitorUid = req.cookies[VISITOR_UID];
@@ -9,6 +9,9 @@ export default async (req, res) => {
     throw ApiError('Отсутствует VISITOR_UID, обновите страницу', 404);
   }
 
-  const body = await ReactionsServices.create({ uid: visitorUid, ...req.body });
-  return res.status(201).json(body);
+  const result = await ReactionsServices.create({
+    uid: visitorUid,
+    ...req.body,
+  });
+  return res.status(201).json(result);
 };

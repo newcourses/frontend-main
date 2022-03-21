@@ -1,22 +1,8 @@
 import qs from 'qs';
-import { cmsApi } from '../../../../utils/axiosInstances';
-import { ApiError } from '../../../../helpers';
-
-const MISSING_VISITOR =
-  'Ошибка! Обновите страницу! \nЕсли ошибка сохранится почитстите куки и кеш';
-
-async function getVisitor(uid) {
-  const queryVisitor = qs.stringify(
-    {
-      filters: {
-        uid,
-      },
-    },
-    { encodeValuesOnly: true },
-  );
-  const { data: visitors } = await cmsApi.get(`/visitors?${queryVisitor}`);
-  return visitors?.data?.[0];
-}
+import { ApiError } from 'helpers';
+import { cmsApi } from 'utils/axiosInstances';
+import { MISSING_VISITOR } from 'library/apiErrors';
+import VisitorsServices from 'api/services/visitors';
 
 async function canCreateReaction({ visitor, review, comment }) {
   const queryReactions = qs.stringify(
@@ -34,10 +20,19 @@ async function canCreateReaction({ visitor, review, comment }) {
   return reactions?.data?.length === 0;
 }
 
+/**
+ * Creat reaction
+ * @param body
+ * @param {string} body.uid visitor's uid
+ * @param {string} body.review review's id
+ * @param {string} body.comment comment's id
+ * @param {string} body.indicator reaction indicator
+ * @returns {Promise<string>}
+ */
 export default async (body) => {
-  const visitor = await getVisitor(body.uid);
+  const visitor = await VisitorsServices.getOneByUID(body.uid);
   if (!visitor) {
-    throw ApiError(MISSING_VISITOR, 409);
+    throw ApiError(MISSING_VISITOR.message, MISSING_VISITOR.statusCode);
   }
 
   const isCreateReaction = await canCreateReaction({

@@ -1,4 +1,4 @@
-import ReactionsControllers from '../controllers/reactions';
+import ReactionsControllers from 'api/controllers/reactions';
 
 export default [
   {
