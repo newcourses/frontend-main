@@ -1,0 +1,16 @@
+@import '/src/styles/variables';
+@import '/src/styles/mixins';
+
+.wrapper {
+  margin-top: 80px;
+}
+
+.title {
+  font-family: RubikBold;
+  font-size: 36px;
+}
+
+.description {
+  font-size: 16px;
+  color: $liteText;
+}
