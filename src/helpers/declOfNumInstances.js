@@ -17,6 +17,11 @@ export function declOfNumReviews(number, returnString) {
   return declOfNum(number, titles, returnString);
 }
 
+export function declOfNumSymbols(number, returnString) {
+  const titles = ['символ', 'символа', 'символов'];
+  return declOfNum(number, titles, returnString);
+}
+
 export function declOfNumComments(number, returnString) {
   const titles = ['комментарий', 'комментрия', 'комментариев'];
   return declOfNum(number, titles, returnString);
