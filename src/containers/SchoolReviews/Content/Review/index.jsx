@@ -20,7 +20,11 @@ function Review({
 
   return (
     <div className={css.container}>
-      <Header date={date} name={reviewer.data.attributes.name} grade={grade} />
+      <Header
+        date={date}
+        grade={grade}
+        name={reviewer.data?.attributes?.name}
+      />
       <hr />
       <Title title={title} text={text} />
       <Footer

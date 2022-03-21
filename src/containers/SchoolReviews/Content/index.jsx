@@ -1,8 +1,9 @@
 import React from 'react';
 import { Button } from 'antd';
 import Review from './Review';
-import css from './index.module.scss';
 import AffixBlock from './AffixBlock';
+import css from './index.module.scss';
+import LeaveFeedback from './LeaveFeedback';
 import useLoadReviews from './useLoadReviews';
 import SettingsSearch from './SettingsSearch';
 
@@ -39,14 +40,18 @@ function Content({
         ))}
 
         <Button
-          id="review"
-          onClick={() => setPage(page + 1)}
-          type="primary"
           size="large"
+          type="primary"
           className={css.button}
+          onClick={() => setPage(page + 1)}
         >
           Еще отзывы
         </Button>
+
+        <LeaveFeedback
+          schoolId={school.id}
+          schoolName={school.attributes.name}
+        />
       </div>
     </section>
   );
