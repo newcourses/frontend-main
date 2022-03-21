@@ -1,6 +1,6 @@
 import React from 'react';
+import InfoSchoolAndCourses from 'containers/InfoSchoolAndCourses';
 import css from './index.module.scss';
-import InfoSchoolAndCourses from '../InfoSchoolAndCourses';
 
 function SchoolsInfo({ schools, title, description }) {
   return (
