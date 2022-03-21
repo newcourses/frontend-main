@@ -1,10 +1,8 @@
-import { errorCatcher } from 'helpers';
-import reactionsRouters from 'api/routers/reactions';
+import { errorCatcher, parseRouters } from 'helpers';
+import Routers from 'api/routers/reactions';
 
 export default async function handler(req, res) {
-  const baseRouter = reactionsRouters.find(
-    (elem) => elem.method === req.method && elem.path === req.url,
-  );
+  const baseRouter = parseRouters(Routers, req.url);
 
   await errorCatcher(req, res, baseRouter.controller);
 
