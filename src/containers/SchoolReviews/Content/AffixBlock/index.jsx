@@ -1,15 +1,15 @@
+import React from 'react';
 import { Affix } from 'antd';
-import React, { useState } from 'react';
 import css from './index.module.scss';
 import SchoolInfo from './SchoolInfo';
 import Categories from './Categories';
 import OtherSchools from './OtherSchools';
 
-function AffixBlock({ otherSchools, school, categories, setVisibleDrawer }) {
-  const [top] = useState(40);
+const OFFSET_TOP = 20;
 
+function AffixBlock({ otherSchools, school, categories, setVisibleDrawer }) {
   return (
-    <Affix offsetTop={top}>
+    <Affix offsetTop={OFFSET_TOP}>
       <div className={css.affixBlock}>
         <SchoolInfo
           description={school?.attributes?.description}
