@@ -12,9 +12,11 @@ function Footer({
   reviewId,
   commentCount,
   isOpenComments,
-  setIsOpenComments,
   likes: initLikes,
+  setIsOpenComments,
+  isOpenedLeaveComment,
   dislikes: initDislikes,
+  setIsOpenedLeaveComment,
 }) {
   const [likes, setLikes] = useState(initLikes);
   const [dislikes, setDislikes] = useState(initDislikes);
@@ -39,13 +41,17 @@ function Footer({
   return (
     <div className={css.wrapper}>
       <div>
-        <button className={css.button} type="button">
+        <button
+          type="button"
+          className={css.button}
+          onClick={() => setIsOpenedLeaveComment(!isOpenedLeaveComment)}
+        >
           Прокомментировать
         </button>
 
         <button
-          className={cn(css.button, css.comments)}
           type="button"
+          className={cn(css.button, css.comments)}
           onClick={() => setIsOpenComments(!isOpenComments)}
         >
           <img src={reply.src} alt="replies" className={css.commentsIcon} />

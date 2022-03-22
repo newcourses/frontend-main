@@ -1,0 +1,23 @@
+@import "src/styles/variables";
+@import '/src/styles/mixins';
+
+.container {
+  :global {
+    .ReactCollapse--collapse {
+      transition: height 500ms;
+    }
+  }
+}
+
+.formWrapper {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 320px;
+  background-color: $lightColor;
+}
+
+.button {
+  @include standard-button-style;
+}

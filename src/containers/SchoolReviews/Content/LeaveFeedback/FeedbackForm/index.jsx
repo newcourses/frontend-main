@@ -1,20 +1,21 @@
-import React, { useCallback } from 'react';
 import { Form, Formik } from 'formik';
-import { FormGroup, TextArea } from 'components/CustomFields';
 import {
-  combiningValidators,
   isEmail,
-  isRequired,
-  maxLength,
-  maxValue,
   minValue,
+  maxValue,
+  maxLength,
+  isRequired,
+  combiningValidators,
 } from 'helpers/validations';
-import css from './index.module.scss';
+import React, { useCallback } from 'react';
+import useProxyApi from 'hooks/useProxyApi';
+import PrivacyCheckbox from 'components/PrivacyCheckbox';
+import { MAX_LENGTH_REVIEW_TEXT } from 'library/constants';
+import { FormGroup, TextArea } from 'components/CustomFields';
+import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import SetRate from './SetRate';
-import useProxyApi from '../../../../../hooks/useProxyApi';
-import useDisplayErrorMessage from '../../../../../hooks/useDisplayErrorMessage';
+import css from './index.module.scss';
 
-const MAX_LENGTH_TEXT_AREA = 5000;
 const ROWS_TEXT_AREA = 10;
 const SIZE_RATE = 30;
 
@@ -62,9 +63,9 @@ function FeedbackForm({ schoolId, setFormSent }) {
               size="large"
               errors={errors}
               validate={isRequired}
+              disabled={isDisabled}
               style={{ height: '50px' }}
               placeholder="Введите ваше имя:"
-              disabled={isDisabled}
             />
 
             <FormGroup
@@ -85,7 +86,7 @@ function FeedbackForm({ schoolId, setFormSent }) {
               component={TextArea}
               rows={ROWS_TEXT_AREA}
               disabled={isDisabled}
-              maxLength={MAX_LENGTH_TEXT_AREA}
+              maxLength={MAX_LENGTH_REVIEW_TEXT}
               placeholder="Введите текст отзыва:"
               validate={combiningValidators(isRequired, maxLength(5000))}
             />
@@ -98,6 +99,14 @@ function FeedbackForm({ schoolId, setFormSent }) {
               style={{ height: '50px' }}
               placeholder="Введите ваш Email:"
               validate={combiningValidators(isRequired, isEmail)}
+            />
+
+            <FormGroup
+              name="privacy"
+              errors={errors}
+              disabled={isDisabled}
+              validate={isRequired}
+              component={PrivacyCheckbox}
             />
 
             <button

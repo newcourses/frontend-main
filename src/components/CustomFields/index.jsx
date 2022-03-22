@@ -1,10 +1,11 @@
-import React, { useCallback, useState } from 'react';
-import { Field } from 'formik';
 import {
   Rate as AntdRate,
   Input as AntdInput,
   Checkbox as AntdCheckbox,
 } from 'antd';
+import { Field } from 'formik';
+import React, { useCallback, useState } from 'react';
+import css from './index.module.scss';
 
 const standardOnChange =
   (form, field, type = 'input') =>
@@ -103,6 +104,7 @@ export const Checkbox = ({ field, form, v, label, ...props }) => {
 
   return (
     <AntdCheckbox
+      className={css.defaultCheckboxStyle}
       style={{ width: '100%' }}
       onChange={onChange}
       checked={isChecked}

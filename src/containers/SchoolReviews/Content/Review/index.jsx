@@ -4,6 +4,7 @@ import Title from './components/Title';
 import Footer from './components/Footer';
 import Header from './components/Header';
 import Comment from './components/Comment';
+import LeaveComment from './components/LeaveComment';
 
 function Review({
   text,
@@ -17,6 +18,7 @@ function Review({
   reviewer,
 }) {
   const [isOpenComments, setIsOpenComments] = useState(false);
+  const [isOpenedLeaveComment, setIsOpenedLeaveComment] = useState(false);
 
   return (
     <div className={css.container}>
@@ -34,6 +36,8 @@ function Review({
         isOpenComments={isOpenComments}
         commentCount={comments.data.length}
         setIsOpenComments={setIsOpenComments}
+        isOpenedLeaveComment={isOpenedLeaveComment}
+        setIsOpenedLeaveComment={setIsOpenedLeaveComment}
       />
 
       {comments.data.map((comment) => (
@@ -44,6 +48,8 @@ function Review({
           isOpened={isOpenComments}
         />
       ))}
+
+      <LeaveComment reviewId={reviewId} isOpened={isOpenedLeaveComment} />
     </div>
   );
 }

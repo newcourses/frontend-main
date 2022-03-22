@@ -1,0 +1,10 @@
+@import '/src/styles/variables';
+
+.defaultCheckboxStyle {
+  :global {
+    .ant-checkbox-checked .ant-checkbox-inner {
+      border-color: $accent;
+      background-color: $accent;
+    }
+  }
+}

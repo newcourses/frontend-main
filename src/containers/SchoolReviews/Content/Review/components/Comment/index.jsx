@@ -40,7 +40,7 @@ function Comment({
       <Collapse isOpened={isOpened}>
         <div className={css.wrapper}>
           <div>{date}</div>
-          <h3 className={css.name}>{reviewer.data.attributes.name}</h3>
+          <h3 className={css.name}>{reviewer?.data?.attributes?.name}</h3>
           <p className={css.text}>{text}</p>
           <Reactions
             handler={reactionHandler}
