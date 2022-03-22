@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import {
   isEmail,
   maxLength,
@@ -15,14 +15,18 @@ import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import css from './index.module.scss';
 
 const ROWS_TEXT_AREA = 3;
+const MESSAGE_AFTER_SENT_FORM =
+  'Коммеентарий проходит модерацию, в течение 24-х часов мы опубликуем его';
 
 function LeaveComment({ reviewId, isOpened }) {
+  const [isSentForm, setIsSentForm] = useState(false);
   const { request, error, clearError, isLoading } = useProxyApi();
   useDisplayErrorMessage(error, clearError);
 
   const onSubmit = useCallback(
     async (data) => {
       await request('/comments', 'POST', null, { ...data, reviewId });
+      setIsSentForm(true);
     },
     [request, reviewId],
   );
@@ -30,69 +34,75 @@ function LeaveComment({ reviewId, isOpened }) {
   return (
     <div className={css.container}>
       <Collapse isOpened={isOpened} bordered={false}>
-        <Formik
-          initialValues={{
-            grade: 0,
-            title: '',
-            name: '',
-            email: '',
-            text: '',
-          }}
-          onSubmit={onSubmit}
-        >
-          {({ errors, submitForm, isSubmitting }) => {
-            const isDisabled = isLoading || isSubmitting || !submitForm;
+        {isSentForm ? (
+          <div className={css.messageAfterSentForm}>
+            {MESSAGE_AFTER_SENT_FORM}
+          </div>
+        ) : (
+          <Formik
+            initialValues={{
+              title: '',
+              name: '',
+              email: '',
+              text: '',
+              privacy: false,
+            }}
+            onSubmit={onSubmit}
+          >
+            {({ errors, submitForm, isSubmitting }) => {
+              const isDisabled = isLoading || isSubmitting || !submitForm;
 
-            return (
-              <Form className={css.formWrapper}>
-                <FormGroup
-                  name="name"
-                  errors={errors}
-                  validate={isRequired}
-                  disabled={isDisabled}
-                  placeholder="Введите ваше имя:"
-                />
+              return (
+                <Form className={css.formWrapper}>
+                  <FormGroup
+                    name="name"
+                    errors={errors}
+                    validate={isRequired}
+                    disabled={isDisabled}
+                    placeholder="Введите ваше имя:"
+                  />
 
-                <FormGroup
-                  showCount
-                  name="text"
-                  errors={errors}
-                  component={TextArea}
-                  rows={ROWS_TEXT_AREA}
-                  disabled={isDisabled}
-                  maxLength={MAX_LENGTH_REVIEW_TEXT}
-                  placeholder="Введите текст комментария:"
-                  validate={combiningValidators(isRequired, maxLength(5000))}
-                />
+                  <FormGroup
+                    showCount
+                    name="text"
+                    errors={errors}
+                    component={TextArea}
+                    rows={ROWS_TEXT_AREA}
+                    disabled={isDisabled}
+                    maxLength={MAX_LENGTH_REVIEW_TEXT}
+                    placeholder="Введите текст комментария:"
+                    validate={combiningValidators(isRequired, maxLength(5000))}
+                  />
 
-                <FormGroup
-                  name="email"
-                  errors={errors}
-                  disabled={isDisabled}
-                  placeholder="Введите ваш Email:"
-                  validate={combiningValidators(isRequired, isEmail)}
-                />
+                  <FormGroup
+                    name="email"
+                    errors={errors}
+                    disabled={isDisabled}
+                    placeholder="Введите ваш Email:"
+                    validate={combiningValidators(isRequired, isEmail)}
+                  />
 
-                <FormGroup
-                  name="privacy"
-                  errors={errors}
-                  disabled={isDisabled}
-                  validate={isRequired}
-                  component={PrivacyCheckbox}
-                />
+                  <FormGroup
+                    name="privacy"
+                    errors={errors}
+                    disabled={isDisabled}
+                    validate={isRequired}
+                    component={PrivacyCheckbox}
+                  />
 
-                <button
-                  type="submit"
-                  disabled={isDisabled}
-                  className={css.button}
-                  style={{ width: 300, height: 50 }}
-                >
-                  Отправить комментарий
-                </button>
-              </Form>
-            );
-          }}
-        </Formik>
+                  <button
+                    type="submit"
+                    disabled={isDisabled}
+                    className={css.button}
+                    style={{ width: 300, height: 50 }}
+                  >
+                    Отправить комментарий
+                  </button>
+                </Form>
+              );
+            }}
+          </Formik>
+        )}
       </Collapse>
     </div>
   );
