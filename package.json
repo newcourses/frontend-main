@@ -17,10 +17,10 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
-      "git add",
+    "src/**/*.{js,jsx}": [
       "prettier",
-      "eslint"
+      "eslint --fix",
+      "git add"
     ],
     "*.{html,css,less,ejs}": [
       "prettier --write",
