@@ -11,7 +11,7 @@
     "start": "next start",
     "lint": "npx eslint src",
     "prepare": "husky install",
-    "test": "prettier src && eslint --fix src"
+    "husky-pre-commit": "prettier src && eslint --fix src"
   },
   "dependencies": {
     "@ant-design/icons": "^4.7.0",
