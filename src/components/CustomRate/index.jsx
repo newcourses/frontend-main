@@ -24,7 +24,7 @@ function CustomRate({ grade, wrapperStyle, size = 20, hiddenGrade }) {
         allowHalf
         disabled
         defaultValue={grade}
-        style={{ color, fontSize: size }}
+        style={{ color, fontSize: size, display: 'flex' }}
       />
     </div>
   );
