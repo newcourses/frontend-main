@@ -1,23 +1,41 @@
-import React from 'react';
+import React, { useCallback, useState } from 'react';
 import cn from 'classnames';
 import { DislikeOutlined, LikeOutlined } from '@ant-design/icons';
+import { message } from 'antd';
 import css from './index.module.scss';
 
-function Reactions({ wrapperStyle, likes, dislikes, handler }) {
+function Reactions({ wrapperStyle, initLikes, initDislikes, handler }) {
+  const [likes, setLikes] = useState(initLikes);
+  const [dislikes, setDislikes] = useState(initDislikes);
+
+  const handlerReaction = useCallback(
+    async (indicator) => {
+      await handler(indicator);
+      message.success('Ваша реакция учтена!');
+
+      if (indicator) {
+        setLikes(likes + 1);
+      } else {
+        setDislikes(dislikes + 1);
+      }
+    },
+    [dislikes, handler, likes],
+  );
+
   return (
     <div className={cn(css.wrapper, wrapperStyle)}>
       <div className={css.likeBlock}>
         <span className={cn(css.text, css.likeText)}>{likes}</span>
         <LikeOutlined
           className={cn(css.iconSize, css.likeHover)}
-          onClick={() => handler(true)}
+          onClick={() => handlerReaction(true)}
         />
       </div>
       <div>
         <span className={cn(css.text, css.dislikeText)}>{dislikes}</span>
         <DislikeOutlined
           className={cn(css.iconSize, css.dislikeHover)}
-          onClick={() => handler(false)}
+          onClick={() => handlerReaction(false)}
         />
       </div>
     </div>

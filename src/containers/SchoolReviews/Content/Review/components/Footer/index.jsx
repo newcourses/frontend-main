@@ -1,10 +1,10 @@
 import cn from 'classnames';
 import reply from 'assets/images/nex.png';
+import React, { useCallback } from 'react';
+import { REACTIONS } from 'library/routers';
 import { declOfNumComments } from 'helpers';
 import useProxyApi from 'hooks/useProxyApi';
 import Reactions from 'components/Reactions';
-import React, { useCallback, useState } from 'react';
-import createReaction from 'controllers/reqCreateReaction';
 import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import css from './index.module.scss';
 
@@ -18,24 +18,18 @@ function Footer({
   dislikes: initDislikes,
   setIsOpenedLeaveComment,
 }) {
-  const [likes, setLikes] = useState(initLikes);
-  const [dislikes, setDislikes] = useState(initDislikes);
-
   const { request, error, clearError } = useProxyApi();
 
   useDisplayErrorMessage(error, clearError);
 
   const reactionHandler = useCallback(
-    (indicator) =>
-      createReaction({
-        likes,
-        request,
-        setLikes,
-        dislikes,
-        reviewId,
-        setDislikes,
-      })(indicator),
-    [dislikes, likes, request, reviewId],
+    async (indicator) => {
+      await request(REACTIONS, 'POST', null, {
+        indicator,
+        review: reviewId,
+      });
+    },
+    [request, reviewId],
   );
 
   return (
@@ -59,7 +53,11 @@ function Footer({
         </button>
       </div>
 
-      <Reactions likes={likes} dislikes={dislikes} handler={reactionHandler} />
+      <Reactions
+        initLikes={initLikes}
+        handler={reactionHandler}
+        initDislikes={initDislikes}
+      />
     </div>
   );
 }
