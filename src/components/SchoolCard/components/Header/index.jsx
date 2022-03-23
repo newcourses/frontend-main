@@ -13,7 +13,7 @@ function Header({ logo, grade, mainLink, displayLink, code, countReviews }) {
         <Logo logo={logo} isNewWind />
         <a
           className={css.link}
-          href={`https://${mainLink}`}
+          href={mainLink}
           target="_blank"
           rel="noopener noreferrer"
         >

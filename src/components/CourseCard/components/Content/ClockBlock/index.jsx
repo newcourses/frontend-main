@@ -28,12 +28,16 @@ function ClockBlock({ start, unit, duration }) {
   }
 
   return (
-    <div className={css.item}>
-      <div>
-        <ClockCircleOutlined className={css.icon} />
-      </div>
-      <div>{textInfo}</div>
-    </div>
+    <>
+      {textInfo && (
+        <div className={css.item}>
+          <div>
+            <ClockCircleOutlined className={css.icon} />
+          </div>
+          <div>{textInfo}</div>
+        </div>
+      )}
+    </>
   );
 }
 

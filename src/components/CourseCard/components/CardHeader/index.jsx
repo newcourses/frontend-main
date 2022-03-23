@@ -9,12 +9,12 @@ function CardHeader({ price, creditPayment, title, schoolInfo }) {
       <h2 className={css.title}>{title}</h2>
 
       <AboutSchool
-        value={schoolInfo?.value}
-        link={schoolInfo?.mainLink}
         name={schoolInfo?.name}
+        code={schoolInfo?.code}
         grade={schoolInfo?.grade}
-        countReviews={schoolInfo?.countReviews}
+        mainLink={schoolInfo?.mainLink}
         wrapperStyles={css.aboutSchool}
+        countReviews={schoolInfo?.countReviews}
       />
 
       <div className={css.wrapperPrice}>

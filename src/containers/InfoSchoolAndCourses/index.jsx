@@ -12,12 +12,12 @@ import css from './index.module.scss';
 
 function InfoSchoolAndCourses(props) {
   const {
+    code,
     name,
-    value,
     grade,
     courses,
-    advantages,
     mainLink,
+    advantages,
     description,
     displayLink,
     countReviews,
@@ -28,7 +28,7 @@ function InfoSchoolAndCourses(props) {
       <Row className={css.header}>
         <Col flex="2 1" className={cn(css.leftCell, css.wrapperCell)}>
           <AboutSchool
-            link={mainLink}
+            mainLink={mainLink}
             countReviews={countReviews}
             grade={grade}
             name={
@@ -42,14 +42,14 @@ function InfoSchoolAndCourses(props) {
                 {name}
               </div>
             }
-            value={value}
+            code={code}
             wrapperStyles={css.aboutSchool}
           />
         </Col>
         <Col flex="1 1" className={css.wrapperCell}>
           <a
             className={css.linkSchool}
-            href={`https://${mainLink}`}
+            href={mainLink}
             target="_blank"
             rel="noopener noreferrer"
           >

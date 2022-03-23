@@ -38,13 +38,13 @@ function CourseCard({
       ]}
     >
       <Content
-        start={start}
-        duration={duration}
-        durationUnit={durationUnit}
-        format={format}
-        params={params}
         price={price}
+        start={start}
+        params={params}
+        format={format}
+        duration={duration}
         oldPrice={oldPrice}
+        durationUnit={durationUnit}
         creditPayment={creditPayment}
       />
     </Card>

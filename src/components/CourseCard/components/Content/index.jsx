@@ -7,11 +7,7 @@ import ContentItem from './ContentItem';
 function Content({ start, duration, durationUnit, format, params }) {
   return (
     <div className={css.wrapper}>
-      <ClockBlock
-        duration={duration}
-        durationUnit={durationUnit}
-        start={start}
-      />
+      <ClockBlock start={start} duration={duration} unit={durationUnit} />
       <ContentItem icon={FormOutlined} prefixText="Формат" infoText={format} />
       <ContentItem
         icon={HeartOutlined}

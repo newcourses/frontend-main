@@ -14,24 +14,28 @@ function parseParamsValue(value, unit) {
 function ContentItem({ icon, infoText, params = [], prefixText }) {
   const Icon = icon;
   return (
-    <div className={css.item}>
-      <div>
-        <Icon className={css.icon} />
-      </div>
-      <span>
-        <b>{prefixText} </b>
-        {infoText || (
-          <>
-            <br />
-            {params.map((param) => (
-              <div key={param.name}>
-                {param.name}: {parseParamsValue(param.value, param.unit)}
-              </div>
-            ))}
-          </>
-        )}
-      </span>
-    </div>
+    <>
+      {(params.length > 0 || infoText) && (
+        <div className={css.item}>
+          <div>
+            <Icon className={css.icon} />
+          </div>
+          <span>
+            <b>{prefixText} </b>
+            {infoText || (
+              <>
+                <br />
+                {params.map((param) => (
+                  <div key={param.name}>
+                    {param.name}: {parseParamsValue(param.value, param.unit)}
+                  </div>
+                ))}
+              </>
+            )}
+          </span>
+        </div>
+      )}
+    </>
   );
 }
 
