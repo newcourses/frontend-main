@@ -25,7 +25,7 @@ export default async (req, res) => {
   const result = await CommentsServices.create({
     text: body.text,
     reviewId: body.reviewId,
-    reviewerId: reviewer.id,
+    reviewerId: reviewer.data.id,
   });
 
   return res.status(201).json(result);
