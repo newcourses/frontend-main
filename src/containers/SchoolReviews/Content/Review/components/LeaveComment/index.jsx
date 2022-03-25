@@ -15,8 +15,7 @@ import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import css from './index.module.scss';
 
 const ROWS_TEXT_AREA = 3;
-const MESSAGE_AFTER_SENT_FORM =
-  'Коммеентарий проходит модерацию, в течение 24-х часов мы опубликуем его';
+const MESSAGE_AFTER_SENT_FORM = 'Спасибо! Коммеентарий проходит модерацию.';
 
 function LeaveComment({ reviewId, isOpened }) {
   const [isSentForm, setIsSentForm] = useState(false);

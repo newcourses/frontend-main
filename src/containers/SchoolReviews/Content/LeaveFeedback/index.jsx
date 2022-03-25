@@ -12,7 +12,7 @@ function LeaveFeedback({ schoolName, schoolId }) {
       </div>
       <p className={css.description}>
         {formSent
-          ? 'Ваш отзыв находится на модерации, в течение 24-х часов мы его опубликуем.'
+          ? 'Спасибо! Ваш отзыв находится на модерации.'
           : `В данном разделе вы можете оставить ваш отзыв о компании ${schoolName}`}
       </p>
       {formSent || (
