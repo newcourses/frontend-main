@@ -17,8 +17,18 @@ export function declOfNumReviews(number, returnString) {
   return declOfNum(number, titles, returnString);
 }
 
+export function declOfNumRealReviews(number, returnString) {
+  const titles = ['реальный отзыв', 'реального отзыва', 'реальных отзывов'];
+  return declOfNum(number, titles, returnString);
+}
+
 export function declOfNumSymbols(number, returnString) {
   const titles = ['символ', 'символа', 'символов'];
+  return declOfNum(number, titles, returnString);
+}
+
+export function declOfNumCourses(number, returnString) {
+  const titles = ['курс', 'курса', 'курсов'];
   return declOfNum(number, titles, returnString);
 }
 

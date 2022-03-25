@@ -1,12 +1,25 @@
 import React from 'react';
+import Head from 'next/head';
 import DrawerWithCourseCategories from 'components/DrawerWithCourseCategories';
 import css from './index.module.scss';
 import Footer from './components/Footer';
 import Header from './components/Header';
 
-function Main({ children, visibleDrawer, setVisibleDrawer, categories }) {
+function Main({
+  title,
+  children,
+  categories,
+  description,
+  visibleDrawer,
+  setVisibleDrawer,
+}) {
   return (
     <div className={css.container}>
+      <Head>
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <link rel="canonical" href="https://newcourses.ru/" />
+      </Head>
       <DrawerWithCourseCategories
         visible={visibleDrawer}
         setVisible={setVisibleDrawer}
