@@ -4,7 +4,7 @@ import css from './index.module.scss';
 
 const buttons = [
   // TODO написать маршрут для получение популярных отзывов о школе
-  { caption: 'По популярности', type: 'populate' },
+  // { caption: 'По популярности', type: 'populate' },
   { caption: 'Сначала новые', type: 'new', sort: 'date:desc' },
   { caption: 'Сначала старые', type: 'old', sort: 'date:asc' },
   { caption: 'Сначала отрицательные', type: 'negative', sort: 'grade:asc' },

@@ -22,6 +22,7 @@ function Content({
     reviews: arrayReviews,
   } = useLoadReviews({
     initReviews: reviews,
+    schoolCode: school.attributes.code,
   });
 
   return (

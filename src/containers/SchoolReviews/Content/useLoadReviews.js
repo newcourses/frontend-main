@@ -2,8 +2,8 @@ import { useCallback, useEffect, useState } from 'react';
 import getSchoolReviews from 'controllers/getSchoolReviews';
 import { prepareSchoolReviews } from 'helpers/preparersData';
 
-function useLoadReviews({ initReviews }) {
-  const [reviews, setReviews] = useState(initReviews.data);
+function useLoadReviews({ initReviews, schoolCode }) {
+  const [reviews, setReviews] = useState(initReviews);
   const [sortType, setSortType] = useState({});
   const [pageSize, setPageSize] = useState(null);
   const [page, setPage] = useState(1);
@@ -11,14 +11,14 @@ function useLoadReviews({ initReviews }) {
   const customGetSchoolReviews = useCallback(
     async (actualPage) =>
       getSchoolReviews({
-        code: 'skillfactory',
+        code: schoolCode,
         sort: sortType.sort,
         pagination: {
           page: actualPage,
           pageSize,
         },
       }),
-    [pageSize, sortType.sort],
+    [pageSize, schoolCode, sortType.sort],
   );
 
   useEffect(() => {
