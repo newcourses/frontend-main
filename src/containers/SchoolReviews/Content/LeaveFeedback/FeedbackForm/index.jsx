@@ -8,26 +8,21 @@ import {
   combiningValidators,
 } from 'helpers/validations';
 import React, { useCallback } from 'react';
-import useProxyApi from 'hooks/useProxyApi';
 import PrivacyCheckbox from 'components/PrivacyCheckbox';
 import { MAX_LENGTH_REVIEW_TEXT } from 'library/constants';
 import { FormGroup, TextArea } from 'components/CustomFields';
-import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import SetRate from './SetRate';
 import css from './index.module.scss';
 
 const ROWS_TEXT_AREA = 10;
 const SIZE_RATE = 30;
 
-function FeedbackForm({ schoolId, setFormSent }) {
-  const { request, error, clearError, isLoading } = useProxyApi();
-  useDisplayErrorMessage(error, clearError);
+function FeedbackForm({ schoolId, request, isLoading }) {
   const onSubmit = useCallback(
     async (data) => {
       await request('/reviews', 'POST', null, { ...data, schoolId });
-      setFormSent(true);
     },
-    [request, schoolId, setFormSent],
+    [request, schoolId],
   );
 
   return (

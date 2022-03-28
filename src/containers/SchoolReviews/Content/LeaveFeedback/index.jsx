@@ -1,22 +1,29 @@
-import React, { useState } from 'react';
+import React from 'react';
+import useProxyApi from 'hooks/useProxyApi';
+import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import css from './index.module.scss';
 import FeedbackForm from './FeedbackForm';
 
 function LeaveFeedback({ schoolName, schoolId }) {
-  const [formSent, setFormSent] = useState(false);
+  const { request, error, clearError, isLoading, isSent } = useProxyApi();
+  useDisplayErrorMessage(error, clearError);
 
   return (
     <div id="review" className={css.wrapper}>
       <div className={css.title}>
-        {formSent ? 'Отзыв отправлен' : 'Оставить отзыв'}
+        {isSent ? 'Отзыв отправлен' : 'Оставить отзыв'}
       </div>
       <p className={css.description}>
-        {formSent
+        {isSent
           ? 'Спасибо! Ваш отзыв находится на модерации.'
           : `В данном разделе вы можете оставить ваш отзыв о компании ${schoolName}`}
       </p>
-      {formSent || (
-        <FeedbackForm setFormSent={setFormSent} schoolId={schoolId} />
+      {isSent || (
+        <FeedbackForm
+          request={request}
+          schoolId={schoolId}
+          isLoading={isLoading}
+        />
       )}
     </div>
   );

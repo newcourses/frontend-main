@@ -1,12 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback } from 'react';
 import {
   isEmail,
   maxLength,
   isRequired,
   combiningValidators,
 } from 'helpers/validations';
-import { Collapse } from 'react-collapse';
 import { Form, Formik } from 'formik';
+import { Collapse } from 'react-collapse';
 import useProxyApi from 'hooks/useProxyApi';
 import PrivacyCheckbox from 'components/PrivacyCheckbox';
 import { MAX_LENGTH_REVIEW_TEXT } from 'library/constants';
@@ -18,14 +18,12 @@ const ROWS_TEXT_AREA = 3;
 const MESSAGE_AFTER_SENT_FORM = 'Спасибо! Коммеентарий проходит модерацию.';
 
 function LeaveComment({ reviewId, isOpened }) {
-  const [isSentForm, setIsSentForm] = useState(false);
-  const { request, error, clearError, isLoading } = useProxyApi();
+  const { request, error, clearError, isLoading, isSent } = useProxyApi();
   useDisplayErrorMessage(error, clearError);
 
   const onSubmit = useCallback(
     async (data) => {
       await request('/comments', 'POST', null, { ...data, reviewId });
-      setIsSentForm(true);
     },
     [request, reviewId],
   );
@@ -33,7 +31,7 @@ function LeaveComment({ reviewId, isOpened }) {
   return (
     <div className={css.container}>
       <Collapse isOpened={isOpened} bordered={false}>
-        {isSentForm ? (
+        {isSent ? (
           <div className={css.messageAfterSentForm}>
             {MESSAGE_AFTER_SENT_FORM}
           </div>
