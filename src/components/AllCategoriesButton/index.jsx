@@ -1,6 +1,6 @@
 import React from 'react';
 import { DownOutlined } from '@ant-design/icons';
-import { Button } from 'antd';
+import CustomButton from 'components/CustomButton';
 import css from './index.module.scss';
 
 function AllCategoriesButton({
@@ -10,7 +10,7 @@ function AllCategoriesButton({
   styleTextButton,
 }) {
   return (
-    <Button
+    <CustomButton
       onClick={() => setVisibleDrawer(true)}
       type="primary"
       size="large"
@@ -21,7 +21,7 @@ function AllCategoriesButton({
         Все категории курсов
         <DownOutlined style={{ marginLeft: '10px' }} />
       </span>
-    </Button>
+    </CustomButton>
   );
 }
 

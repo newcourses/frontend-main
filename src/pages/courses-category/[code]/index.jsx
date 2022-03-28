@@ -8,6 +8,7 @@ import getCategories from 'controllers/getCategories';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import ShowcaseCourses from 'containers/ShowcaseCourses';
 import { declOfNumCourses } from 'helpers/declOfNumInstances';
+import SubscribeNewsletter from '../../../components/SubscribeNewsletter';
 
 const generateTitle = (countCourses, subcategoryCaption) => {
   return `Топ - ${declOfNumCourses(
@@ -36,6 +37,10 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
       setVisibleDrawer={setVisibleDrawer}
     >
       <main>
+        <section>
+          <SubscribeNewsletter />
+        </section>
+
         <section>
           <CoursesTable
             title={currentSubcategory.attributes?.title}

@@ -2,6 +2,7 @@ import { useState, useCallback } from 'react';
 
 const useHttp = (axiosInstall) => {
   const [isLoading, setIsLoading] = useState(false);
+  const [isSent, setIsSent] = useState(false);
   const [error, setError] = useState(null);
 
   const request = useCallback(
@@ -10,11 +11,12 @@ const useHttp = (axiosInstall) => {
       try {
         const response = await axiosInstall.request({
           url,
+          data,
           params,
           method,
-          data,
           headers,
         });
+        setIsSent(true);
         const { data: responseData } = response;
         return responseData;
       } catch (e) {
@@ -30,10 +32,11 @@ const useHttp = (axiosInstall) => {
   const clearError = useCallback(() => setError(null), []);
 
   return {
+    clearError,
     isLoading,
     request,
+    isSent,
     error,
-    clearError,
   };
 };
 

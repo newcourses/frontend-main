@@ -14,7 +14,7 @@ export const errorCatcher = async (req, res, handler) => {
     return await handler(req, res);
   } catch (err) {
     res
-      .status(err.statusCode || 500)
+      .status(err.statusCode || err.response.status || 500)
       .json(err.body || { massage: err.message });
   }
 

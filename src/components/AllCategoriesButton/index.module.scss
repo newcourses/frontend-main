@@ -2,7 +2,6 @@
 @import '/src/styles/mixins';
 
 .button {
-  @include standard-button-style;
   @media screen and (max-width: $widthTablet) {
     width: 100%;
   }
