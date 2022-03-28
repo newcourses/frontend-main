@@ -1,11 +1,13 @@
 import React from 'react';
 import Main from 'layouts/Main';
 import { DateTime } from 'luxon';
+import NAVIGATION from 'library/navigation';
 import getSchools from 'controllers/getSchools';
 import SchoolReviews from 'containers/SchoolReviews';
 import getCategories from 'controllers/getCategories';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import getSchoolReviews from 'controllers/getSchoolReviews';
+import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import { prepareSchoolReviews } from 'helpers/preparersData';
 import { declOfNumRealReviews } from 'helpers/declOfNumInstances';
 
@@ -27,6 +29,12 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   const title = generateTitle(schoolName, reviews.data?.length);
   const description = generateDescription(schoolName);
 
+  const items = [
+    { value: 'home', caption: 'Главная', navigation: NAVIGATION.home },
+    { value: 'schools', caption: 'Школы', navigation: NAVIGATION.schoolsList },
+    { value: 'courses-category', caption: schoolName },
+  ];
+
   return (
     <Main
       title={title}
@@ -35,13 +43,20 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
       visibleDrawer={visibleDrawer}
       setVisibleDrawer={setVisibleDrawer}
     >
-      <SchoolReviews
-        school={school}
-        reviews={reviews.data}
-        categories={categories.data}
-        otherSchools={otherSchools.data}
-        setVisibleDrawer={setVisibleDrawer}
-      />
+      <main>
+        <section>
+          <DynamicBreadcrumb items={items} />
+        </section>
+        <section>
+          <SchoolReviews
+            school={school}
+            reviews={reviews.data}
+            categories={categories.data}
+            otherSchools={otherSchools.data}
+            setVisibleDrawer={setVisibleDrawer}
+          />
+        </section>
+      </main>
     </Main>
   );
 }

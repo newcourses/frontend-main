@@ -1,0 +1,9 @@
+@import '/src/styles/variables';
+
+.container {
+  :global {
+    .ant-breadcrumb-link a:hover {
+      color: $accent
+    }
+  }
+}

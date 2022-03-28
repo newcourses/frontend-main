@@ -1,13 +1,13 @@
 import React, { useCallback } from 'react';
 import { Form, Formik } from 'formik';
 import useProxyApi from 'hooks/useProxyApi';
+import { MAIL_RECIPIENTS } from 'library/routers';
 import CustomButton from 'components/CustomButton';
 import { FormGroup } from 'components/CustomFields';
+import PrivacyCheckbox from 'components/PrivacyCheckbox';
 import useDisplayErrorMessage from 'hooks/useDisplayErrorMessage';
 import { combiningValidators, isEmail, isRequired } from 'helpers/validations';
 import css from './index.module.scss';
-import { MAIL_RECIPIENTS } from '../../library/routers';
-import PrivacyCheckbox from '../PrivacyCheckbox';
 
 function SubscribeNewsletter() {
   const { isSent, request, error, clearError, isLoading } = useProxyApi();

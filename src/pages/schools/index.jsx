@@ -1,12 +1,20 @@
 import React from 'react';
 import Main from 'layouts/Main';
+import NAVIGATION from 'library/navigation';
 import SchoolList from 'containers/SchoolList';
 import getSchools from 'controllers/getSchools';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import getCategories from 'controllers/getCategories';
+import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
+
+const items = [
+  { value: 'home', caption: 'Главная', navigation: NAVIGATION.home },
+  { value: 'current', caption: 'Школы' },
+];
 
 function Schools({ categories, schools }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
+
   return (
     <Main
       visibleDrawer={visibleDrawer}
@@ -14,7 +22,13 @@ function Schools({ categories, schools }) {
       categories={categories.data}
     >
       <main>
-        <SchoolList data={schools.data} />
+        <section>
+          <DynamicBreadcrumb items={items} />
+        </section>
+
+        <section>
+          <SchoolList data={schools.data} />
+        </section>
       </main>
     </Main>
   );

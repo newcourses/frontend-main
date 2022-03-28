@@ -1,14 +1,16 @@
 import React from 'react';
 import Main from 'layouts/Main';
-import getSchools from 'controllers/getSchools';
+import NAVIGATION from 'library/navigation';
 import getCourses from 'controllers/getCourses';
+import getSchools from 'controllers/getSchools';
 import SchoolsInfo from 'containers/SchoolsInfo';
 import CoursesTable from 'containers/CoursesTable';
 import getCategories from 'controllers/getCategories';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import ShowcaseCourses from 'containers/ShowcaseCourses';
+import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import { declOfNumCourses } from 'helpers/declOfNumInstances';
-import SubscribeNewsletter from '../../../components/SubscribeNewsletter';
+import SubscribeNewsletter from 'components/SubscribeNewsletter';
 
 const generateTitle = (countCourses, subcategoryCaption) => {
   return `Топ - ${declOfNumCourses(
@@ -28,6 +30,12 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
   const title = generateTitle(courses.data.length, subcategoryCaption);
   const description = generateDescription(subcategoryCaption);
 
+  const items = [
+    { value: 'home', caption: 'Главная', navigation: NAVIGATION.home },
+    { value: 'courses', caption: 'Курсы' },
+    { value: 'courses-category', caption: subcategoryCaption },
+  ];
+
   return (
     <Main
       title={title}
@@ -38,12 +46,17 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
     >
       <main>
         <section>
+          <DynamicBreadcrumb items={items} />
+        </section>
+
+        <section>
           <SubscribeNewsletter />
         </section>
 
         <section>
           <CoursesTable
             title={currentSubcategory.attributes?.title}
+            // TODO динамический description
             description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
             dataSource={courses.data}
           />
@@ -51,6 +64,7 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
         <section>
           <SchoolsInfo
             title="Курсы по product-менеджменту"
+            // TODO динамический description
             description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
             schools={schools.data}
           />

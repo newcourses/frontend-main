@@ -10,7 +10,7 @@ function SchoolReviews({
   setVisibleDrawer,
 }) {
   return (
-    <main>
+    <>
       <Header {...school?.attributes} />
       <Content
         school={school}
@@ -19,7 +19,7 @@ function SchoolReviews({
         otherSchools={otherSchools}
         setVisibleDrawer={setVisibleDrawer}
       />
-    </main>
+    </>
   );
 }
 
