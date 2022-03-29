@@ -21,7 +21,11 @@ function Review({
   const [isOpenedLeaveComment, setIsOpenedLeaveComment] = useState(false);
 
   return (
-    <div className={css.container}>
+    <div
+      className={css.container}
+      itemScope
+      itemType="http://schema.org/Review"
+    >
       <Header
         date={date}
         grade={grade}

@@ -4,7 +4,14 @@ import { DislikeOutlined, LikeOutlined } from '@ant-design/icons';
 import { message } from 'antd';
 import css from './index.module.scss';
 
-function Reactions({ wrapperStyle, initLikes, initDislikes, handler }) {
+function Reactions({
+  handler,
+  initLikes,
+  posItemProp,
+  negItemProp,
+  initDislikes,
+  wrapperStyle,
+}) {
   const [likes, setLikes] = useState(initLikes);
   const [dislikes, setDislikes] = useState(initDislikes);
 
@@ -25,14 +32,18 @@ function Reactions({ wrapperStyle, initLikes, initDislikes, handler }) {
   return (
     <div className={cn(css.wrapper, wrapperStyle)}>
       <div className={css.likeBlock}>
-        <span className={cn(css.text, css.likeText)}>{likes}</span>
+        <span className={cn(css.text, css.likeText)} itemProp={posItemProp}>
+          {likes}
+        </span>
         <LikeOutlined
           className={cn(css.iconSize, css.likeHover)}
           onClick={() => handlerReaction(true)}
         />
       </div>
       <div>
-        <span className={cn(css.text, css.dislikeText)}>{dislikes}</span>
+        <span className={cn(css.text, css.dislikeText)} itemProp={negItemProp}>
+          {dislikes}
+        </span>
         <DislikeOutlined
           className={cn(css.iconSize, css.dislikeHover)}
           onClick={() => handlerReaction(false)}

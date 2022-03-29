@@ -30,14 +30,24 @@ function Comment({
   );
 
   return (
-    <div className={css.container}>
+    <div
+      className={css.container}
+      itemScope
+      itemType="http://schema.org/Comment"
+    >
       <Collapse isOpened={isOpened}>
         <div className={css.wrapper}>
-          <div>{date}</div>
-          <h3 className={css.name}>{reviewer?.data?.attributes?.name}</h3>
-          <p className={css.text}>{text}</p>
+          <div itemProp="dateCreated">{date}</div>
+          <h3 className={css.name} itemProp="author">
+            {reviewer?.data?.attributes?.name}
+          </h3>
+          <p className={css.text} itemProp="parentItem">
+            {text}
+          </p>
         </div>
         <Reactions
+          posItemProp="upvoteCount"
+          negItemProp="downvoteCount"
           wrapperStyle={css.wrapperReactions}
           initLikes={initLikes}
           handler={reactionHandler}

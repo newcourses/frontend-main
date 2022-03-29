@@ -6,11 +6,19 @@ import css from './index.module.scss';
 function Header({ date, name, grade }) {
   return (
     <div className={css.wrapper}>
-      <CustomRate grade={grade.toFixed(1)} wrapperStyle={css.wrapCustomRate} />
+      <CustomRate
+        itemProp="reviewRating"
+        grade={grade.toFixed(1)}
+        wrapperStyle={css.wrapCustomRate}
+      />
       <div className={css.personalData}>
         <ClockCircleOutlined />
-        <span className={css.indent}>{date}</span>
-        <span className={css.indent}>{name}</span>
+        <span className={css.indent} itemProp="dateCreated">
+          {date}
+        </span>
+        <span className={css.indent} itemProp="author">
+          {name}
+        </span>
       </div>
     </div>
   );

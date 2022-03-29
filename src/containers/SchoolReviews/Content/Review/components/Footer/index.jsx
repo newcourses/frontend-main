@@ -57,6 +57,8 @@ function Footer({
         initLikes={initLikes}
         handler={reactionHandler}
         initDislikes={initDislikes}
+        posItemProp="positiveNotes"
+        negItemProp="negativeNotes"
       />
     </div>
   );
