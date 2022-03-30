@@ -38,6 +38,7 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   return (
     <Main
       title={title}
+      displayBackTopButton
       description={description}
       categories={categories.data}
       visibleDrawer={visibleDrawer}

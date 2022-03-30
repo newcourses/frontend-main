@@ -7,11 +7,23 @@
   * {
     font-size: 24px;
   }
+  @media screen and (max-width: $widthNotebook) {
+    padding: 12px 24px;
+    * {
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: $widthTablet) {
+    flex-direction: column;
+  }
 }
 
 .item {
   display: flex;
   align-items: center;
+  @media screen and (max-width: $widthNotebook) {
+    flex-direction: column;
+  }
 }
 
 .link {
@@ -19,10 +31,21 @@
   &:hover {
     color: #919191;
   }
+  @media screen and (max-width: $widthNotebook) {
+    margin-left: 0;
+  }
 }
 
 .button {
   margin-left: 30px;
   width: 200px;
-  @include standard-button-style
+  @include standard-button-style;
+  @media screen and (max-width: $widthNotebook) {
+    width: 150px;
+    margin-left: 0;
+  }
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+    margin-top: 10px;
+  }
 }

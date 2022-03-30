@@ -6,11 +6,13 @@ import css from './index.module.scss';
 
 function BackTopButton() {
   return (
-    <BackTop>
-      <div className={cn(css.button, css.backTop)}>
-        <VerticalAlignTopOutlined className={css.backTopIcon} />
-      </div>
-    </BackTop>
+    <div className={css.wrapper}>
+      <BackTop>
+        <div className={cn(css.button, css.backTop)}>
+          <VerticalAlignTopOutlined className={css.backTopIcon} />
+        </div>
+      </BackTop>
+    </div>
   );
 }
 

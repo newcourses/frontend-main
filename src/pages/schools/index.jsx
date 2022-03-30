@@ -17,9 +17,10 @@ function Schools({ categories, schools }) {
 
   return (
     <Main
+      displayBackTopButton
+      categories={categories.data}
       visibleDrawer={visibleDrawer}
       setVisibleDrawer={setVisibleDrawer}
-      categories={categories.data}
     >
       <main>
         <section>

@@ -5,6 +5,10 @@
   margin-top: 80px;
   display: flex;
 
+  @media screen and (max-width: $widthTablet) {
+    margin-top: 20px;
+  }
+
   h1 {
     font-family: "RubikBold";
     font-size: 46px;
@@ -13,12 +17,20 @@
     @media screen and (max-width: $widthNotebook) {
       max-width: 100%;
     }
+    @media screen and (max-width: $widthTablet) {
+      font-size: 24px;
+    }
   }
 
   p {
     font-size: 18px;
     color: #666;
     margin-top: 50px;
+    @media screen and (max-width: $widthTablet) {
+      margin-top: 15px;
+      font-size: 16px;
+    }
+
   }
 }
 

@@ -3,6 +3,9 @@
 
 .container {
   margin-top: 100px;
+  @media screen and (max-width: $widthTablet) {
+    margin-top: 30px;
+  }
 }
 .mainTitle {
   font-family: "RubikBold";
@@ -18,6 +21,7 @@
     grid-template-columns: 1fr 1fr;
   }
   @media screen and (max-width: $widthTablet) {
+    margin-top: 20px;
     grid-template-columns: 1fr;
   }
 }

@@ -16,6 +16,7 @@ function Review({
   comments,
   dislikes,
   reviewer,
+  schoolName,
 }) {
   const [isOpenComments, setIsOpenComments] = useState(false);
   const [isOpenedLeaveComment, setIsOpenedLeaveComment] = useState(false);
@@ -29,6 +30,7 @@ function Review({
       <Header
         date={date}
         grade={grade}
+        schoolName={schoolName}
         name={reviewer.data?.attributes?.name}
       />
       <hr />

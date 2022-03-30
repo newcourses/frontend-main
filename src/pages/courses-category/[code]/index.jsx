@@ -39,6 +39,7 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
   return (
     <Main
       title={title}
+      displayBackTopButton
       description={description}
       categories={categories.data}
       visibleDrawer={visibleDrawer}

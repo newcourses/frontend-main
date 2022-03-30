@@ -1,8 +1,20 @@
 @import '/src/styles/mixins';
+@import '/src/styles/variables';
 
 .button {
   @include standard-button-style;
 }
+
+.wrapper {
+  @media screen and (max-width: $widthTablet) {
+    :global {
+      .ant-back-top {
+        left: 20px
+      }
+    }
+  }
+}
+
 
 .backTop {
   width: 55px;

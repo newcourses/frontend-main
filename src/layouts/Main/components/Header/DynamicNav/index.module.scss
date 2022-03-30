@@ -11,8 +11,9 @@
 
 .linkWrapper {
   margin-left: 60px;
-
-
+  @media screen and (max-width: $widthNotebook) {
+    margin-left: 25px;
+  }
 }
 
 .link {

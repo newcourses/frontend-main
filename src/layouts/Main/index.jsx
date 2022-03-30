@@ -1,6 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import DrawerWithCourseCategories from 'components/DrawerWithCourseCategories';
+import BackTopButton from 'components/BackTopButton';
 import css from './index.module.scss';
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -12,6 +13,7 @@ function Main({
   description,
   visibleDrawer,
   setVisibleDrawer,
+  displayBackTopButton,
 }) {
   return (
     <div className={css.container}>
@@ -20,6 +22,7 @@ function Main({
         <meta name="description" content={description} />
         <link rel="canonical" href="https://newcourses.ru/" />
       </Head>
+      {displayBackTopButton && <BackTopButton />}
       <DrawerWithCourseCategories
         visible={visibleDrawer}
         setVisible={setVisibleDrawer}

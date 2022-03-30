@@ -28,7 +28,7 @@ function Content({
   return (
     <section className={css.wrapper}>
       <AffixBlock
-        school={school}
+        school={school.attributes}
         categories={categories}
         otherSchools={otherSchools}
         setVisibleDrawer={setVisibleDrawer}
@@ -37,7 +37,12 @@ function Content({
         <SettingsSearch setSort={setSortType} setPageSize={setPageSize} />
 
         {arrayReviews.map((elem) => (
-          <Review key={elem.id} {...elem.attributes} reviewId={elem.id} />
+          <Review
+            key={elem.id}
+            reviewId={elem.id}
+            {...elem.attributes}
+            schoolName={school.attributes?.name}
+          />
         ))}
 
         <Button
