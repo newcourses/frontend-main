@@ -112,4 +112,3 @@ ${pages
 </urlset>`;
   fs.writeFileSync('public/sitemap.xml', sitemap);
 };
-// generateSitemap();
