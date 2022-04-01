@@ -2,7 +2,7 @@ import React from 'react';
 import Main from 'layouts/Main';
 import { DateTime } from 'luxon';
 import NAVIGATION from 'library/navigation';
-import getSchools from 'controllers/getSchools';
+import SchoolsServices from 'api/services/schools';
 import SchoolReviews from 'containers/SchoolReviews';
 import getCategories from 'controllers/getCategories';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
@@ -65,11 +65,11 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
 export async function getServerSideProps(context) {
   const schoolCode = context.params.code;
   const schoolReviews = await getSchoolReviews({ code: schoolCode });
-  const school = await getSchools({
+  const school = await SchoolsServices.getList({
     customFields: 'grade',
     filters: { code: schoolCode },
   });
-  const otherSchools = await getSchools({
+  const otherSchools = await SchoolsServices.getList({
     pagination: { limit: 6 },
     customFields: 'grade',
     filters: {

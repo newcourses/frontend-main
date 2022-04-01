@@ -2,9 +2,9 @@ import React from 'react';
 import Main from 'layouts/Main';
 import NAVIGATION from 'library/navigation';
 import getCourses from 'controllers/getCourses';
-import getSchools from 'controllers/getSchools';
 import SchoolsInfo from 'containers/SchoolsInfo';
 import CoursesTable from 'containers/CoursesTable';
+import SchoolsServices from 'api/services/schools';
 import getCategories from 'controllers/getCategories';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import ShowcaseCourses from 'containers/ShowcaseCourses';
@@ -89,7 +89,8 @@ export async function getServerSideProps({ params }) {
     populate: 'params',
     code: params.code,
   });
-  const schools = await getSchools({
+
+  const schools = await SchoolsServices.getList({
     pagination: { page: 'all' },
     customFields: 'grade',
     filters: {

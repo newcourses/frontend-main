@@ -2,7 +2,7 @@ import React from 'react';
 import Main from 'layouts/Main';
 import NAVIGATION from 'library/navigation';
 import SchoolList from 'containers/SchoolList';
-import getSchools from 'controllers/getSchools';
+import SchoolsServices from 'api/services/schools';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import getCategories from 'controllers/getCategories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
@@ -38,7 +38,7 @@ function Schools({ categories, schools }) {
 export async function getServerSideProps() {
   const categories = await getCategories();
 
-  const schools = await getSchools({
+  const schools = await SchoolsServices.getList({
     customFields: 'grade',
     pagination: { page: 'all' },
   });
