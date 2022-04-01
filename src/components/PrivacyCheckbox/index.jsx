@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox } from '../CustomFields';
+import { Checkbox } from 'components/CustomFields';
 
 function PrivacyCheckbox(props) {
   return (

@@ -4,7 +4,7 @@ import NAVIGATION from 'library/navigation';
 import SchoolList from 'containers/SchoolList';
 import SchoolsServices from 'api/services/schools';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
-import getCategories from 'controllers/getCategories';
+import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 
 const items = [
@@ -36,7 +36,7 @@ function Schools({ categories, schools }) {
 }
 
 export async function getServerSideProps() {
-  const categories = await getCategories();
+  const categories = await CategoriesServices.getList();
 
   const schools = await SchoolsServices.getList({
     customFields: 'grade',

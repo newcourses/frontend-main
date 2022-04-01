@@ -2,7 +2,7 @@ import React from 'react';
 import Main from 'layouts/Main';
 import NAVIGATION from 'library/navigation';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
-import getCategories from 'controllers/getCategories';
+import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 
 function Contacts({ categories }) {
@@ -26,7 +26,7 @@ function Contacts({ categories }) {
 }
 
 export async function getServerSideProps() {
-  const categories = await getCategories();
+  const categories = await CategoriesServices.getList();
 
   return {
     props: { categories },

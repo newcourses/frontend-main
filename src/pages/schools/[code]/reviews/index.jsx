@@ -4,8 +4,8 @@ import { DateTime } from 'luxon';
 import NAVIGATION from 'library/navigation';
 import SchoolsServices from 'api/services/schools';
 import SchoolReviews from 'containers/SchoolReviews';
-import getCategories from 'controllers/getCategories';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import CategoriesServices from 'api/services/categories';
 import getSchoolReviews from 'controllers/getSchoolReviews';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import { prepareSchoolReviews } from 'helpers/preparersData';
@@ -78,7 +78,7 @@ export async function getServerSideProps(context) {
   });
   schoolReviews.data = prepareSchoolReviews(schoolReviews.data);
 
-  const categories = await getCategories();
+  const categories = await CategoriesServices.getList();
 
   return {
     props: {

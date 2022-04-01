@@ -2,7 +2,7 @@ import React from 'react';
 import Main from 'layouts/Main';
 import MainBanner from 'containers/MainBanner';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
-import getCategories from 'controllers/getCategories';
+import CategoriesServices from 'api/services/categories';
 import CourseCategories from 'containers/CourseCategories';
 
 function Home({ categories }) {
@@ -27,7 +27,7 @@ function Home({ categories }) {
 }
 
 export async function getServerSideProps() {
-  const categories = await getCategories();
+  const categories = await CategoriesServices.getList();
   return {
     props: { categories },
   };

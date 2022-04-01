@@ -5,9 +5,9 @@ import getCourses from 'controllers/getCourses';
 import SchoolsInfo from 'containers/SchoolsInfo';
 import CoursesTable from 'containers/CoursesTable';
 import SchoolsServices from 'api/services/schools';
-import getCategories from 'controllers/getCategories';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import ShowcaseCourses from 'containers/ShowcaseCourses';
+import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import { declOfNumCourses } from 'helpers/declOfNumInstances';
 import SubscribeNewsletter from 'components/SubscribeNewsletter';
@@ -82,7 +82,7 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
 }
 
 export async function getServerSideProps({ params }) {
-  const categories = await getCategories();
+  const categories = await CategoriesServices.getList();
   const courses = await getCourses({
     customFields: 'grade',
     pagination: { page: 'all' },

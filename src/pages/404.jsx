@@ -1,17 +1,19 @@
 import Main from 'layouts/Main';
 import React, { useEffect, useState } from 'react';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
-import getCategories from 'controllers/getCategories';
+import useProxyApi from 'hooks/useProxyApi';
+import { CATEGORIES } from 'library/routers';
 
 function NotFound() {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
   const [categories, setCategories] = useState([]);
+  const { request } = useProxyApi();
 
   useEffect(() => {
     (async () => {
-      setCategories(await getCategories());
+      setCategories(await request(CATEGORIES));
     })();
-  }, []);
+  }, [request]);
 
   return (
     <Main
