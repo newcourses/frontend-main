@@ -5,6 +5,15 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 42px;
+  @media screen and (max-width: $widthTablet) {
+    display: block;
+    margin-bottom: 22px;
+    :global {
+      .ant-anchor-link {
+        padding-left: 0;
+      }
+    }
+  }
 }
 
 .wrapper {
@@ -13,6 +22,9 @@
 
 .wrapperPageSizeSelect {
   margin-left: 20px;
+  @media screen and (max-width: $widthTablet) {
+    display: none;
+  }
 }
 
 .button {

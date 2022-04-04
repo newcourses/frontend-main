@@ -2,8 +2,11 @@
 
 .wrapper {
   display: grid;
-  grid-template-columns: 30% 70%;
+  grid-template-columns: 375px auto;
   grid-column-gap: 20px;
+  @media screen and (max-width: $widthNotebook) {
+    display: block;
+  }
 }
 
 .button {

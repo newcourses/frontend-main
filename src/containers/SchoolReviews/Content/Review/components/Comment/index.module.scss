@@ -11,6 +11,9 @@
 .wrapper {
   margin-left: 75px;
   margin-top: 25px;
+  @media screen and (max-width: $widthTablet) {
+    margin-left: 35px;
+  }
 }
 
 .name {

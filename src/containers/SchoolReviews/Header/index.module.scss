@@ -3,6 +3,9 @@
 .container {
   width: 800px;
   margin-bottom: 40px;
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+  }
 }
 
 .wrapper {
@@ -10,12 +13,20 @@
   justify-content: space-between;
   align-items: center;
   width: 700px;
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+    flex-direction: column;
+    height: 140px;
+  }
 }
 
 .title {
   font-size: 36px;
   font-family: RubikMedium;
   margin-bottom: 50px;
+  @media screen and (max-width: $widthTablet) {
+    margin-bottom: 20px;
+  }
 }
 
 .wrapperCustomRate {

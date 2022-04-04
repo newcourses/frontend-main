@@ -1,8 +1,8 @@
 import React from 'react';
 import { Button } from 'antd';
 import Review from './Review';
-import AffixBlock from './AffixBlock';
 import css from './index.module.scss';
+import CommonBlock from './CommonBlock';
 import LeaveFeedback from './LeaveFeedback';
 import useLoadReviews from './useLoadReviews';
 import SettingsSearch from './SettingsSearch';
@@ -27,7 +27,7 @@ function Content({
 
   return (
     <section className={css.wrapper}>
-      <AffixBlock
+      <CommonBlock
         school={school.attributes}
         categories={categories}
         otherSchools={otherSchools}
