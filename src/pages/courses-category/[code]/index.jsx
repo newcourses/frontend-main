@@ -1,8 +1,8 @@
 import React from 'react';
 import Main from 'layouts/Main';
 import NAVIGATION from 'library/navigation';
-import getCourses from 'controllers/getCourses';
 import SchoolsInfo from 'containers/SchoolsInfo';
+import CoursesServices from 'api/services/courses';
 import CoursesTable from 'containers/CoursesTable';
 import SchoolsServices from 'api/services/schools';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
@@ -83,7 +83,7 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
 
 export async function getServerSideProps({ params }) {
   const categories = await CategoriesServices.getList();
-  const courses = await getCourses({
+  const courses = await CoursesServices.getList({
     customFields: 'grade',
     pagination: { page: 'all' },
     populate: 'params',

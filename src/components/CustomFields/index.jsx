@@ -53,7 +53,7 @@ export const TextArea = ({ field, form, ...props }) => {
 };
 
 export const Rate = ({ field, form, size, ...props }) => {
-  const [color, setColor] = useState('#fadb14;');
+  const [color, setColor] = useState('#fadb14');
   const determineColor = useCallback((value, currentColor) => {
     const POS_COLOR = 'green';
     const NEU_COLOR = '#fadb14';

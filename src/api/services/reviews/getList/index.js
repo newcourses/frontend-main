@@ -1,12 +1,13 @@
 import qs from 'qs';
+import { REVIEWS } from 'library/routers';
 import { cmsApi } from 'utils/axiosInstances';
 import { COUNT_DEFAULT_SIZE_PAGE } from 'library/constants';
 
-export default async function getSchoolReviews({
+export default async ({
   code,
   sort = 'date:desc',
   pagination = { pageSize: COUNT_DEFAULT_SIZE_PAGE },
-}) {
+}) => {
   const query = qs.stringify(
     {
       sort,
@@ -27,6 +28,7 @@ export default async function getSchoolReviews({
     { encodeValuesOnly: true },
   );
 
-  const { data } = await cmsApi.get(`/reviews?${query}`);
-  return data;
-}
+  const { data: schools } = await cmsApi.get(`${REVIEWS}?${query}`);
+
+  return schools;
+};

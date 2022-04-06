@@ -1,12 +1,8 @@
 import qs from 'qs';
+import { COURSES } from 'library/routers';
 import { cmsApi } from 'utils/axiosInstances';
 
-export default async function getCourses({
-  pagination,
-  code,
-  customFields,
-  populate,
-}) {
+export default async ({ code, populate, pagination, customFields }) => {
   const query = qs.stringify(
     {
       customFields,
@@ -21,7 +17,7 @@ export default async function getCourses({
     { encodeValuesOnly: true },
   );
 
-  const { data } = await cmsApi.get(`/courses?${query}`);
+  const { data: schools } = await cmsApi.get(`${COURSES}?${query}`);
 
-  return data;
-}
+  return schools;
+};

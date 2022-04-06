@@ -1,3 +1,4 @@
+export const COURSES = '/courses';
 export const REVIEWS = '/reviews';
 export const SCHOOLS = '/schools';
 export const REVIEWERS = '/reviewers';

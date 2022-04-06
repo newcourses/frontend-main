@@ -9,7 +9,7 @@ function CustomRate({ grade, wrapperStyle, size = 20, hiddenGrade, itemProp }) {
   if (grade >= 4) {
     color = 'green';
   } else if (grade < 4 && grade > 2.5) {
-    color = '#fadb14;';
+    color = '#fadb14';
   } else if (grade < 2.5) {
     color = 'red';
   }

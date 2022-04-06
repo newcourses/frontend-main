@@ -1,24 +1,43 @@
+import { REVIEWS } from 'library/routers';
+import useProxyApi from 'hooks/useProxyApi';
 import { useCallback, useEffect, useState } from 'react';
-import getSchoolReviews from 'controllers/getSchoolReviews';
 import { prepareSchoolReviews } from 'helpers/preparersData';
+import qs from 'qs';
 
 function useLoadReviews({ initReviews, schoolCode }) {
   const [reviews, setReviews] = useState(initReviews);
   const [sortType, setSortType] = useState({});
   const [pageSize, setPageSize] = useState(null);
   const [page, setPage] = useState(1);
+  const { request } = useProxyApi();
 
   const customGetSchoolReviews = useCallback(
-    async (actualPage) =>
-      getSchoolReviews({
-        code: schoolCode,
-        sort: sortType.sort,
-        pagination: {
-          page: actualPage,
-          pageSize,
+    async (actualPage) => {
+      const query = qs.stringify(
+        {
+          sort: sortType.sort,
+          populate: [
+            'reviewer',
+            'comments',
+            'reactions',
+            'comments.reviewer',
+            'comments.reactions',
+          ],
+          filters: {
+            school: {
+              code: schoolCode,
+            },
+          },
+          pagination: {
+            page: actualPage,
+            pageSize,
+          },
         },
-      }),
-    [pageSize, schoolCode, sortType.sort],
+        { encodeValuesOnly: true },
+      );
+      return request(`${REVIEWS}/?${query}`);
+    },
+    [pageSize, request, schoolCode, sortType.sort],
   );
 
   useEffect(() => {

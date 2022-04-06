@@ -3,10 +3,10 @@ import Main from 'layouts/Main';
 import { DateTime } from 'luxon';
 import NAVIGATION from 'library/navigation';
 import SchoolsServices from 'api/services/schools';
+import ReviewsServices from 'api/services/reviews';
 import SchoolReviews from 'containers/SchoolReviews';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import CategoriesServices from 'api/services/categories';
-import getSchoolReviews from 'controllers/getSchoolReviews';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import { prepareSchoolReviews } from 'helpers/preparersData';
 import { declOfNumRealReviews } from 'helpers/declOfNumInstances';
@@ -64,7 +64,7 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
 
 export async function getServerSideProps(context) {
   const schoolCode = context.params.code;
-  const schoolReviews = await getSchoolReviews({ code: schoolCode });
+  const schoolReviews = await ReviewsServices.getList({ code: schoolCode });
   const school = await SchoolsServices.getList({
     customFields: 'grade',
     filters: { code: schoolCode },
