@@ -1,7 +1,7 @@
 import axios from 'axios';
 import adapter from 'axios/lib/adapters/http';
 
-const baseURL = process.env.NEXT_PUBLIC_CMS_API;
+const baseURL = process.env.CMS_API;
 
 export const cmsApi = axios.create({
   baseURL,
