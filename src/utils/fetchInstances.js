@@ -1,6 +1,6 @@
 import fetchToJson from './fetchToJson';
 
-const baseURL = process.env.NEXT_PUBLIC_CMS_API;
+const baseURL = process.env.CMS_API;
 
 export const fetchCmsApi = fetchToJson(baseURL);
 
