@@ -27,8 +27,23 @@ export function declOfNumSymbols(number, returnString) {
   return declOfNum(number, titles, returnString);
 }
 
+export function declOfNumAssembled(number, returnString) {
+  const titles = ['собран', 'собраны', 'собрано'];
+  return declOfNum(number, titles, returnString);
+}
+
 export function declOfNumCourses(number, returnString) {
   const titles = ['курс', 'курса', 'курсов'];
+  return declOfNum(number, titles, returnString);
+}
+
+export function declOfNumOnlineCourses(number, returnString) {
+  const titles = ['онлайн-курс', 'онлайн-курса', 'онлайн-курсов'];
+  return declOfNum(number, titles, returnString);
+}
+
+export function declOfNumSchool(number, returnString) {
+  const titles = ['школа', 'школы', 'школ'];
   return declOfNum(number, titles, returnString);
 }
 

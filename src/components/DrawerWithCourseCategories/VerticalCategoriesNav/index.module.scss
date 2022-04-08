@@ -38,6 +38,10 @@
   }
 }
 
+.wrapperList {
+  max-width: 730px;
+}
+
 .tab {
   &:active {
     color: $accent

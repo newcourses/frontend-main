@@ -15,6 +15,8 @@ function VerticalCategoriesNav({ categories }) {
           key={attributes.code}
         >
           <List
+            className={css.wrapperList}
+            grid={{ gutter: 16, column: 2 }}
             dataSource={attributes.subcategories.data}
             renderItem={({ attributes: subAttributes }) => (
               <List.Item>

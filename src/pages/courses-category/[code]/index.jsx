@@ -9,8 +9,14 @@ import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import ShowcaseCourses from 'containers/ShowcaseCourses';
 import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
-import { declOfNumCourses } from 'helpers/declOfNumInstances';
+import {
+  declOfNumSchool,
+  declOfNumCourses,
+  declOfNumAssembled,
+  declOfNumOnlineCourses,
+} from 'helpers/declOfNumInstances';
 import SubscribeNewsletter from 'components/SubscribeNewsletter';
+import replaceCourseToSchool from 'helpers/replaceCourseToSchool';
 
 const generateTitle = (countCourses, subcategoryCaption) => {
   return `Топ - ${declOfNumCourses(
@@ -58,15 +64,22 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
           <CoursesTable
             title={currentSubcategory.attributes?.title}
             // TODO динамический description
-            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+            description={`Здесь ${declOfNumAssembled(
+              courses.data.length,
+            )} ${declOfNumOnlineCourses(
+              courses.data.length,
+              true,
+            )} обучения. Мы регулярно обновляем информацию о всех курсах.`}
             dataSource={courses.data}
           />
         </section>
         <section>
           <SchoolsInfo
-            title="Курсы по product-менеджменту"
-            // TODO динамический description
-            description="Здесь собран 81 онлайн-курс обучения продакт-менеджеров. 1 раз в неделю мы обновляем информацию о всех курсах."
+            title={replaceCourseToSchool(currentSubcategory.attributes?.title)}
+            description={`Здесь ${declOfNumAssembled(
+              schools.data.length,
+            )} ${declOfNumSchool(schools.data.length, true)} у которых есть 
+            ${currentSubcategory.attributes?.title.toLowerCase()}.`}
             schools={schools.data}
           />
         </section>
