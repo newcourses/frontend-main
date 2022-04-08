@@ -1,5 +1,10 @@
+@import '/src/styles/variables';
+
 .formWrapper {
   width: 600px;
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+  }
 }
 
 .wrapper {
