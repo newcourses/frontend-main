@@ -12,6 +12,7 @@ function DrawerWithCourseCategories({ setVisible, visible, categories }) {
     <Drawer
       headerStyle={{ backgroundColor: '#ffefd7' }}
       bodyStyle={{ backgroundColor: '#ffefd7' }}
+      style={{ overflow: 'scroll' }}
       title={<div className={css.title}>Все направления</div>}
       closable={false}
       onClose={closeDrawer}
