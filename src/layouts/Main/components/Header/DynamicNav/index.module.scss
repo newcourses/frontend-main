@@ -6,6 +6,10 @@
   margin: 0;
   @media screen and (max-width: $widthNotebook) {
     padding-left: 0;
+    display: block;
+    li {
+      margin-top: 10px;
+    }
   }
 }
 

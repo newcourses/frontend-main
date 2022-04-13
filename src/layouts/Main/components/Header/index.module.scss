@@ -19,12 +19,9 @@
   }
 }
 
-.navMobile {
-  display: none;
-
-  @media screen and (max-width: $widthTablet) {
-    display: block;
-  }
+.closeIcon {
+  position: absolute;
+  right: 60px;
 }
 
 .textButton {

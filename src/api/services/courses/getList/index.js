@@ -7,7 +7,7 @@ export default async ({ code, populate, pagination, customFields }) => {
     {
       customFields,
       filters: {
-        subcategory: {
+        subcategories: {
           code,
         },
       },

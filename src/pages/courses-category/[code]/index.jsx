@@ -63,7 +63,6 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
         <section>
           <CoursesTable
             title={currentSubcategory.attributes?.title}
-            // TODO динамический description
             description={`Здесь ${declOfNumAssembled(
               courses.data.length,
             )} ${declOfNumOnlineCourses(
@@ -108,7 +107,7 @@ export async function getServerSideProps({ params }) {
     customFields: 'grade',
     filters: {
       courses: {
-        subcategory: {
+        subcategories: {
           code: { $eq: params.code },
         },
       },
@@ -118,7 +117,7 @@ export async function getServerSideProps({ params }) {
       disadvantages: '*',
       courses: {
         filters: {
-          subcategory: {
+          subcategories: {
             code: { $eq: params.code },
           },
         },

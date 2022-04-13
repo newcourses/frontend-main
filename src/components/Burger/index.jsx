@@ -1,23 +1,13 @@
 import React from 'react';
-import Link from 'next/link';
-import { slide as Menu } from 'react-burger-menu';
+import css from './index.module.scss';
 
-function Burger() {
+function Burger({ handler }) {
   return (
-    <Menu customBurgerIcon={<div>TEST</div>}>
-      <Link className="menu-item" href="/">
-        <a>Home</a>
-      </Link>
-      <Link className="menu-item" href="/">
-        <a>About</a>
-      </Link>
-      <Link className="menu-item" href="/">
-        <a>Contact</a>
-      </Link>
-      <Link className="menu-item" href="/">
-        <a>Settings</a>
-      </Link>
-    </Menu>
+    <div onClick={handler} className={css.burger} role="button" tabIndex="0">
+      <span />
+      <span />
+      <span />
+    </div>
   );
 }
 

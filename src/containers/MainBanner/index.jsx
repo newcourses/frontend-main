@@ -18,7 +18,7 @@ function MainBanner({ setVisibleDrawer }) {
             styleTextButton={css.textButton}
             setVisibleDrawer={setVisibleDrawer}
             height={70}
-            width={400}
+            width="100%"
           />
         </div>
       </div>

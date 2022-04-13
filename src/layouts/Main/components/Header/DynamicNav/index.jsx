@@ -3,7 +3,7 @@ import cn from 'classnames';
 import Link from 'next/link';
 import css from './index.module.scss';
 
-function DynamicNav({ links }) {
+function DynamicNav({ links, addition }) {
   return (
     <ul className={css.linksContainer}>
       {links.map((navElement) => (
@@ -15,6 +15,9 @@ function DynamicNav({ links }) {
           </Link>
         </li>
       ))}
+      {addition && (
+        <li className={cn(css.linkWrapper, css.link)}>{addition}</li>
+      )}
     </ul>
   );
 }
