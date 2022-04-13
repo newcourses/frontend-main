@@ -10,7 +10,7 @@ function Header({ logo, grade, mainLink, displayLink, code, countReviews }) {
   return (
     <div className={css.wrapper}>
       <div className={css.item}>
-        <Logo logo={logo} isNewWind />
+        {logo && <Logo logo={logo} isNewWind />}
         <a
           className={css.link}
           href={mainLink}
