@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 import Header from './components/Header';
 
 function Main({
-  title = 'Newcourses - отзовы по всем курсам!',
+  title = 'Newcourses - отзывы по всем курсам!',
   children,
   categories,
   description,
