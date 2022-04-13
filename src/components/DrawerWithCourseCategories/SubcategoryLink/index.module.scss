@@ -1,0 +1,20 @@
+@import "src/styles/variables";
+
+.linkText {
+  font-size: 18px;
+  color: #666;
+
+  @media screen and (max-width: $widthNotebook) {
+    margin-left: 0;
+    font-size: 16px;
+  }
+
+  @media screen and (max-width: $widthTablet) {
+    margin-left: 0;
+    font-size: 14px;
+  }
+
+  &:hover {
+    color: $accentHover
+  }
+}

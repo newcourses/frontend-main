@@ -1,12 +1,11 @@
 import React from 'react';
-import Link from 'next/link';
 import { List, Tabs } from 'antd';
-import NAVIGATION from 'library/navigation';
 import css from './index.module.scss';
+import SubcategoryLink from '../SubcategoryLink';
 
 const { TabPane } = Tabs;
 
-function VerticalCategoriesNav({ categories }) {
+function VerticalCategoriesNav({ categories, closeDrawer }) {
   return (
     <Tabs className={css.container} tabPosition="left" size="large">
       {categories.map(({ attributes }) => (
@@ -20,12 +19,11 @@ function VerticalCategoriesNav({ categories }) {
             dataSource={attributes.subcategories.data}
             renderItem={({ attributes: subAttributes }) => (
               <List.Item>
-                <Link
-                  href={NAVIGATION.coursesCategory.link}
-                  as={NAVIGATION.coursesCategory.as(subAttributes.code)}
-                >
-                  <a className={css.linkText}>{subAttributes.caption}</a>
-                </Link>
+                <SubcategoryLink
+                  caption={subAttributes.caption}
+                  code={subAttributes.code}
+                  closeDrawer={closeDrawer}
+                />
               </List.Item>
             )}
           />

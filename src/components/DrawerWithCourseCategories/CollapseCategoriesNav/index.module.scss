@@ -1,0 +1,9 @@
+@import '/src/styles/variables';
+
+.container {
+  display: none;
+
+  @media screen and (max-width: $widthTablet) {
+    display: block;
+  }
+}

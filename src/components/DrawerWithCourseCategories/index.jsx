@@ -3,6 +3,7 @@ import { Drawer, Space } from 'antd';
 import { CloseOutlined } from '@ant-design/icons';
 import VerticalCategoriesNav from './VerticalCategoriesNav';
 import css from './index.module.scss';
+import CollapseCategoriesNav from './CollapseCategoriesNav';
 
 function DrawerWithCourseCategories({ setVisible, visible, categories }) {
   const closeDrawer = useCallback(() => setVisible(false), [setVisible]);
@@ -11,7 +12,7 @@ function DrawerWithCourseCategories({ setVisible, visible, categories }) {
     <Drawer
       headerStyle={{ backgroundColor: '#ffefd7' }}
       bodyStyle={{ backgroundColor: '#ffefd7' }}
-      title={<div className={css.title}>Все направдения</div>}
+      title={<div className={css.title}>Все направления</div>}
       closable={false}
       onClose={closeDrawer}
       visible={visible}
@@ -23,7 +24,15 @@ function DrawerWithCourseCategories({ setVisible, visible, categories }) {
         </Space>
       }
     >
-      <VerticalCategoriesNav categories={categories} />
+      <VerticalCategoriesNav
+        categories={categories}
+        closeDrawer={closeDrawer}
+      />
+
+      <CollapseCategoriesNav
+        categories={categories}
+        closeDrawer={closeDrawer}
+      />
     </Drawer>
   );
 }

@@ -13,7 +13,7 @@ function MainBanner({ setVisibleDrawer }) {
           Выбирайте курсы по отзывам, цене, продолжительности и другим
           критериям!
         </p>
-        <div style={{ marginTop: 80 }}>
+        <div className={css.wrapperButton}>
           <AllCategoriesButton
             styleTextButton={css.textButton}
             setVisibleDrawer={setVisibleDrawer}
