@@ -113,7 +113,7 @@ export async function getServerSideProps({ params }) {
     pagination: { page: 'all' },
     customFields: 'grade',
     filters: {
-      courses: {
+      products: {
         subcategories: {
           code: { $eq: params.code },
         },
@@ -122,7 +122,7 @@ export async function getServerSideProps({ params }) {
     populate: {
       advantages: '*',
       disadvantages: '*',
-      courses: {
+      products: {
         filters: {
           subcategories: {
             code: { $eq: params.code },
