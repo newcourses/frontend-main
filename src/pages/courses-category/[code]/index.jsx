@@ -99,7 +99,7 @@ export async function getServerSideProps({ params }) {
     customFields: 'grade',
     filters: {
       product_type: {
-        code: 'courses',
+        code: 'course',
       },
       subcategories: {
         code: params.code,
