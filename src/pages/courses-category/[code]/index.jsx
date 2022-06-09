@@ -2,7 +2,7 @@ import React from 'react';
 import Main from 'layouts/Main';
 import NAVIGATION from 'library/navigation';
 import SchoolsInfo from 'containers/SchoolsInfo';
-import CoursesServices from 'api/services/courses';
+import ProductsServices from 'api/services/products';
 import CoursesTable from 'containers/CoursesTable';
 import SchoolsServices from 'api/services/schools';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
@@ -95,11 +95,18 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
 
 export async function getServerSideProps({ params }) {
   const categories = await CategoriesServices.getList();
-  const courses = await CoursesServices.getList({
+  const courses = await ProductsServices.getList({
     customFields: 'grade',
+    filters: {
+      product_type: {
+        code: 'courses',
+      },
+      subcategories: {
+        code: params.code,
+      },
+    },
     pagination: { page: 'all' },
     populate: 'params',
-    code: params.code,
   });
 
   const schools = await SchoolsServices.getList({
