@@ -33,7 +33,7 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
   const subcategoryCaption = currentSubcategory.attributes.caption;
-  const title = generateTitle(courses.data.length, subcategoryCaption);
+  const title = generateTitle(courses.data?.length || 0, subcategoryCaption);
   const description = generateDescription(subcategoryCaption);
 
   const items = [
