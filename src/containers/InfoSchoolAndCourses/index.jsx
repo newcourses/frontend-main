@@ -15,7 +15,7 @@ function InfoSchoolAndCourses(props) {
     code,
     name,
     grade,
-    courses,
+    products,
     mainLink,
     advantages,
     description,
@@ -64,7 +64,7 @@ function InfoSchoolAndCourses(props) {
           <Table
             scroll={{ x: 600 }}
             pagination={false}
-            dataSource={courses.data}
+            dataSource={products.data}
           >
             <Table.Column
               title="Курс"
