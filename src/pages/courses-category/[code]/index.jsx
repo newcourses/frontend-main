@@ -104,6 +104,7 @@ export async function getServerSideProps({ params }) {
       subcategories: {
         code: params.code,
       },
+      isFree: false,
     },
     pagination: { page: 'all' },
     populate: 'params',
