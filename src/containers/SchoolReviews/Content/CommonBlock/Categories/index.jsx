@@ -9,12 +9,13 @@ function Categories({ categories, setVisibleDrawer }) {
       <p>
         {categories.map((category) => (
           <span
+            key={category.id}
             tabIndex={0}
             role="button"
             className={css.category}
             onClick={() => setVisibleDrawer(true)}
           >
-            <span key={category.id}>{category.attributes.caption}</span>
+            <span>{category.attributes.caption}</span>
             <DownOutlined style={{ marginLeft: '5px' }} />
           </span>
         ))}

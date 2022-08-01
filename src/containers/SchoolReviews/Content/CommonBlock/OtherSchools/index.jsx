@@ -11,6 +11,7 @@ function OtherSchools({ schools }) {
       <p className={css.title}>Отзывы о других школах:</p>
       {schools.map(({ id, attributes }) => (
         <Link
+          key={id}
           href={NAVIGATION.schoolReview.link}
           as={NAVIGATION.schoolReview.as(attributes.code)}
         >

@@ -21,6 +21,9 @@
 
 .leftCell {
   min-width: 650px;
+  @media screen and (max-width: $widthTablet) {
+    min-width: auto;
+  }
 }
 
 .textCell {

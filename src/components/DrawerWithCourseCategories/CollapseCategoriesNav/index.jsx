@@ -16,7 +16,7 @@ function CollapseCategoriesNav({ categories, closeDrawer }) {
         <Panel header={attributes.caption} key={attributes.value}>
           {attributes.subcategories.data.map(
             ({ attributes: subAttributes }) => (
-              <List.Item>
+              <List.Item key={subAttributes.code}>
                 <SubcategoryLink
                   caption={subAttributes.caption}
                   code={subAttributes.code}

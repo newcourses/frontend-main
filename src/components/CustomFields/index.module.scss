@@ -1,5 +1,44 @@
 @import '/src/styles/variables';
 
+.wrapperSlider {
+  :global {
+    .ant-slider-handle {
+      border-color: $accentHover;
+    }
+    .ant-slider:hover .ant-slider-handle:not(.ant-tooltip-open) {
+      border-color: $accent;
+    }
+
+    .ant-slider-handle.ant-tooltip-open {
+      border-color: $accent;
+    }
+
+    .ant-slider-handle:focus {
+      border-color: $accent;
+    }
+
+    .ant-slider-handle-dragging.ant-slider-handle-dragging.ant-slider-handle-dragging {
+      border-color: $accent;
+    }
+
+    .ant-slider:hover .ant-slider-track {
+      background-color: $accentHover;
+    }
+
+    .ant-slider-track  {
+      background-color: $lightAccent;
+    }
+  }
+}
+
+.wrapperSelect {
+  :global {
+    .ant-select:not(.ant-select-disabled):hover .ant-select-selector {
+      border-color: $accentHover;
+    }
+  }
+}
+
 .defaultCheckboxStyle {
   :global {
     .ant-checkbox-checked .ant-checkbox-inner {
@@ -7,4 +46,8 @@
       background-color: $accent;
     }
   }
+}
+
+.label {
+  font-family: RubikBold;
 }
