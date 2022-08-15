@@ -1,4 +1,5 @@
 import React from 'react';
+import qs from 'qs';
 import Filters from '../../containers/Filters';
 import Main from '../../layouts/Main';
 import CategoriesServices from '../../api/services/categories';
@@ -29,17 +30,62 @@ function Courses({ categories, courses }) {
     </Main>
   );
 }
-export async function getServerSideProps({ query }) {
+export async function getServerSideProps(ctx) {
+  const query = qs.parse(ctx.req.url.split('?')[1]);
+
+  const filters = {};
+
+  if (query.price?.length === 2) {
+    filters.$and = [
+      {
+        $or: [
+          {
+            price: {
+              $gte: query.price[0],
+            },
+          },
+          {
+            oldPrice: {
+              $gte: query.price[0],
+            },
+          },
+        ],
+      },
+      {
+        $or: [
+          {
+            price: {
+              $lte: query.price[1],
+            },
+          },
+          {
+            oldPrice: {
+              $lte: query.price[1],
+            },
+          },
+        ],
+      },
+    ];
+  }
+
   const courses = await ProductsServices.getList({
     customFields: 'grade',
     filters: {
       product_type: {
         code: 'course',
       },
+      ...filters,
+      isFree: query.isFree,
       subcategories: {
-        code: query.subcategory,
+        code: {
+          $in: query?.subcategories,
+        },
+        categories: {
+          code: {
+            $in: query?.categories,
+          },
+        },
       },
-      isFree: false,
     },
     pagination: { page: 'all' },
     populate: 'params',

@@ -7,13 +7,17 @@ import css from './index.module.scss';
 
 function DynamicNav({ links, addition }) {
   const location = useRouter();
+  const query = {};
+  if (location.query.code) {
+    query['subcategories[0]'] = location.query.code;
+  }
   return (
     <ul className={css.linksContainer}>
       <li>
         <Link
           href={{
             pathname: '/courses',
-            query: { subcategory: location.query.code },
+            query,
           }}
         >
           <a className={cn(css.linkWrapper, css.link)}>
