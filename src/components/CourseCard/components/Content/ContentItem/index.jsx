@@ -8,8 +8,13 @@ function parseParamsValue(value, unit) {
   if (value === 'False') {
     return 'нет';
   }
-  console.log('unit', unit);
-  return `${value} ${unit && unit}`;
+
+  let result = value;
+  if (unit) {
+    result += ` ${unit}`;
+  }
+
+  return result;
 }
 
 function ContentItem({ icon, infoText, params = [], prefixText }) {
