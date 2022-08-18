@@ -1,11 +1,11 @@
-import React from 'react';
 import qs from 'qs';
-import Filters from '../../containers/Filters';
-import Main from '../../layouts/Main';
-import CategoriesServices from '../../api/services/categories';
-import useVisibleDrawer from '../../hooks/useVisibleDrawer';
-import ProductsServices from '../../api/services/products';
-import ShowcaseCourses from '../../containers/ShowcaseCourses';
+import React from 'react';
+import Main from 'layouts/Main';
+import Filters from 'containers/Filters';
+import ProductsServices from 'api/services/products';
+import useVisibleDrawer from 'hooks/useVisibleDrawer';
+import CategoriesServices from 'api/services/categories';
+import ShowcaseCourses from 'containers/ShowcaseCourses';
 
 function Courses({ categories, courses }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
@@ -71,6 +71,7 @@ export async function getServerSideProps(ctx) {
   const courses = await ProductsServices.getList({
     customFields: 'grade',
     filters: {
+      title: { $containsi: query.title },
       product_type: {
         code: 'course',
       },

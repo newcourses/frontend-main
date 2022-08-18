@@ -3,10 +3,11 @@ import React, { useMemo } from 'react';
 import { useRouter } from 'next/router';
 import cn from 'classnames';
 import {
-  FormGroup,
-  Select,
-  SelectWithGroups,
+  Input,
   Slider,
+  Select,
+  FormGroup,
+  SelectWithGroups,
 } from 'components/CustomFields';
 import SearchHandler from 'utils/SearchHandler';
 import useDebouncedEffect from 'hooks/useDebouncedEffect';
@@ -62,12 +63,18 @@ function FilterForm({ form, categories }) {
     <Form className={css.wrapperForm}>
       <div className={cn('ant-row', css.wrapperLine)}>
         <FormGroup
-          name="categories"
-          label="Категории"
+          name="title"
+          label="Название"
+          component={Input}
+          className={cn('ant-col-10 ', css.wrapperItem)}
+          allowClear
+        />
+        <FormGroup
+          name="isFree"
+          label="Тип"
           component={Select}
-          mode="multiple"
-          list={categoriesList}
-          className={cn('ant-col-8', css.wrapperItem)}
+          list={{ false: 'Платные', true: 'Бесплатные' }}
+          className={cn('ant-col-4', css.wrapperItem)}
           allowClear
         />
         <FormGroup
@@ -81,15 +88,18 @@ function FilterForm({ form, categories }) {
           step={100}
           className={cn('ant-col-8', css.wrapperItem)}
         />
-
-        <div className={cn(css.wrapperButton, css.wrapperItem)}>
-          <CustomButton type="submit" width={200} height={40}>
-            Поиск
-          </CustomButton>
-        </div>
       </div>
 
       <div className="ant-row">
+        <FormGroup
+          name="categories"
+          label="Категории"
+          component={Select}
+          mode="multiple"
+          list={categoriesList}
+          className={cn('ant-col-8', css.wrapperItem)}
+          allowClear
+        />
         <FormGroup
           name="subcategories"
           label="Подкатегории"
@@ -101,13 +111,11 @@ function FilterForm({ form, categories }) {
           className={cn('ant-col-8', css.wrapperItem)}
           allowClear
         />
-        <FormGroup
-          name="isFree"
-          label="Тип"
-          component={Select}
-          list={{ false: 'Платная', true: 'Бесплатная' }}
-          className={cn('ant-col-8', css.wrapperItem)}
-        />
+        <div className={cn(css.wrapperButton, css.wrapperItem)}>
+          <CustomButton type="submit" width={200} height={40}>
+            Поиск
+          </CustomButton>
+        </div>
       </div>
     </Form>
   );

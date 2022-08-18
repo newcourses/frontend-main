@@ -1,8 +1,8 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { useRouter } from 'next/router';
+import SearchHandler from 'utils/SearchHandler';
 import css from './index.module.scss';
-import SearchHandler from '../../utils/SearchHandler';
 import FilterForm from './components/FilterForm';
 
 function Filters({ categories }) {

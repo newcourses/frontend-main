@@ -16,7 +16,7 @@ function DynamicNav({ links, addition }) {
       <li>
         <Link
           href={{
-            pathname: '/courses',
+            pathname: '/products',
             query,
           }}
         >
