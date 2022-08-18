@@ -9,12 +9,11 @@ function parseParamsValue(value, unit) {
     return 'нет';
   }
 
-  let result = value;
   if (unit) {
-    result += ` ${unit}`;
+    value += ` ${unit}`;
   }
 
-  return result;
+  return value;
 }
 
 function ContentItem({ icon, infoText, params = [], prefixText }) {
