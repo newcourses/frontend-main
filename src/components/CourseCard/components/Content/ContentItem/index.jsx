@@ -8,7 +8,7 @@ function parseParamsValue(value, unit) {
   if (value === 'False') {
     return 'нет';
   }
-  return `${value} ${unit}`;
+  return `${value} ${unit && unit}`;
 }
 
 function ContentItem({ icon, infoText, params = [], prefixText }) {
