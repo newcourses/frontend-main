@@ -8,6 +8,7 @@ function parseParamsValue(value, unit) {
   if (value === 'False') {
     return 'нет';
   }
+  console.log('unit', unit);
   return `${value} ${unit && unit}`;
 }
 
