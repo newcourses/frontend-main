@@ -4,6 +4,7 @@ import MainBanner from 'containers/MainBanner';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import CategoriesServices from 'api/services/categories';
 import CourseCategories from 'containers/CourseCategories';
+import Head from 'next/head';
 
 function Home({ categories }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
@@ -13,6 +14,13 @@ function Home({ categories }) {
       setVisibleDrawer={setVisibleDrawer}
       categories={categories.data}
     >
+      <Head>
+        <meta name="yandex-verification" content="09e173153553f555" />
+        <meta
+          name="google-site-verification"
+          content="l0nFA56JuQDY5OIPndVMay3JyXZ3nYIsZc6K8NHD5Gs"
+        />
+      </Head>
       <main>
         <MainBanner setVisibleDrawer={setVisibleDrawer} />
       </main>
