@@ -1,7 +1,7 @@
 import React from 'react';
 import { Collapse, List } from 'antd';
+import SubcategoryLink from 'components/SubcategoryLink';
 import css from './index.module.scss';
-import SubcategoryLink from '../SubcategoryLink';
 
 const { Panel } = Collapse;
 
