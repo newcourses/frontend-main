@@ -1,0 +1,8 @@
+@import '/src/styles/variables';
+
+.container {
+  margin-top: 100px;
+  @media screen and (max-width: $widthTablet) {
+    margin-top: 30px;
+  }
+}
