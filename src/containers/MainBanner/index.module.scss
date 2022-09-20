@@ -47,6 +47,9 @@
 
 .wrapperButton {
   margin-top: 80px;
-  width: 350px
+  width: 350px;
+  @media screen and (max-width: $widthNotebook) {
+    width: 100%;
+  }
 }
 
