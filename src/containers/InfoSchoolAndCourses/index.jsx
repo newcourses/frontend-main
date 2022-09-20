@@ -105,18 +105,26 @@ function InfoSchoolAndCourses(props) {
           </Table>
         </Col>
         <Col flex="1 1" className={css.wrapperCell}>
-          <div className={css.titleBenefits}>Преимущества школы</div>
-          <ul className={cn(css.ulBenefits, css.ulCommon)}>
-            {advantages.map((elem) => (
-              <li key={elem.id}>{elem.text}</li>
-            ))}
-          </ul>
-          <div className={css.titleDisadvantages}>Недостатки</div>
-          <ul className={cn(css.ulDisadvantages, css.ulCommon)}>
-            {disadvantages.map((elem) => (
-              <li key={elem.id}>{elem.text}</li>
-            ))}
-          </ul>
+          {advantages.length ? (
+            <>
+              <div className={css.titleBenefits}>Преимущества школы</div>
+              <ul className={cn(css.ulBenefits, css.ulCommon)}>
+                {advantages.map((elem) => (
+                  <li key={elem.id}>{elem.text}</li>
+                ))}
+              </ul>
+            </>
+          ) : null}
+          {disadvantages.length ? (
+            <>
+              <div className={css.titleDisadvantages}>Недостатки</div>
+              <ul className={cn(css.ulDisadvantages, css.ulCommon)}>
+                {disadvantages.map((elem) => (
+                  <li key={elem.id}>{elem.text}</li>
+                ))}
+              </ul>
+            </>
+          ) : null}
         </Col>
       </Row>
     </div>
