@@ -28,7 +28,7 @@ export function declOfNumSymbols(number, returnString) {
 }
 
 export function declOfNumAssembled(number, returnString) {
-  const titles = ['собран', 'собраны', 'собрано'];
+  const titles = ['собрана', 'собраны', 'собрано'];
   return declOfNum(number, titles, returnString);
 }
 
@@ -39,6 +39,15 @@ export function declOfNumCourses(number, returnString) {
 
 export function declOfNumOnlineCourses(number, returnString) {
   const titles = ['онлайн-курс', 'онлайн-курса', 'онлайн-курсов'];
+  return declOfNum(number, titles, returnString);
+}
+
+export function declOfNumFreeOnlineCourses(number, returnString) {
+  const titles = [
+    'бесплатный онлайн-курс',
+    'бесплатных онлайн-курса',
+    'бесплатных онлайн-курсов',
+  ];
   return declOfNum(number, titles, returnString);
 }
 
