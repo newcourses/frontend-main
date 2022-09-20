@@ -5,7 +5,7 @@ import VerticalCategoriesNav from './VerticalCategoriesNav';
 import css from './index.module.scss';
 import CollapseCategoriesNav from './CollapseCategoriesNav';
 
-function DrawerWithCourseCategories({ setVisible, visible, categories }) {
+function DrawerCategories({ setVisible, visible, categories }) {
   const closeDrawer = useCallback(() => setVisible(false), [setVisible]);
 
   return (
@@ -38,4 +38,4 @@ function DrawerWithCourseCategories({ setVisible, visible, categories }) {
   );
 }
 
-export default React.memo(DrawerWithCourseCategories);
+export default React.memo(DrawerCategories);
