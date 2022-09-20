@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from 'next/head';
-import DrawerWithCourseCategories from 'components/DrawerWithCourseCategories';
+import DrawerCategories from 'components/DrawerCategories';
 import BackTopButton from 'components/BackTopButton';
 import css from './index.module.scss';
 import Footer from './components/Footer';
@@ -23,7 +23,7 @@ function Main({
         <link rel="canonical" href="https://newcourses.ru/" />
       </Head>
       {displayBackTopButton && <BackTopButton />}
-      <DrawerWithCourseCategories
+      <DrawerCategories
         visible={visibleDrawer}
         setVisible={setVisibleDrawer}
         categories={categories}
