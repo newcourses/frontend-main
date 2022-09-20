@@ -38,6 +38,7 @@ function Header({ setVisibleDrawer }) {
               NAVIGATION.about,
               NAVIGATION.schoolsList,
               NAVIGATION.contacts,
+              NAVIGATION.freeCourses,
             ]}
             addition={
               <div
@@ -69,6 +70,7 @@ function Header({ setVisibleDrawer }) {
             NAVIGATION.about,
             NAVIGATION.schoolsList,
             NAVIGATION.contacts,
+            NAVIGATION.freeCourses,
           ]}
         />
       </nav>
