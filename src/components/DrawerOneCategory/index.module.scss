@@ -1,0 +1,33 @@
+@import "../../styles/variables";
+
+.title {
+  font-family: "RubikBold";
+  font-size: 22px;
+}
+
+.icon {
+  margin-right: 10px;
+  * {
+    font-size: 22px;
+  }
+}
+
+.wrapperList {
+  margin: auto;
+  @media screen and (max-width: $widthTablet) {
+    display: none;
+  }
+}
+
+
+.containerList {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.vertWrapperList {
+  display: none;
+  @media screen and (max-width: $widthTablet) {
+    display: block;
+  }
+}
