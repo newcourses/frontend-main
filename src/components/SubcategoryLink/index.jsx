@@ -1,14 +1,16 @@
 import React from 'react';
 import Link from 'next/link';
+import NAVIGATION from 'library/navigation';
 import css from './index.module.scss';
-import NAVIGATION from '../../../library/navigation';
 
-function SubcategoryLink({ code, caption, closeDrawer }) {
+function SubcategoryLink({
+  code,
+  caption,
+  closeDrawer,
+  type = 'coursesCategory',
+}) {
   return (
-    <Link
-      href={NAVIGATION.coursesCategory.link}
-      as={NAVIGATION.coursesCategory.as(code)}
-    >
+    <Link href={NAVIGATION[type].link} as={NAVIGATION[type].as(code)}>
       <a
         className={css.linkText}
         onClick={closeDrawer}
