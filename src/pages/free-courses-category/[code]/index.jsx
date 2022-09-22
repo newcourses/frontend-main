@@ -66,7 +66,10 @@ function FreeCoursesCategory({
 
         <section>
           <CoursesTable
-            title={`Бесплатные ${currentSubcategory.attributes?.title?.toLowerCase()}`}
+            title={`Бесплатные ${currentSubcategory.attributes?.title?.replace(
+              'Курсы',
+              'курсы',
+            )}`}
             description={`Здесь ${declOfNumAssembled(
               courses.data.length,
             )} ${declOfNumFreeOnlineCourses(
