@@ -69,7 +69,6 @@ function Header({ setVisibleDrawer }) {
           links={[
             NAVIGATION.about,
             NAVIGATION.schoolsList,
-            NAVIGATION.contacts,
             NAVIGATION.freeCourses,
           ]}
         />
