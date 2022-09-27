@@ -37,7 +37,6 @@ function CoursesTable({ dataSource, title, description }) {
         <Table.Column
           title="Школа курса"
           dataIndex="attributes"
-          sorter
           width={200}
           render={({ school }) => (
             <AboutSchool
@@ -49,7 +48,6 @@ function CoursesTable({ dataSource, title, description }) {
         <Table.Column
           title="Стоимость"
           dataIndex="attributes"
-          sorter
           width={145}
           render={({ price }) => (
             <LocalPrice value={price} currency="RUB" location="ru-RU" />
@@ -58,7 +56,6 @@ function CoursesTable({ dataSource, title, description }) {
         <Table.Column
           title="Мин. платеж в рассрочку"
           dataIndex="attributes"
-          sorter
           width={145}
           render={({ creditPayment }) => (
             <LocalInstallment
@@ -71,7 +68,6 @@ function CoursesTable({ dataSource, title, description }) {
         <Table.Column
           title="Длительность"
           dataIndex="attributes"
-          sorter
           width={130}
           render={({ duration, durationUnit }) => (
             <Duration duration={duration} unit={durationUnit} />
@@ -80,7 +76,6 @@ function CoursesTable({ dataSource, title, description }) {
         <Table.Column
           title="Дата начала"
           dataIndex="attributes"
-          sorter
           width={130}
           render={({ start }) => (
             <div className={css.textCell}>
@@ -93,7 +88,6 @@ function CoursesTable({ dataSource, title, description }) {
         <Table.Column
           title="Ссылка на курс"
           dataIndex="attributes"
-          sorter
           width={240}
           render={({ school, url }) => (
             <Button

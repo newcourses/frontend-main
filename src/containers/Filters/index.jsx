@@ -5,7 +5,7 @@ import SearchHandler from 'utils/SearchHandler';
 import css from './index.module.scss';
 import FilterForm from './components/FilterForm';
 
-function Filters({ categories }) {
+function Filters({ categories, hiddenButton }) {
   const location = useRouter();
   return (
     <div className={css.wrapper}>
@@ -17,7 +17,13 @@ function Filters({ categories }) {
           location.reload();
         }}
       >
-        {(form) => <FilterForm form={form} categories={categories} />}
+        {(form) => (
+          <FilterForm
+            form={form}
+            categories={categories}
+            hiddenButton={hiddenButton}
+          />
+        )}
       </Formik>
     </div>
   );

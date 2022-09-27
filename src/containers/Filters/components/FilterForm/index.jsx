@@ -32,7 +32,7 @@ const prepareCategories = (categories) => {
   return response;
 };
 
-function FilterForm({ form, categories }) {
+function FilterForm({ form, categories, hiddenButton }) {
   const location = useRouter();
 
   const { categoriesList, subcategoriesList } = useMemo(
@@ -111,11 +111,13 @@ function FilterForm({ form, categories }) {
           className={cn('ant-col-8', css.wrapperItem)}
           allowClear
         />
-        <div className={cn(css.wrapperButton, css.wrapperItem)}>
-          <CustomButton type="submit" width={200} height={40}>
-            Поиск
-          </CustomButton>
-        </div>
+        {hiddenButton && (
+          <div className={cn(css.wrapperButton, css.wrapperItem)}>
+            <CustomButton type="submit" width={200} height={40}>
+              Поиск
+            </CustomButton>
+          </div>
+        )}
       </div>
     </Form>
   );
