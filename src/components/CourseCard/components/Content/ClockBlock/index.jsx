@@ -1,7 +1,7 @@
 import React from 'react';
 import { ClockCircleOutlined } from '@ant-design/icons';
 import { Duration } from 'components/CoursesTableCells';
-import css from '../ContentItem/index.module.scss';
+import css from './index.module.scss';
 
 function ClockBlock({ start, unit, duration }) {
   let textInfo;

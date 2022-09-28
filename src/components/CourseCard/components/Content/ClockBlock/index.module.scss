@@ -1,0 +1,18 @@
+.item {
+  display: flex;
+  margin-bottom: 15px;
+  * {
+    font-size: 15px;
+    line-height: 1.2;
+  }
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.icon {
+  margin-right: 10px;
+  * {
+    font-size: 22px;
+  }
+}
