@@ -1,0 +1,44 @@
+@import "src/styles/variables";
+
+.container {
+  position: relative;
+  width: 100%;
+  padding-right: 15px;
+  padding-left: 15px;
+  flex: 0 0 50%;
+  max-width: 50%;
+
+  @media screen and (max-width: $widthNotebook) {
+    max-width: 100%;
+  }
+}
+
+.wrapper {
+  display: flex;
+  background: $lightColor;
+  border-radius: 24px;
+  overflow: hidden;
+  margin-bottom: 30px;
+  @media screen and (max-width: $widthTablet) {
+    padding: 20px;
+  }
+}
+
+.img {
+  margin-top: auto;
+  @media screen and (max-width: $widthTablet) {
+    display: none;
+  }
+}
+
+.textBlock {
+  margin: auto;
+  padding: 0 30px 0 15px;
+  ul {
+    padding-left: 20px;
+  }
+  li {
+    margin-top: 10px;
+    font-size: 15px;
+  }
+}

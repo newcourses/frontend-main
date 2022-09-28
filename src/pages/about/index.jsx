@@ -4,6 +4,8 @@ import NAVIGATION from 'library/navigation';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
+import AboutInfo from 'containers/AboutInfo';
+import WhoWeHelp from 'containers/WhoWeHelp';
 
 function About({ categories }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
@@ -20,7 +22,14 @@ function About({ categories }) {
       <section>
         <DynamicBreadcrumb items={items} />
       </section>
-      <div>About</div>
+
+      <section>
+        <AboutInfo />
+      </section>
+
+      <section>
+        <WhoWeHelp />
+      </section>
     </Main>
   );
 }
