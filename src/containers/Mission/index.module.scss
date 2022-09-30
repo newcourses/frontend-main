@@ -1,0 +1,17 @@
+@import '/src/styles/variables';
+
+.container {
+  margin-top: 60px;
+}
+
+.title {
+  text-align: center;
+  font-size: 61px;
+  @media screen and (max-width: $widthNotebook) {
+    font-size: 40px;
+  }
+}
+
+.highlight {
+  color: $accent;
+}

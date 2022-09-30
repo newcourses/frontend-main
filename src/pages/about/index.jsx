@@ -6,6 +6,7 @@ import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import AboutInfo from 'containers/AboutInfo';
 import WhoWeHelp from 'containers/WhoWeHelp';
+import Mission from '../../containers/Mission';
 
 function About({ categories }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
@@ -25,6 +26,10 @@ function About({ categories }) {
 
       <section>
         <AboutInfo />
+      </section>
+
+      <section>
+        <Mission />
       </section>
 
       <section>
