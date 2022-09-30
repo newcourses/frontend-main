@@ -4,6 +4,11 @@
   font-size: 18px;
   color: #666;
 
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+
   @media screen and (max-width: $widthNotebook) {
     margin-left: 0;
     font-size: 16px;
