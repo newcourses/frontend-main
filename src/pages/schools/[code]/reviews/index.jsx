@@ -26,7 +26,7 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
   const schoolName = school.attributes?.name;
-  const title = generateTitle(schoolName, reviews.data?.length);
+  const title = generateTitle(schoolName, school.attributes?.countReviews);
   const description = generateDescription(schoolName);
 
   const items = [
