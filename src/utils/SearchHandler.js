@@ -1,5 +1,16 @@
 import qs from 'qs';
 
+function clearEmptyFields(values) {
+  Object.keys(values).forEach((key) => {
+    if (values[key]) {
+      return;
+    }
+    delete values[key];
+  });
+
+  return values;
+}
+
 class SearchHandler {
   constructor() {
     this.qs = qs;
@@ -12,7 +23,7 @@ class SearchHandler {
   }
 
   stringify(values) {
-    return this.qs.stringify(values, {
+    return this.qs.stringify(clearEmptyFields(values), {
       encode: false,
       addQueryPrefix: true,
       arrayFormat: 'indices',

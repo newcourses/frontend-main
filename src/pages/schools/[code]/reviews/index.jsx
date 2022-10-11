@@ -26,7 +26,7 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
   const schoolName = school.attributes?.name;
-  const title = generateTitle(schoolName, reviews.data?.length);
+  const title = generateTitle(schoolName, school.attributes?.countReviews);
   const description = generateDescription(schoolName);
 
   const items = [
@@ -62,8 +62,8 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const schoolCode = context.params.code;
+export async function getServerSideProps(ctx) {
+  const schoolCode = ctx.params.code;
   const schoolReviews = await ReviewsServices.getList({ code: schoolCode });
   const school = await SchoolsServices.getList({
     customFields: 'grade',

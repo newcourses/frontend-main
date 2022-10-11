@@ -35,12 +35,16 @@ function Schools({ categories, schools }) {
   );
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps(ctx) {
+  const { school } = ctx.query;
   const categories = await CategoriesServices.getList();
 
   const schools = await SchoolsServices.getList({
     customFields: 'grade',
     pagination: { page: 'all' },
+    filters: {
+      name: { $containsi: school },
+    },
   });
   return {
     props: { categories, schools },
