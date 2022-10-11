@@ -62,8 +62,8 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   );
 }
 
-export async function getServerSideProps(context) {
-  const schoolCode = context.params.code;
+export async function getServerSideProps(ctx) {
+  const schoolCode = ctx.params.code;
   const schoolReviews = await ReviewsServices.getList({ code: schoolCode });
   const school = await SchoolsServices.getList({
     customFields: 'grade',
