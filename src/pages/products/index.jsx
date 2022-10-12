@@ -4,7 +4,7 @@ import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import CategoriesServices from 'api/services/categories';
 import SearchHandler from 'utils/SearchHandler';
 import ProductController from 'controllers/product';
-import Showcase from './Showcase';
+import Showcase from 'containers/ShowcaseProducts';
 
 function Courses({ categories, courses }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();

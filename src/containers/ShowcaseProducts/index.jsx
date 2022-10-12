@@ -8,7 +8,12 @@ import ProductController from 'controllers/product';
 import css from './index.module.scss';
 import FilterForm from './FilterForm';
 
-function Showcase({ title, categories, cardsPagination, cards: initCards }) {
+function ShowcaseProducts({
+  title,
+  categories,
+  cardsPagination,
+  cards: initCards,
+}) {
   const [pageCount, setPageCount] = useState(cardsPagination.pageCount);
   const [cards, setCards] = useState(initCards);
   const location = useRouter();
@@ -72,4 +77,4 @@ function Showcase({ title, categories, cardsPagination, cards: initCards }) {
   );
 }
 
-export default React.memo(Showcase);
+export default React.memo(ShowcaseProducts);
