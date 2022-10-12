@@ -7,6 +7,7 @@ import SearchHandler from 'utils/SearchHandler';
 import ProductController from 'controllers/product';
 import css from './index.module.scss';
 import FilterForm from './FilterForm';
+import SubscribeNewsletter from '../../components/SubscribeNewsletter';
 
 function ShowcaseProducts({
   title,
@@ -53,7 +54,16 @@ function ShowcaseProducts({
           return (
             <>
               <FilterForm form={form} categories={categories} />
-              <h3 className={css.title}>{title}</h3>
+              {cards.length ? (
+                <h3 className={css.title}>{title}</h3>
+              ) : (
+                <>
+                  <span className={css.title}>
+                    К сожалению мы пока ничего не нашли :(
+                  </span>
+                  <SubscribeNewsletter />
+                </>
+              )}
               <div className={css.wrapperList}>
                 {cards.map(({ id, attributes }) => (
                   <CourseCard key={id} {...attributes} />
