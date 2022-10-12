@@ -1,6 +1,9 @@
+@import '/src/styles/variables';
+
 .wrapperForm {
   margin: 10px 0;
-
+  background: $lightColor;
+  padding: 24px 0 16px;
 }
 
 .wrapperLine {

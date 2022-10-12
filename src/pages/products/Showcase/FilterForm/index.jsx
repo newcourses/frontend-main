@@ -32,7 +32,7 @@ const prepareCategories = (categories) => {
   return response;
 };
 
-function FilterForm({ form, categories, hiddenButton }) {
+function FilterForm({ form, categories }) {
   const location = useRouter();
 
   const { categoriesList, subcategoriesList } = useMemo(
@@ -53,10 +53,12 @@ function FilterForm({ form, categories, hiddenButton }) {
   useDebouncedEffect(
     async () => {
       const searchParams = SearchHandler.stringify(form.values);
-      await location.replace({ search: searchParams });
+      await location.push({ search: searchParams }, undefined, {
+        shallow: true,
+      });
     },
     [form.values],
-    500,
+    200,
   );
 
   return (
@@ -111,13 +113,12 @@ function FilterForm({ form, categories, hiddenButton }) {
           className={cn('ant-col-8', css.wrapperItem)}
           allowClear
         />
-        {hiddenButton && (
-          <div className={cn(css.wrapperButton, css.wrapperItem)}>
-            <CustomButton type="submit" width={200} height={40}>
-              Поиск
-            </CustomButton>
-          </div>
-        )}
+
+        <div className={cn(css.wrapperButton, css.wrapperItem)}>
+          <CustomButton type="submit" width={200} height={40}>
+            Поиск
+          </CustomButton>
+        </div>
       </div>
     </Form>
   );
