@@ -12,7 +12,26 @@ class SchoolGetList extends BaseController {
   }
 
   prepareQuery() {
-    const { page, isFree, subcategory } = this.query;
+    const {
+      page,
+      name,
+      isFree,
+      limit = 25,
+      schoolCode,
+      subcategory,
+      isPopulateQuality,
+      isPopulateProducts,
+    } = this.query;
+    const filters = {};
+    const populate = {};
+    if (schoolCode) {
+      filters.code = schoolCode;
+    }
+
+    if (name) {
+      filters.name = name;
+    }
+
     const productFilters = {
       product_type: { code: 'course' },
       isFree,
@@ -21,17 +40,23 @@ class SchoolGetList extends BaseController {
       },
     };
 
-    this.queryParams.customFields = 'grade';
-    this.queryParams.filters = {
-      products: productFilters,
-    };
-    this.queryParams.pagination = { page };
-    this.queryParams.populate = {
-      advantages: '*',
-      disadvantages: '*',
-      products: {
+    if (isPopulateProducts) {
+      filters.products = productFilters;
+      populate.products = {
         filters: productFilters,
-      },
+      };
+    }
+
+    if (isPopulateQuality) {
+      populate.advantages = '*';
+      populate.disadvantages = '*';
+    }
+
+    this.queryParams.customFields = 'grade';
+    this.queryParams.filters = filters;
+    this.queryParams.pagination = { page, limit };
+    this.queryParams.populate = {
+      ...populate,
     };
   }
 

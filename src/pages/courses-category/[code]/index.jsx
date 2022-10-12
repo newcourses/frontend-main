@@ -106,6 +106,8 @@ export async function getServerSideProps({ params }) {
     page: 'all',
     isFree: false,
     subcategory: params.code,
+    isPopulateProducts: true,
+    isPopulateQuality: true,
   });
 
   let currentSubcategory;

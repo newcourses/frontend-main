@@ -2,7 +2,6 @@ import React from 'react';
 import Main from 'layouts/Main';
 import { DateTime } from 'luxon';
 import NAVIGATION from 'library/navigation';
-import SchoolsServices from 'api/services/schools';
 import ReviewsServices from 'api/services/reviews';
 import SchoolReviews from 'containers/SchoolReviews';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
@@ -10,6 +9,7 @@ import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import { prepareSchoolReviews } from 'helpers/preparersData';
 import { declOfNumRealReviews } from 'helpers/declOfNumInstances';
+import SchoolController from '../../../../controllers/school';
 
 const generateTitle = (schoolName, reviews) => {
   return `${schoolName} - ${declOfNumRealReviews(
@@ -65,17 +65,14 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
 export async function getServerSideProps(ctx) {
   const schoolCode = ctx.params.code;
   const schoolReviews = await ReviewsServices.getList({ code: schoolCode });
-  const school = await SchoolsServices.getList({
-    customFields: 'grade',
-    filters: { code: schoolCode },
+  const school = await SchoolController.getList({
+    schoolCode,
   });
-  const otherSchools = await SchoolsServices.getList({
-    pagination: { limit: 6 },
-    customFields: 'grade',
-    filters: {
-      code: { $ne: schoolCode },
-    },
+  const otherSchools = await SchoolController.getList({
+    limit: 6,
+    schoolCode: { $ne: schoolCode },
   });
+
   schoolReviews.data = prepareSchoolReviews(schoolReviews.data);
 
   const categories = await CategoriesServices.getList();
