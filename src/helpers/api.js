@@ -24,6 +24,7 @@ export const errorCatcher = async (req, res, handler) => {
 
 export const handler = (routers) => async (req, res) => {
   const baseRouter = parseRouters(routers, req.url, req.method);
+  req.proxyUrl = req.url?.replace('/api', '');
   await errorCatcher(req, res, baseRouter.controller);
   return res;
 };
