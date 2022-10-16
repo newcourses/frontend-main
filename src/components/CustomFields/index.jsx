@@ -126,10 +126,7 @@ export const Input = ({ field, form, ...props }) => {
 };
 
 export const TextArea = ({ field, form, ...props }) => {
-  // const onChange = standardOnChange(form, field);
-  const onChange = (e) => {
-    form.setFieldValue(field.name, e);
-  };
+  const onChange = standardOnChange(form, field);
 
   return (
     <AntdInput.TextArea
