@@ -1,7 +1,7 @@
 import { ApiError } from 'helpers';
 import { VISITOR_UID } from 'library/constants';
 import ReviewsServices from 'api/services/reviews';
-import { MISSING_VISITOR } from 'library/apiErrors';
+import { MISSING_VISITOR, REVIEWER_NOT_FOUND } from 'library/apiErrors';
 import VisitorsServices from 'api/services/visitors';
 import ReviewersServices from 'api/services/reviewers';
 
@@ -21,6 +21,10 @@ export default async (req, res) => {
       name: body.name,
       email: body.email,
     }));
+
+  if (!reviewer.id) {
+    throw ApiError(REVIEWER_NOT_FOUND.message, REVIEWER_NOT_FOUND.statusCode);
+  }
 
   const result = await ReviewsServices.create({
     text: body.text,

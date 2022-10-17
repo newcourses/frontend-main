@@ -18,5 +18,5 @@ export default async (body) => {
     },
   });
 
-  return reviewer;
+  return reviewer?.data;
 };

@@ -4,4 +4,8 @@ export const MISSING_VISITOR = {
   statusCode: 409,
 };
 
-export const MOKE = '';
+export const REVIEWER_NOT_FOUND = {
+  message:
+    'Не удалось записать Ваш отзыв. Повторите попытку или свяжитесь с нам',
+  statusCode: 400,
+};
