@@ -2,9 +2,7 @@ import React from 'react';
 import Main from 'layouts/Main';
 import NAVIGATION from 'library/navigation';
 import SchoolsInfo from 'containers/SchoolsInfo';
-import ProductsServices from 'api/services/products';
 import CoursesTable from 'containers/CoursesTable';
-import SchoolsServices from 'api/services/schools';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import ShowcaseCourses from 'containers/ShowcaseCourses';
 import CategoriesServices from 'api/services/categories';
@@ -16,6 +14,8 @@ import {
 } from 'helpers/declOfNumInstances';
 import SubscribeNewsletter from 'components/SubscribeNewsletter';
 import replaceCourseToSchool from 'helpers/replaceCourseToSchool';
+import SchoolController from '../../../controllers/school';
+import ProductController from '../../../controllers/product';
 
 const generateTitle = (countCourses, subcategoryCaption) => {
   return `Топ - ${declOfNumFreeOnlineCourses(
@@ -105,43 +105,20 @@ function FreeCoursesCategory({
 
 export async function getServerSideProps({ params }) {
   const categories = await CategoriesServices.getList();
-  const courses = await ProductsServices.getList({
-    customFields: 'grade',
-    filters: {
-      product_type: {
-        code: 'course',
-      },
-      subcategories: {
-        code: params.code,
-      },
-      isFree: true,
-    },
-    pagination: { page: 'all' },
-    populate: 'params',
+
+  const courses = await ProductController.getList({
+    page: 'all',
+    subcategories: [params.code],
+    isFree: true,
   });
 
-  const schools = await SchoolsServices.getList({
-    pagination: { page: 'all' },
+  const schools = await SchoolController.getList({
+    page: 'all',
     customFields: 'grade',
-    filters: {
-      products: {
-        subcategories: {
-          code: { $eq: params.code },
-        },
-      },
-    },
-    populate: {
-      advantages: '*',
-      disadvantages: '*',
-      products: {
-        filters: {
-          isFree: true,
-          subcategories: {
-            code: { $eq: params.code },
-          },
-        },
-      },
-    },
+    isPopulateProducts: true,
+    isPopulateQuality: true,
+    isFree: true,
+    subcategory: params.code,
   });
 
   let currentSubcategory;
