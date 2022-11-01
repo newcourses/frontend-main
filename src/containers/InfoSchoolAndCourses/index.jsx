@@ -70,8 +70,8 @@ function InfoSchoolAndCourses(props) {
               title="Курс"
               dataIndex="attributes"
               width={215}
-              render={({ mainLink: link, title }) => (
-                <CourseInfo link={link} title={title} />
+              render={({ url, title }) => (
+                <CourseInfo link={url} title={title} />
               )}
             />
             <Table.Column
