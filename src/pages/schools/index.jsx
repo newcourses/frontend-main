@@ -42,6 +42,7 @@ export async function getServerSideProps(ctx) {
   const schools = await SchoolController.getList({
     page: 'all',
     name: { $containsi: school },
+    displayLink: { $containsi: school },
   });
 
   return {

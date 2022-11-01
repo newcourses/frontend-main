@@ -19,6 +19,7 @@ class SchoolGetList extends BaseController {
       limit = 25,
       schoolCode,
       subcategory,
+      displayLink,
       isPopulateQuality,
       isPopulateProducts,
     } = this.query;
@@ -28,8 +29,8 @@ class SchoolGetList extends BaseController {
       filters.code = schoolCode;
     }
 
-    if (name) {
-      filters.name = name;
+    if (name && displayLink) {
+      filters.$or = [{ name }, { displayLink }];
     }
 
     const productFilters = {
@@ -64,7 +65,7 @@ class SchoolGetList extends BaseController {
     this.query = query;
     this.prepareQuery();
     this.stringifyQuery(this.queryParams);
-    return this.services.getList(`${this.rout}/${this.queryString}`);
+    return this.services.getList(encodeURI(`${this.rout}/${this.queryString}`));
   }
 
   async requestFront(query) {
