@@ -18,7 +18,7 @@ function DrawerCategories({ setVisible, visible, categories }) {
       onClose={closeDrawer}
       visible={visible}
       placement="top"
-      height="min-content"
+      height="100%"
       extra={
         <Space>
           <CloseOutlined className={css.icon} onClick={closeDrawer} />
