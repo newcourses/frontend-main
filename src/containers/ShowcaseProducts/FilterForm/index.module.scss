@@ -8,13 +8,20 @@
 
 .wrapperLine {
   display: flex;
+  @media screen and (max-width: $widthTablet) {
+    display: block;
+  }
 }
 
 .wrapperItem {
   margin: 0 16px;
+  @media screen and (max-width: $widthTablet) {
+    margin: 10px 16px 0;
+  }
 }
 
 .wrapperButton {
   display: flex;
   align-items: end;
+
 }

@@ -63,12 +63,15 @@ function FilterForm({ form, categories }) {
 
   return (
     <Form className={css.wrapperForm}>
-      <div className={cn('ant-row', css.wrapperLine)}>
+      <div className={cn(css.wrapperLine)}>
         <FormGroup
           name="title"
           label="Название"
           component={Input}
-          className={cn('ant-col-10 ', css.wrapperItem)}
+          className={cn(
+            'ant-col-xxl-10 ant-col-lg-10 ant-col-md-9',
+            css.wrapperItem,
+          )}
           allowClear
         />
         <FormGroup
@@ -76,7 +79,10 @@ function FilterForm({ form, categories }) {
           label="Тип"
           component={Select}
           list={{ false: 'Платные', true: 'Бесплатные' }}
-          className={cn('ant-col-4', css.wrapperItem)}
+          className={cn(
+            'ant-col-xxl-4 ant-col-lg-4 ant-col-md-4',
+            css.wrapperItem,
+          )}
           allowClear
         />
         <FormGroup
@@ -88,18 +94,24 @@ function FilterForm({ form, categories }) {
           min={100}
           max={300000}
           step={100}
-          className={cn('ant-col-8', css.wrapperItem)}
+          className={cn(
+            'ant-col-xxl-8 ant-col-lg-8 ant-col-md-8',
+            css.wrapperItem,
+          )}
         />
       </div>
 
-      <div className="ant-row">
+      <div className={cn(css.wrapperLine)}>
         <FormGroup
           name="categories"
           label="Категории"
           component={Select}
           mode="multiple"
           list={categoriesList}
-          className={cn('ant-col-8', css.wrapperItem)}
+          className={cn(
+            'ant-col-xxl-4 ant-col-lg-4 ant-col-md-4',
+            css.wrapperItem,
+          )}
           allowClear
         />
         <FormGroup
@@ -110,7 +122,10 @@ function FilterForm({ form, categories }) {
           list={
             isSelectCategories ? subcategoryFilteredList : subcategoriesList
           }
-          className={cn('ant-col-8', css.wrapperItem)}
+          className={cn(
+            'ant-col-xxl-4 ant-col-lg-4 ant-col-md-4',
+            css.wrapperItem,
+          )}
           allowClear
         />
 
