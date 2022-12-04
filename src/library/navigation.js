@@ -1,5 +1,5 @@
 export default {
-  home: { link: '/', caption: 'На главную' },
+  home: { link: '/', caption: 'Главная' },
   coursesCategory: {
     link: '/courses-category/[code]',
     as: (id) => `/courses-category/${id}`,
