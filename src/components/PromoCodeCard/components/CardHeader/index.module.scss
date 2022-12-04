@@ -1,0 +1,31 @@
+.component {
+  white-space: normal;
+  display: flex;
+  justify-content: space-between;
+  height: 51px;
+}
+
+.wrapperPrice {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-size: 19px;
+  line-height: 1.17;
+  display: flex;
+  align-items: center;
+  :hover {
+    collapse: red;
+  }
+}
+
+.dateWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.date {
+  width: max-content;
+}
