@@ -35,10 +35,11 @@ function Header({ setVisibleDrawer }) {
           </Space>
           <DynamicNav
             links={[
-              NAVIGATION.about,
+              NAVIGATION.promoCodes,
               NAVIGATION.schoolsList,
               NAVIGATION.contacts,
               NAVIGATION.freeCourses,
+              NAVIGATION.about,
             ]}
             addition={
               <div
@@ -67,7 +68,7 @@ function Header({ setVisibleDrawer }) {
 
         <DynamicNav
           links={[
-            NAVIGATION.about,
+            NAVIGATION.promoCodes,
             NAVIGATION.schoolsList,
             NAVIGATION.freeCourses,
           ]}

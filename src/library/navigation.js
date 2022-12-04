@@ -20,4 +20,8 @@ export default {
     link: '/schools/[code]/reviews',
     as: (value) => `/schools/${value}/reviews`,
   },
+  promoCodes: {
+    link: '/promo-codes',
+    caption: 'Промокоды и акции',
+  },
 };
