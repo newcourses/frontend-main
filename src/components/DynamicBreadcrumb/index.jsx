@@ -10,7 +10,7 @@ function DynamicBreadcrumb({ items }) {
         <Breadcrumb.Item key={value}>
           {navigation ? (
             <Link href={navigation.link} as={navigation.as}>
-              <a>{caption}</a>
+              <a>{navigation.caption}</a>
             </Link>
           ) : (
             caption
