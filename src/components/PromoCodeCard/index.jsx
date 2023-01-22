@@ -31,7 +31,7 @@ function PromoCodeCard({
     >
       <Content
         title={name}
-        landingUrl={landing.link}
+        landingUrl={landing?.link}
         description={description || promotion?.description || 'пустой'}
       />
     </Card>

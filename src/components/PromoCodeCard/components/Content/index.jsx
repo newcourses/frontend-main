@@ -11,11 +11,13 @@ function Content({ title, description, landingUrl }) {
           title
         ) : (
           <div role="button" tabIndex="0" onClick={() => setIsOpenCode(true)}>
-            <Link href={landingUrl} target="_blank" rel="noopener noreferrer">
-              <a target="_blank" rel="noopener noreferrer">
-                Открыть промокод
-              </a>
-            </Link>
+            {landingUrl && (
+              <Link href={landingUrl} target="_blank" rel="noopener noreferrer">
+                <a target="_blank" rel="noopener noreferrer">
+                  Открыть промокод
+                </a>
+              </Link>
+            )}
           </div>
         )}
       </h1>
