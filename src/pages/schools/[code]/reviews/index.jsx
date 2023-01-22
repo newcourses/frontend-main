@@ -30,8 +30,8 @@ function SchoolReviewsPage({ categories, reviews, school, otherSchools }) {
   const description = generateDescription(schoolName);
 
   const items = [
-    { value: 'home', caption: 'Главная', navigation: NAVIGATION.home },
-    { value: 'schools', caption: 'Школы', navigation: NAVIGATION.schoolsList },
+    { value: 'home', navigation: NAVIGATION.home },
+    { value: 'schools', navigation: NAVIGATION.schoolsList },
     { value: 'courses-category', caption: schoolName },
   ];
 

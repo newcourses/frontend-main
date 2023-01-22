@@ -1,0 +1,15 @@
+@import '/src/styles/mixins';
+
+.wrapperList {
+  margin-top: 30px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
+  @media screen and (max-width: $widthDesktop) {
+    grid-template-columns: 1fr 1fr;
+  }
+  @media screen and (max-width: $widthTablet) {
+    grid-template-columns: 1fr;
+  }
+}

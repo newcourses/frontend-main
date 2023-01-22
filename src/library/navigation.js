@@ -1,5 +1,5 @@
 export default {
-  home: { link: '/', caption: 'На главную' },
+  home: { link: '/', caption: 'Главная' },
   coursesCategory: {
     link: '/courses-category/[code]',
     as: (id) => `/courses-category/${id}`,
@@ -19,5 +19,9 @@ export default {
   schoolReview: {
     link: '/schools/[code]/reviews',
     as: (value) => `/schools/${value}/reviews`,
+  },
+  promoCodes: {
+    link: '/promo-codes',
+    caption: 'Промокоды и акции',
   },
 };

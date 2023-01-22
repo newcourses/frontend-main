@@ -6,7 +6,7 @@ import SearchHandler from 'utils/SearchHandler';
 import ProductController from 'controllers/product';
 import Showcase from 'containers/ShowcaseProducts';
 
-function Courses({ categories, courses }) {
+function Products({ categories, courses }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
   const title = 'Курсы по твоему запросу';
@@ -45,4 +45,4 @@ export async function getServerSideProps(ctx) {
   };
 }
 
-export default React.memo(Courses);
+export default React.memo(Products);

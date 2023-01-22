@@ -37,7 +37,7 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
   const description = generateDescription(subcategoryCaption);
 
   const items = [
-    { value: 'home', caption: 'Главная', navigation: NAVIGATION.home },
+    { value: 'home', navigation: NAVIGATION.home },
     { value: 'courses', caption: 'Курсы' },
     { value: 'courses-category', caption: subcategoryCaption },
   ];
