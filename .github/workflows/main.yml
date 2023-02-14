@@ -20,16 +20,8 @@ jobs:
 
       - name: Build docker image
         run: |
-          docker build . --tag ghcr.io/course-comparison/frontend-main:latest
+          docker build . --tag ghcr.io/newcourses/cms-api:latest
       
       - name: Docker push
         run: |
-          docker push ghcr.io/course-comparison/frontend-main:latest
-          
-      - name: Deploy to swarm
-        uses: garygrossgarten/github-action-ssh@release
-        with:
-          command: docker stack deploy --with-registry-auth -c  api-stack.yml mct
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USER }}
-          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
+          docker push ghcr.io/newcourses/cms-api:latest
