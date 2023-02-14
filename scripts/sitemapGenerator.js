@@ -3,6 +3,8 @@ const globby = require('globby');
 const axios = require('axios');
 const qs = require('qs');
 
+const API_URL = process.env.CMS_API;
+
 const getCategoriesCoursesDynamicPage = async (template) => {
   const query = qs.stringify(
     {
@@ -18,7 +20,7 @@ const getCategoriesCoursesDynamicPage = async (template) => {
   );
 
   const { data: categories } = await axios.get(
-    `http://localhost:1337/api/categories/?${query}`,
+    `${API_URL}/categories/?${query}`,
   );
 
   const dynamicPages = [];
@@ -44,7 +46,7 @@ const getSchoolsReviewsDynamicPage = async (template) => {
   );
 
   const { data: schools } = await axios.get(
-    `http://localhost:1337/api/schools/?${query}`,
+    `${API_URL}/schools/?${query}`,
   );
 
   const dynamicPages = [];
