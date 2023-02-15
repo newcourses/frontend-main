@@ -25,3 +25,11 @@ jobs:
       - name: Docker push
         run: |
           docker push ghcr.io/newcourses/frontend-main:latest
+
+      - name: Deploy to docker compose
+        uses: garygrossgarten/github-action-ssh@release
+        with:
+          command: docker compose up -d
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          privateKey: ${{ secrets.SSH_PRIVATE_KEY }}
