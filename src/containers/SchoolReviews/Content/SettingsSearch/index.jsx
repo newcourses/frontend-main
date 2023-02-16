@@ -1,8 +1,8 @@
 import React from 'react';
 import cn from 'classnames';
 import { Anchor } from 'antd';
-import PageSizeSelect from 'components/PageSizeSelect';
 import css from './index.module.scss';
+import PageSizeSelect from './PageSizeSelect';
 import SortReviews from './SortReviews';
 
 const REVIEWS_HREF = '#review';

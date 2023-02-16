@@ -1,7 +1,7 @@
 import React from 'react';
-import SchoolCard from 'components/SchoolCard';
 import SubscribeNewsletter from 'components/SubscribeNewsletter';
 import css from './index.module.scss';
+import SchoolCard from './SchoolCard';
 import Filters from './Filters';
 
 function SchoolList({ data }) {
