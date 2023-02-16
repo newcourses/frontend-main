@@ -4,7 +4,7 @@ import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import CategoriesServices from 'api/services/categories';
 import SearchHandler from 'utils/SearchHandler';
 import ProductController from 'controllers/product';
-import Showcase from 'containers/ShowcaseProducts';
+import ShowcaseProducts from 'containers/ShowcaseProducts';
 
 function Products({ categories, courses }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
@@ -21,7 +21,7 @@ function Products({ categories, courses }) {
       setVisibleDrawer={setVisibleDrawer}
     >
       <section>
-        <Showcase
+        <ShowcaseProducts
           cards={courses.data}
           title="Курсы по запросу:"
           categories={categories.data}
