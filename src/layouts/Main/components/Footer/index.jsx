@@ -3,7 +3,6 @@ import cn from 'classnames';
 import Link from 'next/link';
 import Logo from 'components/Logo';
 import NAVIGATION from 'library/navigation';
-import { DOCUMENTATION } from 'library/companyData';
 import logoLight from 'assets/images/logo-light.png';
 import css from './index.module.scss';
 
@@ -27,32 +26,6 @@ function Footer({ wrapperStyles }) {
               </li>
             </ul>
           </nav>
-        </div>
-        <div className={css.docWrapper}>
-          <a
-            href={DOCUMENTATION.privacyPolicy.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.documentation}
-          >
-            {DOCUMENTATION.privacyPolicy.caption}
-          </a>
-          <a
-            href={DOCUMENTATION.termsOfUse.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.documentation}
-          >
-            {DOCUMENTATION.termsOfUse.caption}
-          </a>
-          <a
-            href={DOCUMENTATION.cookiePolicy.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.documentation}
-          >
-            {DOCUMENTATION.cookiePolicy.caption}
-          </a>
         </div>
       </div>
     </footer>
