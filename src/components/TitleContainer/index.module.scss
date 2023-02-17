@@ -1,0 +1,10 @@
+@import '/src/styles/variables';
+
+.title {
+  margin-top: 50px;
+  font-size: 36px;
+  font-family: RubikBold;
+  @media screen and (max-width: $widthTablet) {
+    font-size: 28px;
+  }
+}
