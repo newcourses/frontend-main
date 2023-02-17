@@ -4,16 +4,11 @@
 .container {
   @include main-container;
 
-  @media screen and (max-width: $widthTablet) {
-    display: flex;
-    justify-content: space-between;
-  }
-}
-
-.wrapper {
   display: flex;
   justify-content: space-between;
   @media screen and (max-width: $widthTablet) {
+    display: flex;
+    justify-content: space-between;
     flex-direction: column;
   }
 }
@@ -60,11 +55,9 @@
   margin-left: 30px;
   color: #fff;
   font-size: 17px;
-
   &:hover {
     text-decoration: underline;
   }
-
   @media screen and (max-width: $widthNotebook) {
     margin-left: 0;
   }

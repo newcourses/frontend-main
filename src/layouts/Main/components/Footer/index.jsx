@@ -3,57 +3,27 @@ import cn from 'classnames';
 import Link from 'next/link';
 import Logo from 'components/Logo';
 import NAVIGATION from 'library/navigation';
-import { DOCUMENTATION } from 'library/companyData';
 import logoLight from 'assets/images/logo-light.png';
 import css from './index.module.scss';
+
+const footerNav = ['about', 'contacts'];
 
 function Footer({ wrapperStyles }) {
   return (
     <footer style={{ backgroundColor: '#333', ...wrapperStyles }}>
       <div className={css.container}>
-        <div className={css.wrapper}>
-          <Logo logo={logoLight} classNames={css.logo} />
-          <nav>
-            <ul className={cn(css.linksWrapper, css.wrapper)}>
+        <Logo logo={logoLight} classNames={css.logo} />
+        <nav>
+          <ul className={cn(css.linksWrapper)}>
+            {footerNav.map((elem) => (
               <li>
-                <Link href={NAVIGATION.about.link} passHref>
-                  <a className={css.link}>{NAVIGATION.about.caption}</a>
+                <Link href={NAVIGATION[elem].link} passHref>
+                  <a className={css.link}>{NAVIGATION[elem].caption}</a>
                 </Link>
               </li>
-              <li>
-                <Link href={NAVIGATION.contacts.link} passHref>
-                  <a className={css.link}>{NAVIGATION.contacts.caption}</a>
-                </Link>
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <div className={css.docWrapper}>
-          <a
-            href={DOCUMENTATION.privacyPolicy.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.documentation}
-          >
-            {DOCUMENTATION.privacyPolicy.caption}
-          </a>
-          <a
-            href={DOCUMENTATION.termsOfUse.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.documentation}
-          >
-            {DOCUMENTATION.termsOfUse.caption}
-          </a>
-          <a
-            href={DOCUMENTATION.cookiePolicy.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className={css.documentation}
-          >
-            {DOCUMENTATION.cookiePolicy.caption}
-          </a>
-        </div>
+            ))}
+          </ul>
+        </nav>
       </div>
     </footer>
   );
