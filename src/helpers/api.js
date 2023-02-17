@@ -1,6 +1,19 @@
 export const parseRouters = (routers, url, method) => {
   const path = url.split('?')[0];
-  return routers.find((elem) => elem.method === method && elem.path === path);
+  return routers.find((elem) => {
+    const pathElemArray = elem.path.split('/');
+    const pathArray = path.split('/');
+
+    const hasFalseElem = !!pathElemArray
+      .map((e, index) => e.includes(':') || pathArray[index] === e)
+      .filter((e) => !e).length;
+
+    return (
+      elem.method === method &&
+      pathElemArray.length === pathArray.length &&
+      !hasFalseElem
+    );
+  });
 };
 
 export const ApiError = (message, statusCode) => {
