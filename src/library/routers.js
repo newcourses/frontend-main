@@ -1,3 +1,4 @@
+export const POSTS = '/posts';
 export const REVIEWS = '/reviews';
 export const SCHOOLS = '/schools';
 export const PRODUCTS = '/products';
