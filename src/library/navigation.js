@@ -24,4 +24,12 @@ export default {
     link: '/promo-codes',
     caption: 'Промокоды и акции',
   },
+  blog: {
+    link: '/posts',
+    caption: 'Блог',
+  },
+  post: {
+    link: '/posts[code]',
+    as: (value) => `/posts/${value}`,
+  },
 };
