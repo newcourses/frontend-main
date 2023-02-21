@@ -15,8 +15,8 @@ import {
 } from 'helpers/declOfNumInstances';
 import SubscribeNewsletter from 'components/SubscribeNewsletter';
 import replaceCourseToSchool from 'helpers/replaceCourseToSchool';
-import ProductController from 'controllers/product';
 import SchoolController from 'controllers/school';
+import ProductController from 'controllers/product';
 
 const generateTitle = (countCourses, subcategoryCaption) => {
   return `Топ - ${declOfNumCourses(
