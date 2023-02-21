@@ -99,6 +99,7 @@ export async function getServerSideProps({ params }) {
   const courses = await ProductController.getList({
     page: 'all',
     subcategories: [params.code],
+    category: params.code,
     isFree: false,
   });
 
@@ -110,14 +111,15 @@ export async function getServerSideProps({ params }) {
     isPopulateQuality: true,
   });
 
-  let currentSubcategory;
-
-  categories.data.find((category) => {
-    currentSubcategory = category.attributes.subcategories.data.find(
-      (subcategory) => subcategory.attributes.code === params.code,
+  const currentSubcategory =
+    categories.data.find((category) => {
+      return category.attributes.subcategories.data.find(
+        (subcategory) => subcategory.attributes.code === params.code,
+      );
+    }) ||
+    categories.data.find(
+      (category) => category.attributes.code === params.code,
     );
-    return currentSubcategory;
-  });
 
   return {
     props: {
