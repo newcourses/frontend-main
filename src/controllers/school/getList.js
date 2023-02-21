@@ -16,6 +16,7 @@ class SchoolGetList extends BaseController {
       page,
       name,
       isFree,
+      category,
       limit = 25,
       schoolCode,
       subcategory,
@@ -37,7 +38,14 @@ class SchoolGetList extends BaseController {
       product_type: { code: 'course' },
       isFree,
       subcategories: {
-        code: { $eq: subcategory },
+        $or: [
+          {
+            code: subcategory,
+          },
+          {
+            categories: { code: category },
+          },
+        ],
       },
     };
 
@@ -46,6 +54,7 @@ class SchoolGetList extends BaseController {
       populate.products = {
         filters: productFilters,
       };
+      populate.subcategories = ['categories'];
     }
 
     if (isPopulateQuality) {
