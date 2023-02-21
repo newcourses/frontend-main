@@ -1,8 +1,8 @@
-import ProductGetList from './getList';
+import SchoolGetList from './getList';
 
 class SchoolController {
   static getList(query, type = 'request') {
-    return ProductGetList[type](query);
+    return SchoolGetList[type](query);
   }
 }
 
