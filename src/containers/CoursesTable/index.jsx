@@ -23,10 +23,8 @@ function CoursesTable({ dataSource, title, description }) {
         dataSource={dataSource}
         className={css.wrapperTable}
         scroll={{ x: 1250 }}
-        rowClassName={css.row}
       >
         <Table.Column
-          className={css.firstColum}
           title="Курс"
           dataIndex="attributes"
           width={220}
