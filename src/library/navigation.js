@@ -4,6 +4,10 @@ export default {
     link: '/courses-category/[code]',
     as: (id) => `/courses-category/${id}`,
   },
+  productCategory: {
+    link: '/[code]',
+    as: (id) => `/${id}`,
+  },
   freeCoursesCategory: {
     link: '/free-courses-category/[code]',
     as: (id) => `/free-courses-category/${id}`,

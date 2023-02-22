@@ -21,6 +21,7 @@ function VerticalCategoriesNav({ categories, closeDrawer }) {
                 {
                   id: 0,
                   attributes: {
+                    type: 'productCategory',
                     caption: <b>Все курсы - {attributes.caption}</b>,
                     code: attributes.code,
                   },
@@ -31,6 +32,7 @@ function VerticalCategoriesNav({ categories, closeDrawer }) {
                   <SubcategoryLink
                     caption={subAttributes.caption}
                     code={subAttributes.code}
+                    type={subAttributes.type}
                     closeDrawer={closeDrawer}
                   />
                 </List.Item>
