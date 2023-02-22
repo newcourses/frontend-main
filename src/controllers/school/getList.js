@@ -37,17 +37,16 @@ class SchoolGetList extends BaseController {
     const productFilters = {
       product_type: { code: 'course' },
       isFree,
-      subcategories: {
-        $or: [
-          {
-            code: subcategory,
-          },
-          {
-            categories: { code: category },
-          },
-        ],
-      },
     };
+
+    if (subcategory) {
+      productFilters.subcategories = { code: subcategory };
+    }
+
+    if (category) {
+      if (!productFilters.subcategories) productFilters.subcategories = {};
+      productFilters.subcategories.categories = { code: category };
+    }
 
     if (isPopulateProducts) {
       filters.products = productFilters;

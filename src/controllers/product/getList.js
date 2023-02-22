@@ -17,7 +17,6 @@ class ProductGetList extends BaseController {
       isFree,
       category,
       page = 1,
-      categories,
       subcategories,
       productTypeCode = 'course',
     } = this.query;
@@ -56,28 +55,19 @@ class ProductGetList extends BaseController {
       ];
     }
 
-    if (categories?.length) {
-      filters.categories = {
+    if (subcategories?.length) {
+      filters.subcategories = {
         code: {
-          $in: categories,
+          $in: subcategories,
         },
       };
     }
 
-    if (subcategories?.length) {
+    if (category) {
       filters.subcategories = {
-        $or: [
-          {
-            code: {
-              $in: subcategories,
-            },
-          },
-          {
-            categories: {
-              code: { $eq: category },
-            },
-          },
-        ],
+        categories: {
+          code: { $eq: category },
+        },
       };
     }
 
