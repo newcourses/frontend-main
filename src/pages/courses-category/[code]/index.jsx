@@ -22,7 +22,12 @@ const generateDescription = (subcategoryCaption) => {
   return `Сравнение лучших курсов, обучающих ${subcategoryCaption} с нуля, их стоимость и сроки обучения, рейтинг  онлайн школ, честная оценка качества образования на платформе Newcourses`;
 };
 
-function CourseCategory({ categories, courses, schools, currentSubcategory }) {
+function CourseSubcategory({
+  courses,
+  schools,
+  categories,
+  currentSubcategory,
+}) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
   const subcategoryCaption = currentSubcategory.attributes.caption;
@@ -118,4 +123,4 @@ export async function getServerSideProps({ params }) {
   };
 }
 
-export default React.memo(CourseCategory);
+export default React.memo(CourseSubcategory);
