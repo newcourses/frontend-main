@@ -24,11 +24,13 @@ class SchoolGetList extends BaseController {
       isPopulateQuality,
       isPopulateProducts,
     } = this.query;
-    const filters = {};
-    const populate = {};
-    if (schoolCode) {
-      filters.code = schoolCode;
-    }
+    const filters = {
+      ...(schoolCode && { code: schoolCode }),
+    };
+    const populate = {
+      ...(isPopulateQuality && { advantages: '*' }),
+      ...(isPopulateQuality && { disadvantages: '*' }),
+    };
 
     if (name && displayLink) {
       filters.$or = [{ name }, { displayLink }];
@@ -54,11 +56,6 @@ class SchoolGetList extends BaseController {
         filters: productFilters,
       };
       populate.subcategories = ['categories'];
-    }
-
-    if (isPopulateQuality) {
-      populate.advantages = '*';
-      populate.disadvantages = '*';
     }
 
     this.queryParams.customFields = 'grade';

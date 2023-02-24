@@ -23,7 +23,7 @@ function SchoolCard({
         countReviews={countReviews}
       />
       <hr className={css.line} />
-      <Footer description={description} />
+      <Footer description={description} code={code} />
     </div>
   );
 }
