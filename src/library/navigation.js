@@ -20,6 +20,11 @@ export default {
   },
 
   schoolsList: { link: '/schools', caption: 'Отзывы о школах' },
+  schoolData: {
+    link: '/schools/[code]',
+    as: (value) => `/schools/${value}`,
+    caption: 'Курсы',
+  },
   schoolReview: {
     link: '/schools/[code]/reviews',
     as: (value) => `/schools/${value}/reviews`,
