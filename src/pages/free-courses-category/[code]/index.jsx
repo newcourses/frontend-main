@@ -117,6 +117,7 @@ export async function getServerSideProps({ params }) {
     customFields: 'grade',
     isPopulateProducts: true,
     isPopulateQuality: true,
+    productType: 'course',
     isFree: true,
     subcategory: params.code,
   });

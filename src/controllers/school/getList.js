@@ -1,3 +1,4 @@
+import _isEmpty from 'lodash/isEmpty';
 import SchoolsServices from 'api/services/schools';
 import BaseController from 'controllers/base';
 import { SCHOOLS } from 'library/routers';
@@ -19,6 +20,7 @@ class SchoolGetList extends BaseController {
       category,
       limit = 25,
       schoolCode,
+      productType,
       subcategory,
       displayLink,
       isPopulateQuality,
@@ -37,8 +39,10 @@ class SchoolGetList extends BaseController {
     }
 
     const productFilters = {
-      product_type: { code: 'course' },
-      isFree,
+      ...(productType && {
+        product_type: { code: productType },
+      }),
+      ...(typeof isFree !== 'undefined' && { isFree }),
     };
 
     if (subcategory) {
@@ -51,10 +55,15 @@ class SchoolGetList extends BaseController {
     }
 
     if (isPopulateProducts) {
-      filters.products = productFilters;
-      populate.products = {
-        filters: productFilters,
-      };
+      if (_isEmpty(productFilters)) {
+        populate.products = '*';
+      } else {
+        filters.products = productFilters;
+        populate.products = {
+          filters: productFilters,
+        };
+      }
+
       populate.subcategories = ['categories'];
     }
 

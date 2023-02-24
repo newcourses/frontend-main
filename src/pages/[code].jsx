@@ -102,6 +102,7 @@ export async function getServerSideProps({ params }) {
     category: params.code,
     isPopulateProducts: true,
     isPopulateQuality: true,
+    productType: 'course',
   });
 
   const currentCategory = categories.data.find(
