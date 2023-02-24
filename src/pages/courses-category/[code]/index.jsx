@@ -102,6 +102,7 @@ export async function getServerSideProps({ params }) {
   const schools = await SchoolController.getList({
     page: 'all',
     isFree: false,
+    productType: 'course',
     subcategory: params.code,
     isPopulateProducts: true,
     isPopulateQuality: true,
