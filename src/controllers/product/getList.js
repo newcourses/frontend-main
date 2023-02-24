@@ -15,8 +15,8 @@ class ProductGetList extends BaseController {
       price,
       title,
       isFree,
+      category,
       page = 1,
-      categories,
       subcategories,
       productTypeCode = 'course',
     } = this.query;
@@ -55,18 +55,18 @@ class ProductGetList extends BaseController {
       ];
     }
 
-    if (categories?.length) {
-      filters.categories = {
-        code: {
-          $in: categories,
-        },
-      };
-    }
-
     if (subcategories?.length) {
       filters.subcategories = {
         code: {
           $in: subcategories,
+        },
+      };
+    }
+
+    if (category) {
+      filters.subcategories = {
+        categories: {
+          code: { $eq: category },
         },
       };
     }
@@ -88,7 +88,7 @@ class ProductGetList extends BaseController {
     this.queryParams.customFields = 'grade';
     this.queryParams.filters = filters;
     this.queryParams.pagination = { page };
-    this.queryParams.populate = 'params';
+    this.queryParams.populate = ['params', 'subcategories.categories'];
   }
 
   async request(query) {

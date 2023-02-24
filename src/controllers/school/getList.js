@@ -16,6 +16,7 @@ class SchoolGetList extends BaseController {
       page,
       name,
       isFree,
+      category,
       limit = 25,
       schoolCode,
       subcategory,
@@ -23,11 +24,13 @@ class SchoolGetList extends BaseController {
       isPopulateQuality,
       isPopulateProducts,
     } = this.query;
-    const filters = {};
-    const populate = {};
-    if (schoolCode) {
-      filters.code = schoolCode;
-    }
+    const filters = {
+      ...(schoolCode && { code: schoolCode }),
+    };
+    const populate = {
+      ...(isPopulateQuality && { advantages: '*' }),
+      ...(isPopulateQuality && { disadvantages: '*' }),
+    };
 
     if (name && displayLink) {
       filters.$or = [{ name }, { displayLink }];
@@ -36,21 +39,23 @@ class SchoolGetList extends BaseController {
     const productFilters = {
       product_type: { code: 'course' },
       isFree,
-      subcategories: {
-        code: { $eq: subcategory },
-      },
     };
+
+    if (subcategory) {
+      productFilters.subcategories = { code: subcategory };
+    }
+
+    if (category) {
+      if (!productFilters.subcategories) productFilters.subcategories = {};
+      productFilters.subcategories.categories = { code: category };
+    }
 
     if (isPopulateProducts) {
       filters.products = productFilters;
       populate.products = {
         filters: productFilters,
       };
-    }
-
-    if (isPopulateQuality) {
-      populate.advantages = '*';
-      populate.disadvantages = '*';
+      populate.subcategories = ['categories'];
     }
 
     this.queryParams.customFields = 'grade';

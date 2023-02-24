@@ -4,6 +4,10 @@ export default {
     link: '/courses-category/[code]',
     as: (id) => `/courses-category/${id}`,
   },
+  productCategory: {
+    link: '/[code]',
+    as: (id) => `/${id}`,
+  },
   freeCoursesCategory: {
     link: '/free-courses-category/[code]',
     as: (id) => `/free-courses-category/${id}`,
@@ -16,6 +20,11 @@ export default {
   },
 
   schoolsList: { link: '/schools', caption: 'Отзывы о школах' },
+  schoolData: {
+    link: '/schools/[code]',
+    as: (value) => `/schools/${value}`,
+    caption: 'Курсы',
+  },
   schoolReview: {
     link: '/schools/[code]/reviews',
     as: (value) => `/schools/${value}/reviews`,

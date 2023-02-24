@@ -1,8 +1,36 @@
-.wrapper {
+@import '/src/styles/mixins';
+@import '/src/styles/variables';
+
+.container {
+  display: flex;
   padding: 27px 36px;
+  justify-content: space-between;
 }
 
 .text {
+  flex: 3;
+
   font-size: 16px;
   color: #666;
+}
+
+.button {
+  width: 200px;
+  margin-left: 30px;
+  height: 32px;
+  font-size: 24px;
+  @include standard-button-style(
+    $bgColor: $transparent,
+    $bgColorHover: $accent,
+    $bgColorFocus: $accent,
+    $color: $accent
+  );
+  @media screen and (max-width: $widthNotebook) {
+    width: 150px;
+    margin-left: 0;
+  }
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+    margin-top: 10px;
+  }
 }

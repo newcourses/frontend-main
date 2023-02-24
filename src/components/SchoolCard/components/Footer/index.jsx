@@ -1,9 +1,22 @@
 import React from 'react';
-import cn from 'classnames';
+import { Button } from 'antd';
 import css from './index.module.scss';
+import NAVIGATION from '../../../../library/navigation';
 
-function Footer({ description }) {
-  return <div className={cn(css.wrapper, css.text)}>{description}</div>;
+function Footer({ description, code }) {
+  return (
+    <div className={css.container}>
+      <div className={css.text}>{description}</div>
+
+      <Button
+        className={css.button}
+        type="primary"
+        href={NAVIGATION.schoolData.as(code)}
+      >
+        {NAVIGATION.schoolData.caption}
+      </Button>
+    </div>
+  );
 }
 
 export default React.memo(Footer);
