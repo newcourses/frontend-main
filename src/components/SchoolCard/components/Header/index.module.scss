@@ -2,6 +2,7 @@
 
 .wrapper {
   display: flex;
+  flex: 3 1;
   justify-content: space-between;
   padding: 17px 36px;
   * {
@@ -39,7 +40,12 @@
 .button {
   margin-left: 30px;
   width: 200px;
-  @include standard-button-style;
+  @include standard-button-style(
+    $bgColor: $transparent,
+    $bgColorHover: $accent,
+    $bgColorFocus: $accent,
+    $color: $accent
+  );
   @media screen and (max-width: $widthNotebook) {
     width: 150px;
     margin-left: 0;
