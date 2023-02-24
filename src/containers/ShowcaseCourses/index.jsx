@@ -1,8 +1,8 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import CourseCard from 'components/CourseCard';
 import { Pagination } from 'antd';
+import CourseCard from 'components/CourseCard';
+import { declOfNumOnlineCourses } from 'helpers/declOfNumInstances';
 import css from './index.module.scss';
-import { declOfNumOnlineCourses } from '../../helpers/declOfNumInstances';
 
 const PAGE_COUNT = 12;
 const DEFAULT_PAGE_COUNT = 24;
