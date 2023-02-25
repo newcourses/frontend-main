@@ -26,7 +26,6 @@
 .button {
   width: 200px;
   margin-left: 30px;
-  height: 32px;
   font-size: 24px;
   @include standard-button-style(
     $bgColor: $transparent,
