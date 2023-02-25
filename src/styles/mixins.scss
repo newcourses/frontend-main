@@ -1,6 +1,7 @@
 @import "src/styles/variables";
 
 @mixin standard-button-style(
+  $height: 45px,
   $bgColor: $accent,
   $borderColor: $accent,
   $bgColorHover: $accentHover,
@@ -14,6 +15,13 @@
   color: $color;
   cursor: pointer;
   border-radius: $borderRadius;
+  height: $height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    margin-top: 5px;
+  }
   &:hover{
     background-color: $bgColorHover;
     border-color: $bgColorHover;
