@@ -1,3 +1,5 @@
+import React, { useCallback, useEffect, useState } from 'react';
+import cn from 'classnames';
 import {
   Rate as AntdRate,
   Input as AntdInput,
@@ -6,7 +8,6 @@ import {
   Select as AntdSelect,
 } from 'antd';
 import { Field } from 'formik';
-import React, { useCallback, useEffect, useState } from 'react';
 import css from './index.module.scss';
 
 const standardOnChange =
@@ -259,7 +260,7 @@ export const FormGroup = ({
   const error = errors?.[name];
 
   return (
-    <div className={`form-group ${className}`} style={wrapperStyle}>
+    <div className={cn('form-group', className)} style={wrapperStyle}>
       <span className={css.label}>{label}</span>
       <Field {...props} component={component} name={name} />
       <ErrorMessage error={error} />

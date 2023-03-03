@@ -1,6 +1,7 @@
 import React from 'react';
 import Main from 'layouts/Main';
 import NAVIGATION from 'library/navigation';
+import FeedbackForm from 'containers/FeedbackForm';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
@@ -20,7 +21,9 @@ function Contacts({ categories }) {
       <section>
         <DynamicBreadcrumb items={items} />
       </section>
-      <main>Contacts</main>
+      <section>
+        <FeedbackForm />
+      </section>
     </Main>
   );
 }

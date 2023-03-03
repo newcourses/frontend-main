@@ -1,0 +1,14 @@
+@import '/src/styles/mixins';
+
+.formWrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.fieldWrapper {
+    margin-top: 10px;
+}
+
+.button {
+    @include standard-button-style;
+}
