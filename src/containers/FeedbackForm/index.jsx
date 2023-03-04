@@ -105,6 +105,10 @@ function FeedbackForm() {
           }}
         </Formik>
       )}
+
+      <div className={css.contact}>
+        Наша почта: <a href="mailto:info@newcourses.ru">info@newcourses.ru</a>
+      </div>
     </>
   );
 }

@@ -1,14 +1,27 @@
-@import '/src/styles/mixins';
+@import "/src/styles/mixins";
+@import "/src/styles/variables";
 
 .formWrapper {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 50%;
+  @media screen and (max-width: $widthNotebook) {
+    width: 70%;
+  }
+  @media screen and (max-width: $widthTablet) {
+    width: 100%;
+  }
 }
+
 .fieldWrapper {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .button {
-    @include standard-button-style;
+  @include standard-button-style;
+}
+
+.contact {
+  margin-top: 30px;
 }
