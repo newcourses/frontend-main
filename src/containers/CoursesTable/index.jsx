@@ -19,14 +19,14 @@ function CoursesTable({ dataSource, title, description }) {
       <h1 className={css.title}>{title}</h1>
       <div className={css.description}>{description}</div>
       <Table
-        pagination={false}
+        pagination={{
+          defaultPageSize: 20,
+        }}
         dataSource={dataSource}
         className={css.wrapperTable}
         scroll={{ x: 1250 }}
-        rowClassName={css.row}
       >
         <Table.Column
-          className={css.firstColum}
           title="Курс"
           dataIndex="attributes"
           width={220}

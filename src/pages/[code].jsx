@@ -10,40 +10,29 @@ import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import {
   declOfNumSchool,
   declOfNumAssembled,
-  declOfNumFreeOnlineCourses,
+  declOfNumOnlineCourses,
 } from 'helpers/declOfNumInstances';
 import SubscribeNewsletter from 'components/SubscribeNewsletter';
 import replaceCourseToSchool from 'helpers/replaceCourseToSchool';
-import SchoolController from '../../../controllers/school';
-import ProductController from '../../../controllers/product';
+import ProductController from 'controllers/product';
+import SchoolController from 'controllers/school';
+import { generateTitle } from 'helpers';
 
-const generateTitle = (countCourses, subcategoryCaption) => {
-  return `Топ - ${declOfNumFreeOnlineCourses(
-    countCourses,
-    true,
-  )} по ${subcategoryCaption}, обучение в лучших школах`;
+const generateDescription = (categoryCaption) => {
+  return `Сравнение лучших курсов, обучающих ${categoryCaption} с нуля, их стоимость и сроки обучения, рейтинг  онлайн школ, честная оценка качества образования на платформе Newcourses`;
 };
 
-const generateDescription = (subcategoryCaption) => {
-  return `Сравнение лучших курсов, обучающих ${subcategoryCaption} с нуля, их стоимость и сроки обучения, рейтинг  онлайн школ, честная оценка качества образования на платформе Newcourses`;
-};
-
-function FreeCoursesCategory({
-  categories,
-  courses,
-  schools,
-  currentSubcategory,
-}) {
+function CourseCategory({ categories, courses, schools, currentCategory }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
-  const subcategoryCaption = currentSubcategory.attributes.caption;
-  const title = generateTitle(courses.data?.length || 0, subcategoryCaption);
-  const description = generateDescription(subcategoryCaption);
+  const categoryCaption = currentCategory.attributes.caption;
+  const title = generateTitle(courses.data?.length || 0, categoryCaption);
+  const description = generateDescription(categoryCaption);
 
   const items = [
-    { value: 'home', caption: 'Главная', navigation: NAVIGATION.home },
+    { value: 'home', navigation: NAVIGATION.home },
     { value: 'courses', caption: 'Курсы' },
-    { value: 'courses-category', caption: subcategoryCaption },
+    { value: 'courses-category', caption: categoryCaption },
   ];
 
   return (
@@ -66,13 +55,10 @@ function FreeCoursesCategory({
 
         <section>
           <CoursesTable
-            title={`Бесплатные ${currentSubcategory.attributes?.title?.replace(
-              'Курсы',
-              'курсы',
-            )}`}
+            title={currentCategory.attributes?.title}
             description={`Здесь ${declOfNumAssembled(
               courses.data.length,
-            )} ${declOfNumFreeOnlineCourses(
+            )} ${declOfNumOnlineCourses(
               courses.data.length,
               true,
             )} обучения. Мы регулярно обновляем информацию о всех курсах.`}
@@ -81,14 +67,11 @@ function FreeCoursesCategory({
         </section>
         <section>
           <SchoolsInfo
-            title={replaceCourseToSchool(currentSubcategory.attributes?.title)}
+            title={replaceCourseToSchool(currentCategory.attributes?.title)}
             description={`Здесь ${declOfNumAssembled(
               schools.data.length,
-            )} ${declOfNumSchool(
-              schools.data.length,
-              true,
-            )} у которых есть бесплатные
-            ${currentSubcategory.attributes?.title?.toLowerCase()}.`}
+            )} ${declOfNumSchool(schools.data.length, true)} у которых есть 
+            ${currentCategory.attributes?.title.toLowerCase()}.`}
             schools={schools.data}
           />
         </section>
@@ -109,31 +92,26 @@ export async function getServerSideProps({ params }) {
   const courses = await ProductController.getList({
     page: 'all',
     subcategories: [params.code],
-    isFree: true,
+    category: params.code,
+    isFree: false,
   });
 
   const schools = await SchoolController.getList({
     page: 'all',
-    customFields: 'grade',
+    isFree: false,
+    category: params.code,
     isPopulateProducts: true,
     isPopulateQuality: true,
     productType: 'course',
-    isFree: true,
-    subcategory: params.code,
   });
 
-  let currentSubcategory;
-
-  categories.data.find((category) => {
-    currentSubcategory = category.attributes.subcategories.data.find(
-      (subcategory) => subcategory.attributes.code === params.code,
-    );
-    return currentSubcategory;
-  });
+  const currentCategory = categories.data.find(
+    (category) => category.attributes.code === params.code,
+  );
 
   return {
     props: {
-      currentSubcategory,
+      currentCategory,
       categories,
       courses,
       schools,
@@ -141,4 +119,4 @@ export async function getServerSideProps({ params }) {
   };
 }
 
-export default React.memo(FreeCoursesCategory);
+export default React.memo(CourseCategory);

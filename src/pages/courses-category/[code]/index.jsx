@@ -9,7 +9,6 @@ import CategoriesServices from 'api/services/categories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import {
   declOfNumSchool,
-  declOfNumCourses,
   declOfNumAssembled,
   declOfNumOnlineCourses,
 } from 'helpers/declOfNumInstances';
@@ -17,19 +16,18 @@ import SubscribeNewsletter from 'components/SubscribeNewsletter';
 import replaceCourseToSchool from 'helpers/replaceCourseToSchool';
 import ProductController from 'controllers/product';
 import SchoolController from 'controllers/school';
-
-const generateTitle = (countCourses, subcategoryCaption) => {
-  return `Топ - ${declOfNumCourses(
-    countCourses,
-    true,
-  )} по ${subcategoryCaption}, обучение в лучших школах`;
-};
+import { generateTitle } from 'helpers';
 
 const generateDescription = (subcategoryCaption) => {
   return `Сравнение лучших курсов, обучающих ${subcategoryCaption} с нуля, их стоимость и сроки обучения, рейтинг  онлайн школ, честная оценка качества образования на платформе Newcourses`;
 };
 
-function CourseCategory({ categories, courses, schools, currentSubcategory }) {
+function CourseSubcategory({
+  courses,
+  schools,
+  categories,
+  currentSubcategory,
+}) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
   const subcategoryCaption = currentSubcategory.attributes.caption;
@@ -38,7 +36,6 @@ function CourseCategory({ categories, courses, schools, currentSubcategory }) {
 
   const items = [
     { value: 'home', navigation: NAVIGATION.home },
-    { value: 'courses', caption: 'Курсы' },
     { value: 'courses-category', caption: subcategoryCaption },
   ];
 
@@ -105,18 +102,16 @@ export async function getServerSideProps({ params }) {
   const schools = await SchoolController.getList({
     page: 'all',
     isFree: false,
+    productType: 'course',
     subcategory: params.code,
     isPopulateProducts: true,
     isPopulateQuality: true,
   });
 
-  let currentSubcategory;
-
-  categories.data.find((category) => {
-    currentSubcategory = category.attributes.subcategories.data.find(
+  const currentSubcategory = categories.data.find((category) => {
+    return category.attributes.subcategories.data.find(
       (subcategory) => subcategory.attributes.code === params.code,
     );
-    return currentSubcategory;
   });
 
   return {
@@ -129,4 +124,4 @@ export async function getServerSideProps({ params }) {
   };
 }
 
-export default React.memo(CourseCategory);
+export default React.memo(CourseSubcategory);

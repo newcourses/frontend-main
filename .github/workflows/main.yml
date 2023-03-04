@@ -29,7 +29,7 @@ jobs:
       - name: Deploy to docker compose
         uses: garygrossgarten/github-action-ssh@release
         with:
-          command: docker compose pull && docker compose up --force-recreate -d
+          command: docker compose pull frontend-main && docker compose up --force-recreate -d frontend-main
           host: ${{ secrets.SSH_HOST }}
           username: ${{ secrets.SSH_USER }}
           privateKey: ${{ secrets.SSH_PRIVATE_KEY }}

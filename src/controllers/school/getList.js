@@ -1,3 +1,4 @@
+import _isEmpty from 'lodash/isEmpty';
 import SchoolsServices from 'api/services/schools';
 import BaseController from 'controllers/base';
 import { SCHOOLS } from 'library/routers';
@@ -16,41 +17,54 @@ class SchoolGetList extends BaseController {
       page,
       name,
       isFree,
+      category,
       limit = 25,
       schoolCode,
+      productType,
       subcategory,
       displayLink,
       isPopulateQuality,
       isPopulateProducts,
     } = this.query;
-    const filters = {};
-    const populate = {};
-    if (schoolCode) {
-      filters.code = schoolCode;
-    }
+    const filters = {
+      ...(schoolCode && { code: schoolCode }),
+    };
+    const populate = {
+      ...(isPopulateQuality && { advantages: '*' }),
+      ...(isPopulateQuality && { disadvantages: '*' }),
+    };
 
     if (name && displayLink) {
       filters.$or = [{ name }, { displayLink }];
     }
 
     const productFilters = {
-      product_type: { code: 'course' },
-      isFree,
-      subcategories: {
-        code: { $eq: subcategory },
-      },
+      ...(productType && {
+        product_type: { code: productType },
+      }),
+      ...(typeof isFree !== 'undefined' && { isFree }),
     };
 
-    if (isPopulateProducts) {
-      filters.products = productFilters;
-      populate.products = {
-        filters: productFilters,
-      };
+    if (subcategory) {
+      productFilters.subcategories = { code: subcategory };
     }
 
-    if (isPopulateQuality) {
-      populate.advantages = '*';
-      populate.disadvantages = '*';
+    if (category) {
+      if (!productFilters.subcategories) productFilters.subcategories = {};
+      productFilters.subcategories.categories = { code: category };
+    }
+
+    if (isPopulateProducts) {
+      if (_isEmpty(productFilters)) {
+        populate.products = '*';
+      } else {
+        filters.products = productFilters;
+        populate.products = {
+          filters: productFilters,
+        };
+      }
+
+      populate.subcategories = ['categories'];
     }
 
     this.queryParams.customFields = 'grade';

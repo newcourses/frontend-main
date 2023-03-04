@@ -1,19 +1,34 @@
 @import "src/styles/variables";
 
-@mixin standard-button-style {
-  background-color: $accent;
-  border-color: $accent;
-  border-radius: 0;
+@mixin standard-button-style(
+  $height: 45px,
+  $bgColor: $accent,
+  $borderColor: $accent,
+  $bgColorHover: $accentHover,
+  $bgColorFocus: $accentHover,
+  $color: #ffffff,
+  $borderRadius: 100000px
+) {
+  background-color: $bgColor;
+  border-color: $borderColor;
   border-style: solid;
-  color: #ffffff;
+  color: $color;
   cursor: pointer;
+  border-radius: $borderRadius;
+  height: $height;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    margin-top: 5px;
+  }
   &:hover{
-    background-color: $accentHover;
-    border-color: $accentHover;
+    background-color: $bgColorHover;
+    border-color: $bgColorHover;
   }
   &:focus{
-    background-color: $accentHover;
-    border-color: $accentHover;
+    background-color: $bgColorFocus;
+    border-color: $bgColorFocus;
   }
 }
 
