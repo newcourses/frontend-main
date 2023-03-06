@@ -6,7 +6,7 @@ import { CATEGORIES } from 'library/routers';
 
 function NotFound() {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
-  const [categories, setCategories] = useState([]);
+  const [categories, setCategories] = useState({});
   const { request } = useProxyApi();
 
   useEffect(() => {
