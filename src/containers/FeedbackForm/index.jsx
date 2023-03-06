@@ -31,7 +31,8 @@ function FeedbackForm() {
 
   return (
     <>
-      <Title text={isSent ? 'Сообщение отправлено' : TITLE_TEXT} />
+      <Title text="Связаться с нами" />
+      <h3>{isSent ? 'Сообщение отправлено' : TITLE_TEXT}</h3>
 
       {isSent ? (
         <p>
