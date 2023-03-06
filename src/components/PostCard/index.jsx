@@ -35,10 +35,8 @@ function PostCard({ uid, date, title, banner, preview, loading }) {
               }}
             />
             <div className={css.footer}>
-              <div className={css.date}>
-                {date && moment(date).format('DD.MM.YYYY')}
-              </div>
-              <div className={css.readCompletely}>Читать полностью</div>
+              <div>{date && moment(date).format('DD.MM.YYYY')}</div>
+              <div>Читать полностью</div>
             </div>
           </div>
         </Card>
