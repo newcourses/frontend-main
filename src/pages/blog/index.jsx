@@ -12,7 +12,7 @@ const items = [
   { value: 'current', caption: 'Блог' },
 ];
 
-function Schools({ categories, posts }) {
+function Blog({ categories, posts }) {
   const { visibleDrawer, setVisibleDrawer } = useVisibleDrawer();
 
   return (
@@ -46,4 +46,4 @@ export async function getServerSideProps() {
   };
 }
 
-export default React.memo(Schools);
+export default React.memo(Blog);
