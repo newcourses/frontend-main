@@ -34,11 +34,11 @@ export default {
     caption: 'Промокоды и акции',
   },
   blog: {
-    link: '/posts',
+    link: '/blog',
     caption: 'Блог',
   },
   post: {
-    link: '/posts[code]',
-    as: (value) => `/posts/${value}`,
+    link: '/blog/[code]',
+    as: (value) => `/blog/${value}`,
   },
 };
