@@ -17,7 +17,7 @@ function PostCard({ uid, date, title, banner, preview, loading }) {
           loading={loading}
           hoverable
           cover={
-            <div className={css.coverWrapper}>
+            <div>
               <div style={{ backgroundImage }} className={css.componentBanner}>
                 <div style={{ backgroundImage }} className={css.banner} />
               </div>
@@ -27,11 +27,9 @@ function PostCard({ uid, date, title, banner, preview, loading }) {
           <div className={css.wrapperBody}>
             <Card.Meta
               title={title}
-              description={preview}
+              description={<div className={css.preview}>{preview}</div>}
               style={{
                 height: '200px',
-                overflow: 'hidden',
-                'text-overflow': 'ellipsis',
               }}
             />
             <div className={css.footer}>
