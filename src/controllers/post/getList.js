@@ -1,4 +1,4 @@
-import ProductsServices from 'api/services/products';
+import PostServices from 'api/services/posts';
 import BaseController from 'controllers/base';
 import { POSTS } from 'library/routers';
 
@@ -18,7 +18,7 @@ class PostGetList extends BaseController {
     this.query = query;
     this.prepareQuery();
     this.stringifyQuery(this.queryParams);
-    return ProductsServices.getList(`${this.rout}/${this.queryString}`);
+    return PostServices.getList(`${this.rout}/${this.queryString}`);
   }
 
   async requestFront(query) {
