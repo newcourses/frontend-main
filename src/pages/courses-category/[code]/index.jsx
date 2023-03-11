@@ -17,6 +17,7 @@ import replaceCourseToSchool from 'helpers/replaceCourseToSchool';
 import ProductController from 'controllers/product';
 import SchoolController from 'controllers/school';
 import { generateTitle } from 'helpers';
+import SeoDescription from '../../../containers/SeoDescription';
 
 const generateDescription = (subcategoryCaption) => {
   return `Сравнение лучших курсов, обучающих ${subcategoryCaption} с нуля, их стоимость и сроки обучения, рейтинг  онлайн школ, честная оценка качества образования на платформе Newcourses`;
@@ -60,12 +61,20 @@ function CourseSubcategory({
         <section>
           <CoursesTable
             title={currentSubcategory.attributes?.title}
-            description={`Здесь ${declOfNumAssembled(
-              courses.data.length,
-            )} ${declOfNumOnlineCourses(
-              courses.data.length,
-              true,
-            )} обучения. Мы регулярно обновляем информацию о всех курсах.`}
+            description={
+              <SeoDescription>
+                Сравните лучшие{' '}
+                {currentSubcategory.attributes?.title?.toLowerCase()} для
+                начинающих и продвинутых специалистов, выберите наиболее
+                подходящее предложение. На нашем ресурсе доступно{' '}
+                {declOfNumOnlineCourses(courses.data.length, true)}, которые
+                помогут вам стать экспертом в этой области. Выберите курс,
+                который соответствует вашим потребностям и начните свой путь к
+                успешной карьере. Все отзывы{' '}
+                {currentSubcategory.attributes?.title?.replace('Курсы', '')},
+                честные и независимые и проходят строгую модерацию.{' '}
+              </SeoDescription>
+            }
             dataSource={courses.data}
           />
         </section>
