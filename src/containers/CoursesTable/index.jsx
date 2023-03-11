@@ -17,7 +17,7 @@ function CoursesTable({ dataSource, title, description }) {
   return (
     <div>
       <h1 className={css.title}>{title}</h1>
-      <div className={css.description}>{description}</div>
+      {description}
       <Table
         pagination={{
           defaultPageSize: 20,
