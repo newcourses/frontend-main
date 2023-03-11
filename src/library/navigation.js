@@ -18,7 +18,6 @@ export default {
     link: '/free-courses-category',
     caption: 'Бесплатные курсы',
   },
-
   schoolsList: { link: '/schools', caption: 'Отзывы о школах' },
   schoolData: {
     link: '/schools/[code]',
