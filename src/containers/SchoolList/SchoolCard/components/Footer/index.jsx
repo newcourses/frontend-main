@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from 'antd';
+import NAVIGATION from 'library/navigation';
 import css from './index.module.scss';
-import NAVIGATION from '../../../../library/navigation';
 
 function Footer({ description, code }) {
   return (

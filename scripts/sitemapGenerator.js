@@ -45,9 +45,7 @@ const getSchoolsReviewsDynamicPage = async (template) => {
     { encodeValuesOnly: true },
   );
 
-  const { data: schools } = await axios.get(
-    `${API_URL}/schools/?${query}`,
-  );
+  const { data: schools } = await axios.get(`${API_URL}/schools/?${query}`);
 
   const dynamicPages = [];
 

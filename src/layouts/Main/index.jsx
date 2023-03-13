@@ -1,10 +1,10 @@
 import React from 'react';
 import Head from 'next/head';
-import DrawerCategories from 'components/DrawerCategories';
-import BackTopButton from 'components/BackTopButton';
 import css from './index.module.scss';
 import Footer from './components/Footer';
 import Header from './components/Header';
+import BackTopButton from './components/BackTopButton';
+import DrawerCategories from './components/DrawerCategories';
 
 function Main({
   title = 'Newcourses - отзывы по всем курсам!',

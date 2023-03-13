@@ -18,7 +18,6 @@ export default {
     link: '/free-courses-category',
     caption: 'Бесплатные курсы',
   },
-
   schoolsList: { link: '/schools', caption: 'Отзывы о школах' },
   schoolData: {
     link: '/schools/[code]',
@@ -32,5 +31,13 @@ export default {
   promoCodes: {
     link: '/promo-codes',
     caption: 'Промокоды и акции',
+  },
+  blog: {
+    link: '/blog',
+    caption: 'Блог',
+  },
+  post: {
+    link: '/blog/[code]',
+    as: (value) => `/blog/${value}`,
   },
 };

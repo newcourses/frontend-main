@@ -1,12 +1,12 @@
 import React, { useCallback, useState } from 'react';
 import Logo from 'components/Logo';
 import { Drawer, Space } from 'antd';
-import Burger from 'components/Burger';
 import NAVIGATION from 'library/navigation';
 import { CloseOutlined } from '@ant-design/icons';
 import logoDark from 'assets/images/logo-dark.png';
 import AllCategoriesButton from 'components/AllCategoriesButton';
 import css from './index.module.scss';
+import Burger from './Burger';
 import DynamicNav from './DynamicNav';
 
 function Header({ setVisibleDrawer }) {
@@ -40,6 +40,7 @@ function Header({ setVisibleDrawer }) {
               NAVIGATION.contacts,
               NAVIGATION.freeCourses,
               NAVIGATION.about,
+              NAVIGATION.blog,
             ]}
             addition={
               <div
@@ -71,6 +72,7 @@ function Header({ setVisibleDrawer }) {
             NAVIGATION.promoCodes,
             NAVIGATION.schoolsList,
             NAVIGATION.freeCourses,
+            NAVIGATION.blog,
           ]}
         />
       </nav>

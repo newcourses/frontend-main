@@ -1,6 +1,14 @@
+@import '/src/styles/variables';
 
 .title {
-  margin: 40px 0 20px;
-  font-size: 25px;
-  font-family: RubikBold;
+  font-family: "RubikBold";
+  font-size: 46px;
+  line-height: 1.2;
+  margin-top: 20px;
+  @media screen and (max-width: $widthNotebook) {
+    max-width: 100%;
+  }
+  @media screen and (max-width: $widthTablet) {
+    font-size: 24px;
+  }
 }

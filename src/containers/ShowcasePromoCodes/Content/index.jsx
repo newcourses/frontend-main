@@ -1,5 +1,5 @@
 import React from 'react';
-import PromoCodeCard from 'components/PromoCodeCard';
+import PromoCodeCard from './PromoCodeCard';
 import css from './index.module.scss';
 
 function Content({ promoCodes }) {
