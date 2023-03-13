@@ -27,7 +27,10 @@ function Blog({ categories, posts }) {
           <DynamicBreadcrumb items={items} />
         </section>
         <section>
-          <ShowcasePosts posts={posts.data} />
+          <ShowcasePosts
+            setVisibleDrawer={setVisibleDrawer}
+            posts={posts.data}
+          />
         </section>
       </main>
     </Main>
