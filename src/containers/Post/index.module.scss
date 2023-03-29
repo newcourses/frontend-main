@@ -3,4 +3,10 @@
 .container {
   margin-top: 60px;
   font-size: 24px;
+  a {
+    color: $accent;
+  }
+  a:hover {
+    color: $accentHover;
+  }
 }
