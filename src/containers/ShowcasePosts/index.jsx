@@ -2,7 +2,7 @@ import React from 'react';
 import PostCard from 'components/PostCard';
 import Title from 'shared/ui/Title';
 import css from './index.module.scss';
-import EmptyPosts from "./EmptyPosts";
+import EmptyPosts from './EmptyPosts';
 
 export default function ShowcasePosts({ posts, setVisibleDrawer }) {
   return (
@@ -19,7 +19,6 @@ export default function ShowcasePosts({ posts, setVisibleDrawer }) {
               banner={post.banner}
             />
           ))}
-          )
         </div>
       ) : (
         <EmptyPosts setVisibleDrawer={setVisibleDrawer} />
