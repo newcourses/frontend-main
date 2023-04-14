@@ -12,7 +12,7 @@ function PostCard({ uid, date, title, banner, preview, loading }) {
 
   return (
     <Link href={NAVIGATION.post.link} as={NAVIGATION.post.as(uid)}>
-      <a>
+      <a className={css.wrapper}>
         <Card
           loading={loading}
           hoverable

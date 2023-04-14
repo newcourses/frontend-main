@@ -1,3 +1,13 @@
+.wrapper {
+  background: green;
+
+  :global {
+    .ant-card-meta-title {
+      white-space: normal;
+    }
+  }
+}
+
 .footer {
   margin-top: 30px;
 
