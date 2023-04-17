@@ -17,6 +17,7 @@ function Blog({ categories, posts }) {
 
   return (
     <Main
+      title="Лучшие статьи в разных сферах!"
       displayBackTopButton
       categories={categories.data}
       visibleDrawer={visibleDrawer}
