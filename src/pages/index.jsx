@@ -15,6 +15,7 @@ function Home({ categories }) {
       categories={categories.data}
     >
       <Head>
+        <meta name="verify-admitad" content="28289f10d6" />
         <meta name="yandex-verification" content="09e173153553f555" />
         <meta
           name="google-site-verification"
