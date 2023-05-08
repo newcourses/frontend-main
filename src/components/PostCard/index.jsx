@@ -19,7 +19,7 @@ function getSchemaData({ title, preview, bgUrl, date }) {
       name: 'Newcourses',
       logo: {
         '@type': 'ImageObject',
-        url: logoDark,
+        url: logoDark.src,
       },
     },
     datePublished: date,
