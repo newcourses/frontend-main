@@ -17,6 +17,7 @@ function Home({ categories }) {
       <Head>
         <meta name="verify-admitad" content="28289f10d6" />
         <meta name="yandex-verification" content="09e173153553f555" />
+        <meta name="telderi" content="b4ee6ba20621da810f4f5df7ee7016d5" />
         <meta
           name="google-site-verification"
           content="l0nFA56JuQDY5OIPndVMay3JyXZ3nYIsZc6K8NHD5Gs"
