@@ -16,7 +16,7 @@ function Footer({ wrapperStyles }) {
         <nav>
           <ul className={cn(css.linksWrapper)}>
             {footerNav.map((elem) => (
-              <li>
+              <li key={elem}>
                 <Link href={NAVIGATION[elem].link} passHref>
                   <a className={css.link}>{NAVIGATION[elem].caption}</a>
                 </Link>
