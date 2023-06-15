@@ -6,6 +6,7 @@ import CoursesTable from 'containers/CoursesTable';
 import useVisibleDrawer from 'hooks/useVisibleDrawer';
 import ShowcaseCourses from 'containers/ShowcaseCourses';
 import CategoriesServices from 'api/services/categories';
+import SubcategoriesServices from 'api/services/subcategories';
 import DynamicBreadcrumb from 'components/DynamicBreadcrumb';
 import {
   declOfNumSchool,
@@ -101,6 +102,7 @@ function CourseSubcategory({
 
 export async function getServerSideProps({ params }) {
   const categories = await CategoriesServices.getList();
+  const currentSubcategory = await SubcategoriesServices.getByCode(params.code);
 
   const courses = await ProductController.getList({
     page: 'all',
@@ -117,15 +119,9 @@ export async function getServerSideProps({ params }) {
     isPopulateQuality: true,
   });
 
-  const currentSubcategory = categories.data.find((category) => {
-    return category.attributes.subcategories.data.find(
-      (subcategory) => subcategory.attributes.code === params.code,
-    );
-  });
-
   return {
     props: {
-      currentSubcategory,
+      currentSubcategory: currentSubcategory?.data,
       categories,
       courses,
       schools,
