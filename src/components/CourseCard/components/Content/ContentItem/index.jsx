@@ -2,10 +2,10 @@ import React from 'react';
 import css from './index.module.scss';
 
 function parseParamsValue(value, unit) {
-  if (value === 'True') {
+  if (['True', 'true', true].includes(value)) {
     return 'есть';
   }
-  if (value === 'False') {
+  if (['False', 'false', false].includes(value)) {
     return 'нет';
   }
 
