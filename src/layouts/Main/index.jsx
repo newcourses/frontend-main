@@ -29,7 +29,12 @@ function Main({
         categories={categories}
       />
       <Header setVisibleDrawer={setVisibleDrawer} />
-      <div className={css.wrapper}>{children}</div>
+      <div className={css.wrapper}>
+        {children}
+        <div className={css.marketingInfo}>
+          Реклама. Информация о рекламодателе по ссылкам в статье.
+        </div>
+      </div>
       <Footer wrapperStyles={{ marginTop: 60 }} />
     </div>
   );
