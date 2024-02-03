@@ -7,7 +7,7 @@ import qs from 'qs';
 function useLoadReviews({ initReviews, schoolCode }) {
   const [reviews, setReviews] = useState(initReviews);
   const [sortType, setSortType] = useState({});
-  const [pageSize, setPageSize] = useState(null);
+  const [pageSize, setPageSize] = useState(10);
   const [page, setPage] = useState(1);
   const { request } = useProxyApi();
 
@@ -34,10 +34,12 @@ function useLoadReviews({ initReviews, schoolCode }) {
       (async function loadReviews() {
         const data = await customGetSchoolReviews(1);
         setPage(1);
-        setReviews(prepareSchoolReviews(data.data));
+        setReviews([...prepareSchoolReviews(data.data)]);
+        // setReviews([]);
       })();
     }
-  }, [customGetSchoolReviews, sortType, pageSize]);
+    // eslint-disable-next-line
+  }, [sortType.sort, pageSize]);
 
   useEffect(() => {
     if (page !== 1) {
@@ -47,7 +49,7 @@ function useLoadReviews({ initReviews, schoolCode }) {
       })();
     }
     // eslint-disable-next-line
-  }, [customGetSchoolReviews, page]);
+  }, [page]);
 
   return {
     page,
