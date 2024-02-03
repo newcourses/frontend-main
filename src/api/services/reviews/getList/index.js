@@ -3,11 +3,7 @@ import { REVIEWS } from 'library/routers';
 import { cmsApi } from 'utils/axiosInstances';
 import { COUNT_DEFAULT_SIZE_PAGE } from 'library/constants';
 
-export default async ({
-  code,
-  sort = 'date:desc',
-  pagination = { pageSize: COUNT_DEFAULT_SIZE_PAGE },
-}) => {
+export default async ({ code, sort = 'date:desc', pagination }) => {
   const query = qs.stringify(
     {
       sort,
@@ -23,7 +19,10 @@ export default async ({
           code,
         },
       },
-      pagination,
+      pagination: {
+        ...{ pageSize: COUNT_DEFAULT_SIZE_PAGE },
+        ...pagination,
+      },
     },
     { encodeValuesOnly: true },
   );

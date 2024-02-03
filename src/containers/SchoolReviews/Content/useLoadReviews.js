@@ -15,19 +15,8 @@ function useLoadReviews({ initReviews, schoolCode }) {
     async (actualPage) => {
       const query = qs.stringify(
         {
+          schoolCode,
           sort: sortType.sort,
-          populate: [
-            'reviewer',
-            'comments',
-            'reactions',
-            'comments.reviewer',
-            'comments.reactions',
-          ],
-          filters: {
-            school: {
-              code: schoolCode,
-            },
-          },
           pagination: {
             page: actualPage,
             pageSize,
