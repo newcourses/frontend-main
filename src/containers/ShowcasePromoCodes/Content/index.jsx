@@ -5,7 +5,7 @@ import css from './index.module.scss';
 function Content({ promoCodes }) {
   return (
     <div className={css.wrapperList}>
-      {promoCodes.map((promoCode) => (
+      {promoCodes?.map((promoCode) => (
         <PromoCodeCard
           key={promoCode.id}
           name={promoCode.name}
